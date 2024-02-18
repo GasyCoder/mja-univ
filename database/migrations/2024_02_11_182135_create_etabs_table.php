@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('etabs', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('uuid')->unique();
+            $table->unsignedBigInteger('rubrique_id');
+            $table->string('sigle');
+            $table->string('director');
+            $table->string('slogan')->nullable();
+            $table->text('about')->nullable();
+            $table->string('image_path')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('rubrique_id')->references('id')->on('rubriques')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('etabs');
+    }
+};
