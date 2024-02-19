@@ -29,6 +29,7 @@ use App\Livewire\Admin\Abonnements;
 use App\Livewire\Admin\Historiques;
 use App\Livewire\Admin\Organigrammes;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Livewire\Admin\PresidentStories;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\TwoFAController;
@@ -45,9 +46,12 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/clearcache', function () {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
 
 //Routes HomePage
-
 Route::get('/', Home::class)->name('home');
 Route::get('/new/{slug}/', Article::class)->name('open_article');
 Route::get('/voir-tous-actualites/', AllArticles::class)->name('all_article');
