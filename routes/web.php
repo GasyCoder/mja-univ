@@ -46,10 +46,26 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/clearcache', function () {
-    Artisan::call('cache:clear');
-    return "Cache is cleared";
+Route::get('/optimize-clear', function () {
+    $exitCode = Artisan::call('optimize:clear');
+    dd($exitCode);
 });
+
+Route::get('/migrate', function () {
+    $exitCode = Artisan::call('migrate');
+    dd($exitCode);
+});
+
+Route::get('/migrate-fresh', function () {
+    $exitCode = Artisan::call('migrate:fresh');
+    dd($exitCode);
+});
+
+Route::get('/seed', function () {
+    $exitCode = Artisan::call('db:seed');
+    dd($exitCode);
+});
+
 
 //Routes HomePage
 Route::get('/', Home::class)->name('home');
