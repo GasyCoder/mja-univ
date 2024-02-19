@@ -28,7 +28,7 @@
                 <img src="{{ asset('storage/' .$images[0]) }}" class="card-img" alt="{{ $post->slug }}"
                     style="width: 100%; height: 160px; object-fit: cover;">
                 @else
-                <img src="{{ asset('assets/images/default/post.png') }}" class="card-img" alt="{{ $post->slug }}"
+                <img src="{{ asset('assets/images/default/01.png') }}" class="card-img" alt="{{ $post->slug }}"
                 style="width: 100%; height: 160px; object-fit: cover;">
                 @endif
                 <!-- Overlay -->

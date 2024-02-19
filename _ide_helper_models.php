@@ -18,6 +18,7 @@ namespace App\Models{
  * @property int $id
  * @property string $email
  * @property int $is_subscribed
+ * @property string|null $email_verified_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement newModelQuery()
@@ -25,6 +26,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement query()
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Abonnement whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement whereIsSubscribed($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement whereUpdatedAt($value)
@@ -84,7 +86,7 @@ namespace App\Models{
  * @property int $id
  * @property string $name
  * @property string $slug
- * @property string|null $color
+ * @property string $color
  * @property int $is_active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -137,7 +139,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $etabId
- * @property string|null $phone_1
+ * @property string $phone_1
  * @property string|null $phone_2
  * @property string|null $email
  * @property string|null $siteweb
@@ -309,7 +311,7 @@ namespace App\Models{
  * @property string $slogan
  * @property string $intro
  * @property string $body
- * @property string|null $images_cover
+ * @property string $images_cover
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $html
@@ -334,8 +336,8 @@ namespace App\Models{
  * @property int $id
  * @property string $intro
  * @property string $body
+ * @property string $image_path
  * @property int $is_active
- * @property string|null $image_path
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $html
@@ -359,9 +361,9 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $etabId
- * @property string|null $domaine
- * @property string|null $mention
- * @property string|null $parcour
+ * @property string $domaine
+ * @property string $mention
+ * @property string $parcour
  * @property string|null $respo_mention
  * @property string|null $respo_parcour
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -394,15 +396,16 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $title
- * @property string|null $sub_title
+ * @property string $sub_title
  * @property string $uuid
  * @property string $slug
  * @property int $category_id
- * @property string $bg_color
  * @property string|null $images
  * @property int $is_slider
  * @property int $is_active
+ * @property int $send_to_subscribers
  * @property string $contenus
+ * @property string $bg_color
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
@@ -421,6 +424,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereImages($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereIsSlider($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereSendToSubscribers($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereSubTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
@@ -472,10 +476,10 @@ namespace App\Models{
  * @property int $id
  * @property string $president_name
  * @property string $president_year
- * @property string|null $mandat
  * @property string|null $president_avatar
  * @property string|null $decret
  * @property int $is_current
+ * @property string|null $mandat
  * @property int $is_interim
  * @property int $is_dead
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -504,7 +508,6 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $name
- * @property string $slug
  * @property int $is_active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -517,7 +520,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereUpdatedAt($value)
  */
 	class Rubrique extends \Eloquent {}
@@ -529,8 +531,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $site_name
- * @property string|null $copyright
- * @property string|null $slogan
+ * @property string $copyright
  * @property string $email
  * @property string $phone
  * @property string $adresse
@@ -538,11 +539,12 @@ namespace App\Models{
  * @property string $keywords
  * @property int $is_slider
  * @property int $is_siteactive
- * @property string|null $message_disabled
+ * @property string $message_disabled
  * @property string|null $logo
  * @property string|null $facebook
  * @property string|null $twitter
  * @property string|null $linkdin
+ * @property string|null $slogan
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Setting newModelQuery()
@@ -576,9 +578,9 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $name
- * @property int|null $matricule
- * @property string $job
  * @property int $staff_cat_id
+ * @property string $job
+ * @property int|null $matricule
  * @property string $about
  * @property string|null $image_path
  * @property int $is_active
@@ -631,8 +633,8 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $etabId
- * @property int|null $enseignant
- * @property int|null $etudiant
+ * @property int $enseignant
+ * @property int $etudiant
  * @property int|null $personnel
  * @property int|null $vacataire
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -665,6 +667,7 @@ namespace App\Models{
  * @property int $id
  * @property string $name
  * @property string $email
+ * @property string|null $phone
  * @property int $is_active
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property mixed $password
@@ -692,11 +695,33 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutRole($roles, $guard = null)
  */
 	class User extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\UserCode
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $code
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|UserCode newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserCode newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserCode query()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserCode whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserCode whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserCode whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserCode whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserCode whereUserId($value)
+ */
+	class UserCode extends \Eloquent {}
 }
 

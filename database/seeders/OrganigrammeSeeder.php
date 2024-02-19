@@ -12,7 +12,7 @@ class OrganigrammeSeeder extends Seeder
         Organigramme::create([
             'intro' => 'Votre introduction ici',
             'body' => 'Votre corps de texte ici',
-            'images_path' => 'Votre lien vers l\'image de couverture ici',
+            'image_path' => 'Votre lien vers l\'image de couverture ici',
         ]);
     }
 }

@@ -4,7 +4,7 @@
     background-position: center left; background-size: cover;">
 @else
 <section class="bg-blue py-7 position-relative"
-        style="background-image:url({{ asset('assets/images/default/post.png') }});
+        style="background-image:url({{ asset('assets/images/default/01.png') }});
     background-position: center left; background-size: cover;">
     @endif
     <div class="container" style="position: relative; z-index: 2;">

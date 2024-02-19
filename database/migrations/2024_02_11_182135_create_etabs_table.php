@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('slogan')->nullable();
             $table->text('about')->nullable();
             $table->string('image_path')->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->boolean('status')->default(true);
             $table->timestamps();
             $table->softDeletes();
 

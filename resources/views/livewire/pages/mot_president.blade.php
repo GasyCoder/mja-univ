@@ -6,7 +6,11 @@
             <div class="col-12 position-relative z-index-1">
                 <!-- Image -->
                 <div class="bottom-0 d-none d-lg-block position-absolute start-0 ms-3 ms-xl-5">
+                @if(!empty($mot->image_path))
                     <img src="{{ asset('storage/' .$mot->image_path) }}" width="300" height="300" alt="">
+                @else
+                    <img src="{{ asset('storage/images/default/01.png') }}" width="300" height="300" alt="">
+                @endif
                 </div>
                 <!-- Pencil and cap SVG -->
                 <div class="top-0 position-absolute end-0 mt-n4 me-5">

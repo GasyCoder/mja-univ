@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('president__stories', function (Blueprint $table) {
+        Schema::create('president_stories', function (Blueprint $table) {
             $table->id();
             $table->string('president_name');
-            $table->year('president_year');
+            $table->string('president_year');
             $table->string('president_avatar')->nullable();
+            $table->string('mandat')->nullable();
             $table->string('decret')->nullable();
             $table->boolean('is_current')->default(false);
             $table->boolean('is_interim')->default(false);
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('president__stories');
+        Schema::dropIfExists('president_stories');
     }
 };

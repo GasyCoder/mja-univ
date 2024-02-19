@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Rules\Recaptcha;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Http\RedirectResponse;
+use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Notifications\SendTwoFactorCode;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -25,13 +28,27 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+            'secret' => config('services.recaptcha.secret_key'),
+            'response' => $request->input('g-recaptcha-response'),
+            'ip' => request()->ip(),
+        ]);
+        // dd($response->json());
+        if ($response->successful() && $response->json('success') && $response->json('score') > config('services.recaptcha.min_score')) {
+            // ReCAPTCHA valid, proceed with login
+            $request->authenticate();
+            $request->session()->regenerate();
 
-        $request->session()->regenerate();
+            if (Auth::attempt($request->only('email', 'password'))) {
+                $request->user()->generateCode();
+                return redirect()->route('2fa.index');
+            }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(RouteServiceProvider::HOME);
+        } else {
+            return back()->with(['recaptcha' => 'Échec de la validation de ReCaptcha.']);
+        }
     }
-
 
     /**
      * Destroy an authenticated session.

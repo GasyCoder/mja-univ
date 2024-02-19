@@ -19,7 +19,7 @@ class PresidentSeeder extends Seeder
             'uuid' => Str::uuid(),
             'intro' => 'Intro for President 1',
             'body' => 'Body for President 1',
-            'photo' => 'path/to/photo1.jpg',
+            'image_path' => 'path/to/photo1.jpg',
             'is_active'   => true,
         ]);
     }

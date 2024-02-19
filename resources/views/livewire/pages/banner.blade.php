@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12">
 
-              @if($setting->is_slider)
+              @if($setting && $setting->is_slider)
                 <!-- Slider START -->
                 <div class="overflow-hidden tiny-slider arrow-round arrow-blur arrow-hover rounded-3">
                     <div class="tiny-slider-inner" data-autoplay="true" data-gutter="0" data-arrow="true" data-dots="false"

@@ -3,11 +3,15 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\UserCode;
+use App\Mail\SendCodeMail;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Exception;
 
 class User extends Authenticatable
 {
@@ -23,6 +27,8 @@ class User extends Authenticatable
         'email',
         'is_active',
         'password',
+        'two_factor_code',
+        'two_factor_expires_at',
     ];
 
     /**
@@ -44,4 +50,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function generateCode(): void
+    {
+        $code = rand(100000, 999999);
+
+        UserCode::updateOrCreate(
+            ['user_id' => auth()->id()],
+            ['code' => $code]
+        );
+
+        try {
+            $details = [
+                'name' => auth()->user()->name,
+                'title' => 'Code d\'authentification',
+                'code' => $code,
+                'subject' => 'Code de sécurité ' // Ajoutez votre sujet ici
+            ];
+
+            Mail::to(auth()->user()->email)->send(new SendCodeMail($details));
+        } catch (Exception $e) {
+            info("Error: " . $e->getMessage());
+        }
+    }
+
 }

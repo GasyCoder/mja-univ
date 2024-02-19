@@ -13,9 +13,11 @@ class CheckSiteStatus
     {
         $settings = Setting::first();
 
-        if (!$settings->is_siteactive) {
+        // Vérifiez si $settings est null avant d'essayer d'accéder à ses propriétés
+        if ($settings && !$settings->is_siteactive) {
+
             // Si l'utilisateur est un administrateur, laissez passer la requête.
-            if (Auth::check() && (Auth::user()->id = 1)) {
+            if (Auth::check() && (Auth::user()->id == 1)) {
                 return $next($request);
             }
 
@@ -26,5 +28,6 @@ class CheckSiteStatus
 
         return $next($request);
     }
+
 }
 
