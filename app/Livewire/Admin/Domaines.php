@@ -66,7 +66,7 @@ class Domaines extends Component
         ///$domaine->etabs()->sync($this->etab_id);
 
         $this->showMessage('Domaine ajouté!');
-        return $this->redirect('admix/domaines', navigate: false);
+        return $this->redirect('/admix/domaines', navigate: false);
     }
 
     public function edit($id)
