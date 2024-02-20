@@ -47,7 +47,7 @@ Page content START -->
                 <p>
                    {{ $resume}}
                 </p>
-                <!-- Etablissement -->
+                {{-- <!-- Etablissement -->
                 <h5 class="mt-4 mb-0">Etablissements</h5>
                 <p>Voici l'établissement(s) relier avec cette offres de formations : </p>
                 <!-- Etablissment list START -->
@@ -81,7 +81,7 @@ Page content START -->
                     </div>
                     @endforeach
                 </div>
-                <!-- Etablissment list END -->
+                <!-- Etablissment list END --> --}}
             </div>
             <!-- Main content END -->
             <!-- Left sidebar START -->
