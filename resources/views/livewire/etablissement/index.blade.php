@@ -1,7 +1,7 @@
 <div>
     <!-- =======================
 Main Banner END -->
-    @if($etabs->count() > 0 || $doctorales->count() > 0)
+    @if($etabs->count() > 0)
     <section class="bg-light">
         <div class="container">
             <div class="row position-relative">
@@ -36,7 +36,7 @@ Main Banner END -->
                         <p>L'Université de Mahajanga compte 2 facultés, 6 instituts et 3 écoles. Les instituts et écoles
                             proposent des
                             formations payantes ou semi-privées.</p>
-                        @foreach($etabs as $etab)
+                       @foreach($etabs->where('rubrique_id', '!=', 5) as $etab)
                         <div class="col-md-6 col-xl-4">
                             <!-- Card START -->
                             <div class="p-4 shadow-lg card card-body align-items-start">
@@ -59,11 +59,11 @@ Main Banner END -->
                     <!-- Pagination START -->
                     <nav class="mt-5 d-flex justify-content-center" aria-label="navigation">
                         <ul class="mb-0 rounded pagination pagination-primary-soft">
-                            {{ $etabs->links() }}
+                            {{ $etabs->where('rubrique_id', '!=', 5)->links() }}
                         </ul>
                     </nav>
                     <!-- Pagination END -->
-                    @else
+                @elseif(Route::is('doctoral'))
                     @if($doctorales->count() > 0)
                     @include('livewire.etablissement.doctoral')
                     @else
