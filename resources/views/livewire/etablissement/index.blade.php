@@ -59,7 +59,7 @@ Main Banner END -->
                     <!-- Pagination START -->
                     <nav class="mt-5 d-flex justify-content-center" aria-label="navigation">
                         <ul class="mb-0 rounded pagination pagination-primary-soft">
-                            {{ $etabs->where('rubrique_id', '!=', 5)->links() }}
+                            {{ $etabs->links() }}
                         </ul>
                     </nav>
                     <!-- Pagination END -->
