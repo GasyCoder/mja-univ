@@ -127,7 +127,7 @@ class Domaines extends Component
     {
         return view('livewire.admin.domaines.index', [
             'domaines'  => Domaine::latest()->paginate($this->page),
-            'etabs'  => Etab::where('is_active', true)->get()
+            'etabs'  => Etab::where('status', true)->get()
         ]);
     }
 }
