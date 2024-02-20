@@ -28,7 +28,7 @@
                 <ul class="mx-auto navbar-nav navbar-nav-scroll">
                     <!-- Nav item 1 Demos -->
                     <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('home')) active @endif" href="/" wire:navigate>
+                        <a class="nav-link @if(request()->routeIs('home')) active @endif" href="/">
                             <i class="bi bi-house-fill me-2"></i>Accueil
                         </a>
                     </li>
@@ -105,7 +105,7 @@
                 <!-- Nav Contact START -->
                 <div class="px-1 nav nav-item dropdown nav-search px-lg-3">
                     <li class="nav-item ms-0 ms-sm-2 d-none d-sm-block">
-                        <a class="btn btn-light btn-round mb-0" href="{{ route('contact_page') }}" wire:navigate>
+                        <a class="mb-0 btn btn-light btn-round" href="{{ route('contact_page') }}" wire:navigate>
                             <i class="bi bi-envelope fs-5"></i></a>
                     </li>
                 </div>
@@ -114,7 +114,7 @@
             <!-- Main navbar END -->
             <!-- Profile START -->
             <div class="dropdown ms-1 ms-lg-0">
-                <a class="p-0 avatar avatar-sm btn btn-light btn-round mb-0" href="#"
+                <a class="p-0 mb-0 avatar avatar-sm btn btn-light btn-round" href="#"
                     id="darkmode" role="button" data-bs-auto-close="outside"
                     data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="true">
                     <i class="bi bi-gear fs-5"></i>
