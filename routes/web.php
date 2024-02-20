@@ -46,27 +46,6 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/optimize-clear', function () {
-    $exitCode = Artisan::call('optimize:clear');
-    dd($exitCode);
-});
-
-Route::get('/migrate', function () {
-    $exitCode = Artisan::call('migrate');
-    dd($exitCode);
-});
-
-Route::get('/migrate-fresh', function () {
-    $exitCode = Artisan::call('migrate:fresh');
-    dd($exitCode);
-});
-
-Route::get('/seed', function () {
-    $exitCode = Artisan::call('db:seed');
-    dd($exitCode);
-});
-
-
 //Routes HomePage
 Route::get('/', Home::class)->name('home');
 Route::get('/new/{slug}/', Article::class)->name('open_article');
@@ -89,7 +68,7 @@ Route::post('2fa', [TwoFAController::class, 'store'])->name('2fa.post');
 Route::get('2fa/reset', [TwoFAController::class, 'resend'])->name('2fa.resend');
 
 // Routes Admin
-Route::middleware(['auth:web', 'verified', 'isAdmin'])->group(function () {
+Route::middleware(['auth:web', 'verified','isAdmin', 'logsActivity'])->group(function () {
 
     Route::get('/mja/dashboard', Panel::class)->middleware(['auth', '2fa'])->name('admin');
 

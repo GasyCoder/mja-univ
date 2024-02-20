@@ -4,8 +4,12 @@ namespace App\Livewire\Admin;
 
 use App\Models\Setting;
 use Livewire\Component;
+use App\Models\ActivityLog;
+use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -14,6 +18,9 @@ class Settings extends Component
     use WithFileUploads;
     use AuthorizesRequests;
     use LivewireAlert;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
 
     #[Validate('nullable|image|max:2120')]
     public $logo;
@@ -33,6 +40,10 @@ class Settings extends Component
     public $linkdin;
     public $slogan;
     public $dbLogo;
+
+    public $current_password;
+    public $password;
+    public $password_confirmation;
 
     public function showMessage($message)
     {
@@ -107,8 +118,26 @@ class Settings extends Component
     }
 
 
+    public function update_password()
+    {
+        $validated = $this->validate([
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', Password::defaults(), 'confirmed'],
+        ]);
+        $user = Auth()->user();
+        $user->update([
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        $this->showMessage('Mise à jour a été succèss!');
+        return $this->redirect('/adminx/settings', navigate: true);
+    }
+
     public function render()
     {
-        return view('livewire.admin.settings.index');
+        return view('livewire.admin.settings.index', [
+
+            'logs' => ActivityLog::latest()->paginate(10)
+        ]);
     }
 }

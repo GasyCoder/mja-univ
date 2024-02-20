@@ -36,6 +36,37 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\ActivityLog
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $ip_address
+ * @property string $user_agent
+ * @property string $action
+ * @property string $url
+ * @property string $method
+ * @property string|null $parameters
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereAction($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereIpAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereMethod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereParameters($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereUserAgent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ActivityLog whereUserId($value)
+ */
+	class ActivityLog extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Admission
  *
  * @property int $id
@@ -477,9 +508,9 @@ namespace App\Models{
  * @property string $president_name
  * @property string $president_year
  * @property string|null $president_avatar
+ * @property string|null $mandat
  * @property string|null $decret
  * @property int $is_current
- * @property string|null $mandat
  * @property int $is_interim
  * @property int $is_dead
  * @property \Illuminate\Support\Carbon|null $created_at
