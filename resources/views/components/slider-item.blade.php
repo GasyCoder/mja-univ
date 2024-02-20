@@ -1,5 +1,5 @@
 <!-- Card item START -->
-<div class="overflow-hidden text-center card h-350px h-md-400px rounded-0"
+<div class="overflow-hidden text-center card h-380px h-md-430px rounded-0"
     style="background-image:url({{ asset('storage/' .explode(',', $slider->images)[0]) }}); background-position: center left; background-size: cover;">
     <!-- Background dark overlay -->
     <div class="bg-overlay bg-dark opacity-6"></div>
