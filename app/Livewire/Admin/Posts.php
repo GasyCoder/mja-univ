@@ -45,7 +45,7 @@ class Posts extends Component
 
     public function save()
     {
-        if (count($this->images) > 4) {
+        if (count($this->images) > 20) {
             $this->alert('warning', 'Vous ne pouvez télécharger que 4 images au maximum.', [
                 'toast' => true,
                 'icon' => 'error',
@@ -88,6 +88,7 @@ class Posts extends Component
     }
 
     public function edit($id){
+
         $edit = Post::findOrFail($id);
         $this->postId               = $id;
         $this->title                = $edit->title;
@@ -103,7 +104,7 @@ class Posts extends Component
 
     public function update()
     {
-        if (count($this->images) > 4) {
+        if (count($this->images) > 20) {
             $this->alert('warning', 'Vous ne pouvez télécharger que 4 images au maximum.', [
                 'toast' => true,
                 'icon' => 'error',
