@@ -46,7 +46,7 @@ class Posts extends Component
     public function save()
     {
         if (count($this->images) > 20) {
-            $this->alert('warning', 'Vous ne pouvez télécharger que 4 images au maximum.', [
+            $this->alert('warning', 'Vous ne pouvez télécharger que 20 images au maximum.', [
                 'toast' => true,
                 'icon' => 'error',
                 'timer' => 3000,
@@ -105,7 +105,7 @@ class Posts extends Component
     public function update()
     {
         if (count($this->images) > 20) {
-            $this->alert('warning', 'Vous ne pouvez télécharger que 4 images au maximum.', [
+            $this->alert('warning', 'Vous ne pouvez télécharger que 20 images au maximum.', [
                 'toast' => true,
                 'icon' => 'error',
                 'timer' => 3000,
