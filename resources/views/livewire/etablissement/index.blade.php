@@ -16,7 +16,11 @@ Main Banner END -->
                         <nav aria-label="breadcrumb">
                             <ol class="mb-0 breadcrumb">
                                 <li class="breadcrumb-item"><a href="/" wire:navigate>Accueil</a></li>
+                                @if(Route::is('etablissement'))
+                                <li class="breadcrumb-item active" aria-current="page">Nos établissements</li>
+                                @else
                                 <li class="breadcrumb-item active" aria-current="page">Écoles Doctorales</li>
+                                @endif
                             </ol>
                         </nav>
                     </div>
