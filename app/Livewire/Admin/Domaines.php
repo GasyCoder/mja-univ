@@ -47,8 +47,8 @@ class Domaines extends Component
     {
         $this->validate([
             'name' => 'required',
-            'etab_id' => 'required|array',
-            'etab_id.*' => 'exists:etabs,id',
+            // 'etab_id' => 'required|array',
+            // 'etab_id.*' => 'exists:etabs,id',
             'resume' => 'nullable',
         ]);
 
@@ -63,7 +63,7 @@ class Domaines extends Component
             'icon_path'         => $icon_path,
         ]);
 
-        $domaine->etabs()->sync($this->etab_id);
+        ///$domaine->etabs()->sync($this->etab_id);
 
         $this->showMessage('Domaine ajouté!');
         return $this->redirect('/domaines', navigate: false);
@@ -79,17 +79,17 @@ class Domaines extends Component
         $this->is_active  = $edit->is_active ? true : false;
         $this->iconCurrent  = $edit->icon_path;
 
-        $this->etab_id = $edit->etabs->pluck('id')->toArray();
+        //$this->etab_id = $edit->etabs->pluck('id')->toArray();
 
-        $edit->etabs()->sync($this->etab_id);
+        //$edit->etabs()->sync($this->etab_id);
     }
 
     public function update()
     {
         $this->validate([
             'name' => 'required',
-            'etab_id' => 'required|array',
-            'etab_id.*' => 'exists:etabs,id',
+            // 'etab_id' => 'required|array',
+            // 'etab_id.*' => 'exists:etabs,id',
             'resume' => 'nullable',
         ]);
 
@@ -105,7 +105,7 @@ class Domaines extends Component
             $updateData['icon_path'] = $this->icon_path->store('domaines', 'public');
         }
 
-        $update->etabs()->sync($this->etab_id);
+        //$update->etabs()->sync($this->etab_id);
         $update->update($updateData);
         $this->showMessage('Domaine mis à jour!');
         return $this->redirect('/adminx/domaines', navigate: false);
@@ -115,7 +115,7 @@ class Domaines extends Component
     public function delete($id)
     {
         $domaine = Domaine::findOrFail($id);
-        $domaine->etabs()->detach(); // Detach all related etabs
+        //$domaine->etabs()->detach(); // Detach all related etabs
         $domaine->delete();
 
         $this->showMessage('Domaine a été supprimé!');

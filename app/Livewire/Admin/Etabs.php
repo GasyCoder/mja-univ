@@ -28,7 +28,6 @@ class Etabs extends Component
     public $sigle;
     #[Validate('required')]
     public $rubrique_id;
-    #[Validate('required')]
     public $director;
     public $logoCurrent;
 

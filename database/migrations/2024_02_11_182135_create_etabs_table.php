@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->unsignedBigInteger('rubrique_id');
             $table->string('sigle');
-            $table->string('director');
+            $table->string('director')->nullable();
             $table->string('slogan')->nullable();
             $table->text('about')->nullable();
             $table->string('image_path')->nullable();

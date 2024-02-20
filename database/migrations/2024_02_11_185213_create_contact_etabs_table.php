@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('contact_etabs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('etabId');
-            $table->string('phone_1');
+            $table->string('phone_1')->nullable();
             $table->string('phone_2')->nullable();
             $table->string('email')->nullable();
             $table->string('siteweb')->nullable();

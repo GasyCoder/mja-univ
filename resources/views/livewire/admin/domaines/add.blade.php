@@ -15,7 +15,7 @@
                         <input class="form-control" type="text" wire:model="name" placeholder="Offre de formation">
                         @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="col-lg-12">
+                    {{-- <div class="col-lg-12">
                         Etablissement
                         <select class="form-control" wire:model="etab_id" multiple>
                             <option value="" disabled selected>--choisir--</option>
@@ -23,8 +23,7 @@
                             <option value="{{ $row->id }}">{{ $row->name }}</option>
                             @endforeach
                         </select>
-                        {{-- <div class="form-text">Sélectionnez une catégorie</div> --}}
-                    </div>
+                    </div> --}}
                     <div class="col-12">
                         <label class="form-label">Icon</label>
                         <input class="form-control" type="file" wire:model="icon_path">

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('etabId');
-            $table->integer('enseignant');
-            $table->integer('etudiant');
+            $table->integer('enseignant')->nullable();
+            $table->integer('etudiant')->nullable();
             $table->integer('personnel')->nullable();
             $table->integer('vacataire')->nullable();
             $table->timestamps();
