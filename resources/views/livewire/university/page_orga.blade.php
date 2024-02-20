@@ -4,7 +4,7 @@ Main Banner START -->
 <section class="bg-light">
     <div class="container">
         <!-- Title -->
-        <div class="row position-relative pb-4">
+        <div class="pb-4 row position-relative">
             <div class="col-lg-8 position-relative">
                 <!-- Title -->
                 <h3>Organigramme</h3>
@@ -27,10 +27,10 @@ Page content START -->
                 <div class="row g-4">
                     <!-- FAQs START -->
                     <div class="col-12">
-                        <div class="card border rounded-3">
+                        <div class="border card rounded-3">
                             <!-- Card header START -->
                             <div class="card-header border-bottom">
-                                <h4 class="mb-0">UNIVERSITE DE MAHAJANGA - LISTE PROTOCOLAIRE</h4>
+                                <h4 class="mb-0">UNIVERSITE DE MAHAJANGA - ORGANISATIONS</h4>
                             </div>
                             <!-- Card header END -->
 
@@ -55,18 +55,18 @@ Page content START -->
                     <div class="row g-4">
                         <!-- Président START -->
                         <div class="col-md-6 col-xl-12">
-                            <div class="card card-body border p-4">
+                            <div class="p-4 border card card-body">
                             <!-- Right content START -->
                             <!-- Title -->
                             <h6 class="mb-0">PRESIDENCE DE L’UNIVERSITE DE MAHAJANGA</h6>
                             <hr>
                             <!-- Avatar -->
-                            <div class="d-flex align-items-center mb-3">
+                            <div class="mb-3 d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <!-- Avatar image -->
                                     <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/01.jpg') }}" alt="avatar">
                                     <!-- Medal badge -->
-                                    <div class="position-absolute bottom-0 end-0">
+                                    <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">
                                     </div>
                                 </div>
@@ -78,12 +78,12 @@ Page content START -->
                             </div>
 
                             <!-- Avatar -->
-                            <div class="d-flex align-items-center mb-3">
+                            <div class="mb-3 d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <!-- Avatar image -->
                                     <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/03.jpg') }}" alt="avatar">
                                     <!-- Medal badge -->
-                                    <div class="position-absolute bottom-0 end-0">
+                                    <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">
                                         <span
                                             class="fw-bold text-dark smaller position-absolute top-50 start-50 translate-middle">1<sup>ère</sup></span>
@@ -102,7 +102,7 @@ Page content START -->
                                     <!-- Avatar image -->
                                     <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/06.jpg') }}" alt="avatar">
                                     <!-- Medal badge -->
-                                    <div class="position-absolute bottom-0 end-0">
+                                    <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">
                                         <span
                                             class="fw-bold text-dark smaller position-absolute top-50 start-50 translate-middle">2<sup>ème</sup></span>
@@ -118,16 +118,16 @@ Page content START -->
                             </div>
                         </div>
                         <!-- Président END -->
-                        <div class="col-md-6 col-xl-12 filter-container overflow-hidden" data-isotope='{"layoutMode": "masonry"}'">
+                        <div class="overflow-hidden col-md-6 col-xl-12 filter-container" data-isotope='{"layoutMode": "masonry"}'">
                             <!-- Image-->
-                            <div class="card overflow-hidden">
+                            <div class="overflow-hidden card">
                                 <div class="card-overlay-hover">
                                 <img src="{{ asset('storage/' .$image_path) }}" class="rounded-3" alt="course image">
                             </div>
                             <!-- Full screen button -->
                             <a class="card-element-hover position-absolute w-100 h-100" data-glightbox="" data-gallery="gallery"
                                 href="{{ asset('storage/' .$image_path) }}" target="_bkank">
-                                <i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-3 p-2 lh-1"></i>
+                                <i class="p-2 text-white bi bi-fullscreen fs-6 position-absolute top-50 start-50 translate-middle bg-dark rounded-3 lh-1"></i>
                             </a>
                             </div>
                         </div>
