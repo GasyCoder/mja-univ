@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Etab;
 use App\Models\Domaine;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,6 +18,7 @@ class Offres extends Component
     {
         return view('livewire.domaine.offres', [
             'offres' => Domaine::where('is_active', true)->latest()->paginate($this->page),
+            'etabs'  => Etab::where('status', true)->get()
         ]);
     }
 }
