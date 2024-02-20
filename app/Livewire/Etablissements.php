@@ -11,7 +11,7 @@ class Etablissements extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $page = 12;
+    public $page = 30;
 
     public function render()
     {
