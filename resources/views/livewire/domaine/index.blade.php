@@ -6,14 +6,14 @@ Main banner START -->
         <div class="row">
             <div class="col-12">
                 <!-- Card item START -->
-                <div class="bg-light rounded-3 p-3 mb-4">
+                <div class="p-3 mb-4 bg-light rounded-3">
                     <div class="row g-4">
                         <!-- Organization -->
                         <div class="col-md-4">
                             <h6 class="small fw-bold">Offres de formations:</h6>
                             <div class="d-flex align-items-center">
                                 <!-- Avatar -->
-                                <div class="avatar align-middle">
+                                <div class="align-middle avatar">
                                     <div class="avatar-img rounded-1 ">
                                         <img src="{{ asset('storage/' .$icon_path) }}" class="h-40px"
                                             style="width: 40px; height: 40px; object-fit: cover;" alt="">
@@ -22,7 +22,7 @@ Main banner START -->
                                 <!-- Info -->
                                 <div class="ms-2">
                                     <h4 class="mb-0">{{ $name }}</h4>
-                                    <small>Attribué avec {{ $domaine->etabs->count() }} établissement(s).</small>
+                                    {{-- <small>Attribué avec {{ $domaine->etabs->count() }} établissement(s).</small> --}}
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ Page content START -->
     <div class="container">
         <div class="row g-4 g-lg-5">
             <!-- Main content START -->
-            <div class="col-lg-8 order-2">
+            <div class="order-2 col-lg-8">
                 <!-- Content -->
                 <h5>Descriptions</h5>
                 <p>
@@ -52,22 +52,22 @@ Page content START -->
                 <p>Voici l'établissement(s) relier avec cette offres de formations : </p>
                 <!-- Etablissment list START -->
                 <div class="row g-4">
-                    @foreach($domaine->etabs as $etab)
+                    @foreach($etabs as $etab)
                     <!-- Speaker item -->
                     <div class="col-sm-6">
-                        <div class="card card-body border">
+                        <div class="border card card-body">
                             <div class="d-xl-flex justify-content-between align-items-center">
                                 <!-- Avatar and info -->
-                                <div class="hstack gap-2 mb-2 mb-xl-0">
+                                <div class="gap-2 mb-2 hstack mb-xl-0">
                                     <!-- Avatar -->
-                                    <div class="avatar flex-shrink-0">
+                                    <div class="flex-shrink-0 avatar">
                                         <img class="avatar-img rounded-circle" src="{{ asset('storage/' .$etab->image_path) }}"
                                             alt="avatar">
                                     </div>
                                     <!-- Info -->
                                     <div>
                                         <!-- Avatar -->
-                                        <h6 class="card-title mb-0">
+                                        <h6 class="mb-0 card-title">
                                             <a href="{{ route('single_etab', ['uuid' => $etab->uuid]) }}">{{ $etab->sigle }}</a>
                                         </h6>
                                         <small>{{ $etab->name }}</small>
@@ -75,7 +75,7 @@ Page content START -->
                                 </div>
 
                                 <!-- Button -->
-                                <a href="{{ route('single_etab', ['uuid' => $etab->uuid]) }}" wire:navigate class="btn btn-sm btn-primary mb-0">Voir plus</a>
+                                <a href="{{ route('single_etab', ['uuid' => $etab->uuid]) }}" wire:navigate class="mb-0 btn btn-sm btn-primary">Voir plus</a>
                             </div>
                         </div>
                     </div>
@@ -85,22 +85,22 @@ Page content START -->
             </div>
             <!-- Main content END -->
             <!-- Left sidebar START -->
-            <div class="col-lg-4 order-1 order-lg-2">
-               <div class="card card-body shadow p-4 mb-4">
+            <div class="order-1 col-lg-4 order-lg-2">
+               <div class="p-4 mb-4 shadow card card-body">
                 <!-- Title -->
                 <h5 class="mb-3">Autres offres de formations</h5>
-                <ul class="list-inline mb-0 g-3">
+                <ul class="mb-0 list-inline g-3">
                     <!-- Item -->
                     @foreach($domaines as $domaine)
-                    <li class="list-inline-item mb-2">
-                        <a href="{{ route('detail_domaine', ['uuid' => $domaine->uuid]) }}" wire:navigate class="badge badge-sm bg-primary text-white">{{ $domaine->name }}</a>
+                    <li class="mb-2 list-inline-item">
+                        <a href="{{ route('detail_domaine', ['uuid' => $domaine->uuid]) }}" wire:navigate class="text-white badge badge-sm bg-primary">{{ $domaine->name }}</a>
                     </li>
                     @endforeach
                 </ul>
             </div>
 
             <div class="col-md-6 col-xl-12 d-grid">
-                <div class="bg-danger p-4 p-sm-4 rounded-3">
+                <div class="p-4 bg-danger p-sm-4 rounded-3">
                     <div class="row position-relative">
                         <!-- Svg decoration -->
                         <figure class="fill-white opacity-1 position-absolute top-50 start-0 translate-middle-y">
@@ -111,18 +111,18 @@ Page content START -->
                             </svg>
                         </figure>
                         <!-- Action box -->
-                        <div class="col-12 mx-auto position-relative">
+                        <div class="mx-auto col-12 position-relative">
                             <div class="row align-items-center">
                                 <!-- Title -->
-                                <div class="col-lg-12 mb-2">
+                                <div class="mb-2 col-lg-12">
                                     <h5 class="text-white">Vous ne savez pas où étudier ?</h5>
-                                    <p class="text-white mb-3 mb-lg-0">Optez pour l'Université de Mahajanga, où la clarté et la rapidité guident votre parcours éducatif. Notre engagement
+                                    <p class="mb-3 text-white mb-lg-0">Optez pour l'Université de Mahajanga, où la clarté et la rapidité guident votre parcours éducatif. Notre engagement
                                     envers l'excellence académique crée un environnement propice à l'épanouissement, éliminant les doutes qui peuvent
                                     entourer le choix de l'établissement.</p>
                                 </div>
                                 <!-- Content and input -->
-                                <div class="col-lg-12 mt-1 text-lg-end">
-                                    <a href="{{ route('etablissement') }}" wire:navigate class="btn btn-warning mb-0">Voir tous nos
+                                <div class="mt-1 col-lg-12 text-lg-end">
+                                    <a href="{{ route('etablissement') }}" wire:navigate class="mb-0 btn btn-warning">Voir tous nos
                                         établissements</a>
                                 </div>
                             </div>
