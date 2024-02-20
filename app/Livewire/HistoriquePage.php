@@ -37,9 +37,9 @@ class HistoriquePage extends Component
 
         return view('livewire.historique.index', [
 
-            'facultes'      => Etab::where('status', true)->where('rubrique_id', 3)->get(),
+            'facultes'      => Etab::where('status', true)->where('rubrique_id', 1)->get(),
             'instituts'     => Etab::where('status', true)->where('rubrique_id', 2)->get(),
-            'ecoles'        => Etab::where('status', true)->where('rubrique_id', 1)->get(),
+            'ecoles'        => Etab::where('status', true)->where('rubrique_id', 3)->get(),
             'doctorales'    => Etab::where('status', true)->where('rubrique_id', 5)->get(),
 
             'parcours'      => $tags,
