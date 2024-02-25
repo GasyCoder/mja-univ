@@ -32,7 +32,7 @@ class Home extends Component
 
     public function abonner()
     {
-        $this->validate(['email' => 'required']);
+        $this->validate(['email' => 'required|email|unique:abonnements,email']);
 
         $abonnement = Abonnement::firstOrCreate([
             'email' => $this->email,
