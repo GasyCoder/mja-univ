@@ -33,6 +33,7 @@
     <!-- Include Bubble Theme -->
     @endif
     <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/style.css') }}">
     @include('layouts.partials.dark')
     @stack('styles')
