@@ -32,7 +32,13 @@ class Home extends Component
 
     public function abonner()
     {
-        $this->validate(['email' => 'required|email|unique:abonnements,email']);
+        $messages = [
+            'email.unique' => 'Votre email est déjà utilisée.',
+        ];
+
+        $this->validate([
+            'email' => 'required|email|unique:abonnements,email',
+        ], $messages);
 
         $abonnement = Abonnement::firstOrCreate([
             'email' => $this->email,
@@ -45,6 +51,7 @@ class Home extends Component
         $this->reset();
         session()->flash('sent', 'Veuillez confirmer votre email.');
     }
+
 
     public function render()
     {
