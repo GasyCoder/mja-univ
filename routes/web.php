@@ -88,7 +88,7 @@ Route::get('/email/verify/{id}', function ($id) {
 })->name('verification.verify');
 
 // Routes Admin
-Route::middleware(['auth:web', 'verified','isAdmin', 'logsActivity'])->group(function () {
+Route::middleware(['auth:web', 'verified','isAdmin', 'logsActivity', '2fa'])->group(function () {
 
     Route::get('/mja/dashboard', Panel::class)->name('admin');
 
