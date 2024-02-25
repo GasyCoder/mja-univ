@@ -18,8 +18,8 @@
                 <!-- All review table START -->
                 <div class="p-4 card-body">
                     <!-- Table START -->
-                    <div class="table-responsive border-0">
-                        <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+                    <div class="border-0 table-responsive">
+                        <table class="table p-4 mb-0 align-middle table-dark-gray table-hover">
                             <!-- Table head -->
                             <thead>
                                 <tr>
@@ -50,19 +50,24 @@
                                     </td>
                                     <!-- Table data -->
                                     <td>
-                                       @if($abonne->is_subscribed == true)
-                                       <a href="#" wire:click="desabonne({{ $abonne->id }})"
-                                        class="btn btn-sm btn-danger-soft mb-0">Désabonner
-                                        </a>
+                                        @if($abonne->hasVerifiedEmail())
+                                        <span class="badge bg-success">Verifié</span>
                                         @else
-                                        <a href="#" wire:click="reabonne({{ $abonne->id }})"
-                                            class="btn btn-sm btn-info-soft mb-0">Réabonner
-                                        </a>
+                                        <span class="badge bg-danger">Non vérifier</span>
                                         @endif
                                     </td>
                                     <!-- Table data -->
                                     <td>
-                                        <button class="btn btn-danger-soft btn-round me-1 mb-1 mb-md-0"
+                                        @if($abonne->is_subscribed == true)
+                                        <a href="#" wire:click="desabonne({{ $abonne->id }})"
+                                            class="mb-0 btn btn-sm btn-danger-soft">Désabonner
+                                        </a>
+                                        @else
+                                        <a href="#" wire:click="reabonne({{ $abonne->id }})"
+                                            class="mb-0 btn btn-sm btn-info-soft">Réabonner
+                                        </a>
+                                        @endif
+                                        <button class="mb-1 btn btn-danger-soft btn-round me-1 mb-md-0"
                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Supprimer" data-bs-original-title="Delete"
                                             wire:click="delete({{ $abonne->id }})"
@@ -78,12 +83,12 @@
                     </div>
                     <!-- Table END -->
                     <!-- Card footer START -->
-                    <div class="card-footer bg-transparent px-0">
+                    <div class="px-0 bg-transparent card-footer">
                         <!-- Pagination START -->
                         <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
                             <!-- Pagination -->
-                            <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-                                <ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+                            <nav class="mb-0 d-flex justify-content-center" aria-label="navigation">
+                                <ul class="mb-0 rounded pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex">
                                   {{ $abonnes->links() }}
                                 </ul>
                             </nav>
@@ -114,21 +119,21 @@
             <div class="modal-content">
                 <!-- Modal header -->
                 <div class="modal-header bg-dark">
-                    <h5 class="modal-title text-white" id="AddemailLabel">Ajouter</h5>
-                    <button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal"
+                    <h5 class="text-white modal-title" id="AddemailLabel">Ajouter</h5>
+                    <button type="button" class="mb-0 btn btn-sm btn-light" data-bs-dismiss="modal"
                         aria-label="Close"><i class="bi bi-x-lg"></i></button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body">
                     <form class="row" wire:submit.prevent="save">
                         <!-- Input item -->
-                        <div class="col-12 mb-3">
+                        <div class="mb-3 col-12">
                             <label class="form-label">Email</label>
                             <input type="email" wire:model="email" placeholder="Saisir email" class="form-control">
                         </div>
                       <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success-soft my-0">Ajouter</button>
+                        <button type="submit" class="my-0 btn btn-success-soft">Ajouter</button>
                     </div>
                     </form>
                 </div>

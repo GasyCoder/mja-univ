@@ -43,7 +43,7 @@ class SingleEvent extends Component
 
     public function render()
     {
-        return view('livewire.evenement.single-event', [
+        return view('livewire.evenements.single-event', [
             'evenement'  => Evenement::count(),
         ]);
     }

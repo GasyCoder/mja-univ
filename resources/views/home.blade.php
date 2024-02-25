@@ -4,4 +4,6 @@
 @include('livewire.pages.post')
 @include('livewire.pages.action')
 @include('livewire.pages.event')
+
+@include('livewire.newsletter')
 </div>

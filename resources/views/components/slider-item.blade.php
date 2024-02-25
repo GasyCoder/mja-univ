@@ -1,18 +1,16 @@
 <!-- Card item START -->
-<div class="overflow-hidden text-center card h-380px h-md-430px rounded-0"
+<div class="overflow-hidden text-center card h-400px h-md-500px rounded-0"
     style="background-image:url({{ asset('storage/' .explode(',', $slider->images)[0]) }}); background-position: center left; background-size: cover;">
     <!-- Background dark overlay -->
-    <div class="bg-overlay bg-dark opacity-6"></div>
+    <div class="bg-overlay bg-dark opacity-7"></div>
     <!-- Card image overlay -->
     <div class="p-3 card-img-overlay d-flex align-items-center p-sm-4">
         <div class="my-auto w-100">
             <div class="row justify-content-center">
-                <div class="col-11 col-lg-6">
-                    <!-- Image -->
-                    {{-- <img class="rounded-1 h-70px" src="{{ asset('assets/images/client/uni-logo-01.svg') }}" alt="university logo"> --}}
+                <div class="col-12 col-lg-12">
                     <!-- Title -->
-                   <h1 class="mb-0 text-white display-6">
-                        <span class="position-relative">{{ Str::limit($slider->title, 30) }}
+                   <h1 class="mb-0 text-white display-8">
+                        <span class="position-relative">{{ Str::limit($slider->title, 38) }}
                             <!-- SVG START -->
                             <span class="position-absolute top-50 start-50 translate-middle ms-4 z-index-n1">
                                 <svg width="366px" height="62.1px" enable-background="new 0 0 366 62.1" viewbox="0 0 366 62.1"
@@ -25,7 +23,7 @@
                             <!-- SVG END -->
                         </span>
                     </h1>
-                    <p class="text-white">{{$slider->sub_title}}</p>
+                    <p class="text-white">{{Str::limit($slider->sub_title, 126)}}</p>
                     <!-- Button -->
                     <a href="{{ route('open_article', ['slug' => $slider->slug]) }}" class="mb-0 btn btn-{{$slider->bg_color}}">En savoir plus</a>
                 </div>

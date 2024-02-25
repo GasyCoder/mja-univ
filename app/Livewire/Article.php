@@ -5,6 +5,8 @@ namespace App\Livewire;
 use App\Models\Post;
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\Abonnement;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Article extends Component
 {
@@ -20,12 +22,22 @@ class Article extends Component
         $this->images       = explode(',', $article->images);
         $this->created      = $article->created_at;
     }
+
+
     public function render()
     {
+        $article = Post::where('is_active', true)->where('slug', $this->slug)->firstOrFail();
+
         return view('livewire.article.show-article', [
 
-            'categories' => Category::where('is_active', true)->get(),
-            'related_posts' => Post::where('slug', '!=', $this->slug)->where('is_active', true)->latest()->get(),
+            'categories' => Category::where('is_active', true)->whereHas('posts')->get(),
+
+            'related_posts' => Post::where('slug', '!=', $this->slug)
+                ->where('category_id', $article->category_id)
+                ->where('is_active', true)
+                ->latest()
+                ->get(),
         ]);
     }
+
 }

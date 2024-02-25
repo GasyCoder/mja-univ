@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('images')->nullable();
             $table->boolean('is_slider')->default(false);
             $table->boolean('is_active')->default(true);
-            $table->boolean('send_to_subscribers')->default(false);
+            $table->boolean('is_sendemail')->default(false);
             $table->text('contenus');
             $table->string('bg_color');
             $table->timestamps();

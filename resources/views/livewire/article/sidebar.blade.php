@@ -12,35 +12,23 @@
                 </form>
             </div>
             <div class="col-md-6 col-xl-12">
-            <div class="card card-body shadow p-4 mb-0">
+            <div class="p-4 mb-0 shadow card card-body">
                 <!-- Title -->
                 <h4 class="mb-3">Catégories</h4>
                 <!-- Item -->
                 @foreach($categories as $cat)
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <a href="#" class="h6 fw-light"><i class="fas fa-caret-right text-orange me-2"></i>{{ $cat->name }}</a>
+                <div class="mb-2 d-flex justify-content-between align-items-center">
+                    <a href="{{ route('cat_article', ['slug' => $cat->slug]) }}" class="h6 fw-light text-truncate-2">
+                        <i class="fas fa-caret-right text-orange me-2"></i>{{ $cat->name }}
+                    </a>
                     <span class="small">({{ $cat->posts->count() }})</span>
                 </div>
                 @endforeach
                 <!-- End Item -->
             </div>
             </div>
-            <!-- Tags START -->
-            <div class="col-md-6 col-xl-12">
-                <div class="p-4 border card card-body">
-                    <h4 class="mb-3">Tags</h4>
-                    <ul class="mb-0 list-inline">
-                        @foreach($categories as $cat)
-                        <li class="list-inline-item">
-                            <a class="btn btn-outline-light btn-sm" href="#">{{ $cat->name }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            <!-- Tags END -->
             <div class="col-md-6 col-xl-12 d-grid">
-                    <div class="bg-danger p-4 p-sm-4 rounded-3">
+                    <div class="p-4 bg-danger p-sm-4 rounded-3">
                         <div class="row position-relative">
                             <!-- Svg decoration -->
                             <figure class="fill-white opacity-1 position-absolute top-50 start-0 translate-middle-y">
@@ -51,28 +39,24 @@
                                 </svg>
                             </figure>
                             <!-- Action box -->
-                            <div class="col-12 mx-auto position-relative">
+                            <div class="mx-auto col-12 position-relative">
                                 <div class="row align-items-center">
                                     <!-- Title -->
-                                    <div class="col-lg-12 mb-2">
+                                    <div class="mb-2 col-lg-12">
                                         <h5 class="text-white">Vous ne savez pas où étudier ?</h5>
-                                        <p class="text-white mb-3 mb-lg-0">Optez pour l'Université de Mahajanga, où la clarté et la rapidité guident votre parcours éducatif. Notre engagement
+                                        <p class="mb-3 text-white mb-lg-0">Optez pour l'Université de Mahajanga, où la clarté et la rapidité guident votre parcours éducatif. Notre engagement
                                         envers l'excellence académique crée un environnement propice à l'épanouissement, éliminant les doutes qui peuvent
                                         entourer le choix de l'établissement.</p>
                                     </div>
                                     <!-- Content and input -->
-                                    <div class="col-lg-12 mt-1 text-lg-end">
-                                        <a href="{{ route('etablissement') }}" wire:navigate class="btn btn-warning mb-0">Voir tous nos établissements</a>
+                                    <div class="mt-1 col-lg-12 text-lg-end">
+                                        <a href="{{ route('etablissement') }}" wire:navigate class="mb-0 btn btn-warning">Voir tous nos établissements</a>
                                     </div>
                                 </div>
                             </div>
                         </div> <!-- Row END -->
                     </div>
                 </div>
-            <!-- Button -->
-            <div class="col-md-6 col-xl-12 d-grid">
-                <a href="{{ route('all_article') }}" wire:navigate class="mb-0 btn btn-lg btn-primary">Tous les actualités</a>
-            </div>
         </div><!-- Row End -->
     </div>
 </div>

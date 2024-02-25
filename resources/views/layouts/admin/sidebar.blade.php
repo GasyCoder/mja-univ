@@ -50,8 +50,9 @@
                     </a>
                     <!-- Submenu -->
                     <ul class="nav collapse flex-column" id="collapseauthentication" data-bs-parent="#navbar-sidebar">
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('profil_etab') }}">Listes</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('rubrique_etab') }}">Rubriques</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('profil_etab') }}">Licence/Master</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('ecole_doctorale') }}">Doctorales</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('type_etab') }}">Types</a></li>
                     </ul>
                 </li>
                 <!-- Menu item 5 -->
@@ -67,7 +68,7 @@
                     <!-- Submenu -->
                     <ul class="nav collapse flex-column" id="collapseuniv" data-bs-parent="#navbar-sidebar">
                         <li class="nav-item"> <a class="nav-link" href="{{ route('orga') }}">Organigramme</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('rubrique_etab') }}">Office du Bacc</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Office du Bacc</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('historique') }}">Historique</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('staff') }}">List des Staffs</a></li>
                     </ul>

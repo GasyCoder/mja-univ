@@ -67,7 +67,7 @@
                                             <a href="#" class="text-primary stretched-link bg-opacity-15">
                                                 {{ $row->sigle}}
                                             </a><br>
-                                            <small>{{ $row->rubrique->name }}</small>
+                                            <small>{{ $row->type->name }}</small>
                                         </h6>
                                     </div>
                                 </td>

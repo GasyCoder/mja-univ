@@ -16,14 +16,14 @@
                         @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="col-lg-6">
-                       <label class="form-label">Classification</label>
-                        <select class="form-control" wire:model="rubrique_id">
+                       <label class="form-label">Types</label>
+                        <select class="form-control" wire:model="type_id">
                             <option value="">--choisir--</option>
-                            @foreach($rubriques as $row)
+                            @foreach($types as $row)
                             <option value="{{ $row->id }}">{{ $row->name }}</option>
                             @endforeach
                         </select>
-                        @error('rubrique_id') <span class="text-danger">{{ $message }}</span> @enderror
+                        @error('type_id') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="col-6">
                         <label class="form-label">Sigle</label>

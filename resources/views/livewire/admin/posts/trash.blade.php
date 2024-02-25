@@ -97,9 +97,11 @@
                         <!-- Table data -->
                         <td>
                             @if($post->trashed())
-                            <button class="mb-0 btn btn-sm btn-warning" wire:click="restore({{ $post->id }})">Restaurer</button>
+                            <button class="mb-0 btn btn-sm btn-warning" wire:click="restore({{ $post->id }})">
+                                <i class="bi bi-arrow-90deg-left"></i>
+                            </button>
                             <button class="mb-0 btn btn-sm btn-danger" wire:confirm="Vous êtes sur de supprimer?"
-                                wire:click="forceDelete({{ $post->id }})">Supprimer totale</button>
+                                wire:click="forceDelete({{ $post->id }})"><i class="bi bi-backspace-reverse-fill"></i></button>
                             @endif
                         </td>
                     </tr>

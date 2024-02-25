@@ -23,7 +23,7 @@ class Post extends Model
         'is_active',
         'contenus',
         'bg_color',
-        'send_to_subscribers'
+        'is_sendemail'
     ];
 
     public function category()

@@ -18,9 +18,8 @@
     <!-- Card item START -->
     <div class="col-sm-6 col-lg-4 col-xl-3">
         <div class="bg-transparent card">
-            <div class="overflow-hidden rounded-3">
-             <a href="{{ route('open_article', ['slug' => $post->slug]) }}"
-                wire:navigate>
+           <div class="overflow-hidden rounded-3">
+            <a href="{{ route('open_article', ['slug' => $post->slug]) }}" wire:navigate>
                 @php
                 $images = explode(',', $post->images);
                 @endphp
@@ -29,13 +28,14 @@
                     style="width: 100%; height: 160px; object-fit: cover;">
                 @else
                 <img src="{{ asset('assets/images/default/01.png') }}" class="card-img" alt="{{ $post->slug }}"
-                style="width: 100%; height: 160px; object-fit: cover;">
+                    style="width: 100%; height: 160px; object-fit: cover;">
                 @endif
                 <!-- Overlay -->
                 <div class="bg-overlay bg-dark opacity-4"></div>
-                <div class="p-3 card-img-overlay d-flex align-items-start">
-                    <!-- badge -->
-                    <span href="#" class="badge text-bg-{{ $post->category->color }}">{{ $post->category->name }}</span>
+
+                <div class="p-3 card-img-overlay d-flex align-items-end">
+                    <!-- category -->
+                    <span href="#" class="text-truncate-2 badge text-bg-{{ $post->category->color }}">{{ $post->category->name }}</span>
                 </div>
             </a>
             </div>

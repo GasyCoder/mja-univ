@@ -56,12 +56,12 @@
                         {{ $event->location }}
                     </td>
                     <td>
-                        {{ $event->dateStart->format('d-M-m') }}<br>
+                        {{ $event->dateStart->format('d-m-y') }}<br>
                         <small>{{ $event->hourStart->format('H:i') }}</small>
                     </td>
                     <!-- Table data -->
                     <td>
-                        {{ $event->dateEnd->format('d-M-m') }} <br>
+                        {{ $event->dateEnd->format('d-m-y') }} <br>
                         <small>{{ $event->hourEnd->format('H:i') }}</small>
                     </td>
                     <!-- Table data -->

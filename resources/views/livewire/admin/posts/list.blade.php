@@ -2,7 +2,6 @@
 <div class="card-header bg-light">
     <!-- Search and select START -->
     <div class="row g-3 align-items-center justify-content-between">
-
         <!-- Search bar -->
         <div class="col-md-12">
             <form class="rounded position-relative">
@@ -67,16 +66,16 @@
                     </td>
                     <!-- Table data -->
                     <td>
-                        <span class="badge {{ $post->is_slider ? 'bg-success' : 'bg-danger' }}">
-                            {{ $post->is_slider ? 'Oui' : 'Non' }}
+                        <span class="{{ $post->is_slider ? 'text-success' : 'text-danger' }}">
+                            {!! $post->is_slider ? '<i class="bi bi-check-circle-fill"></i>' : '<i class="bi bi-x-circle"></i>' !!}
                         </span>
                     </td>
                     <td>
-                        <span class="text-{{ $post->category->color }}">{{ $post->category->name }}</span>
+                        <span class="text-{{ $post->category->color }}">{{ Str::limit($post->category->name, 15) }}</span>
                     </td>
                     <!-- Table data -->
-                    <td>{{ $post->created_at->format('d-M-y') }}</td>
-                    <td>{{ $post->updated_at->format('d-M-y') }}</td>
+                    <td>{{ $post->created_at->format('d-m-y') }}</td>
+                    <td>{{ $post->updated_at->format('d-m-y') }}</td>
                     <!-- Table data -->
                     <td>
                        @if($post->is_active == true)
@@ -100,14 +99,12 @@
                         </a>
                         <button
                             wire:click="delete({{ $post->id }})"
-                            class="mb-1 btn btn-warning-soft btn-round me-1 mb-md-0"
+                            class="mb-1 btn btn-dark-soft btn-round me-1 mb-md-0"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top" title=""
                             data-bs-original-title="Corbeille">
-                            <i class="bi bi-trash"></i>
+                            <i class="bi bi-trash2-fill"></i>
                         </button>
-                        {{-- <a href="#" class="mb-0 btn btn-sm btn-info-soft" data-bs-toggle="modal"
-                            data-bs-target="#viewReview">View</a> --}}
                     </td>
                 </tr>
                 @endforeach

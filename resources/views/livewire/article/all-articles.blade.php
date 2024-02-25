@@ -67,9 +67,10 @@
                                 style="width: 100%; height: 160px; object-fit: cover;">
                             <!-- Overlay -->
                             <div class="bg-overlay bg-dark opacity-4"></div>
-                            <div class="p-3 card-img-overlay d-flex align-items-start">
+                            <div class="p-3 card-img-overlay d-flex align-items-end">
                                 <!-- badge -->
-                                <span href="{{ route('open_article', ['slug' => $article->slug]) }}" class="badge text-bg-{{ $article->category->color }}">{{ $article->category->name }}</span>
+                                <span href="{{ route('open_article', ['slug' => $article->slug]) }}"
+                                    class="text-truncate-2 badge text-bg-{{ $article->category->color }}">{{ $article->category->name }}</span>
                             </div>
                         </a>
                         </div>
@@ -109,7 +110,7 @@
         </div>
     </section>
 @else
-<div class="d-flex justify-content-center align-items-center pt-8 pb-8">
+<div class="pt-8 pb-8 d-flex justify-content-center align-items-center">
     <div class="shadow">
         <div class="py-2 mb-0 alert alert-danger d-flex align-items-center">
             <div class="text-center">

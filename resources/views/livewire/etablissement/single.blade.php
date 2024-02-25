@@ -3,12 +3,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="bg-light p-4 text-center rounded-3">
+                <div class="p-4 text-center bg-light rounded-3">
                     <h3 class="m-0">{{ $name }}</h3>
                     <!-- Breadcrumb -->
                     <div class="d-flex justify-content-center">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb mb-0">
+                            <ol class="mb-0 breadcrumb">
                                @if($type_etabs)
                                 <li class="breadcrumb-item"><a href="/ecole-doctoral">Ecole Doctorale</a></li>
                                @else
@@ -34,37 +34,38 @@
                     <!-- Title -->
                     <h5 class="mb-0">{{ $slogan }}</h5>
                     <!-- Content -->
-                    <p class="mt-4">{{$about}}</p>
+                    <p class="mt-4">{!! $about !!}</p>
+                    <hr>
                     <!-- Personal info -->
                     <ul class="list-group list-group-borderless">
                      <div class="row">
                         <div class="col-6">
-                        <li class="list-group-item px-0">
+                        <li class="px-0 list-group-item">
                             <span class="h6 fw-light">
                                 <i class="fas fa-fw fa-headphones text-primary me-1 me-sm-3"></i>Téléphone:</span>
                             <span>{{ $phone_1 }}</span>
                         </li>
-                        <li class="list-group-item px-0">
+                        <li class="px-0 list-group-item">
                             <span class="h6 fw-light">
                                 <i class="fas fa-fw fa-headphones text-primary me-1 me-sm-3"></i>Téléphone:</span>
                             <span>{{ $phone_2 }}</span>
                         </li>
-                        <li class="list-group-item px-0">
+                        <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i class="fas fa-fw fa-envelope text-primary me-1 me-sm-3"></i>Email:</span>
                            <a href="mailto:{{ $email }}">{{ $email }}</a>
                         </li>
                         </div>
                         <div class="col-6">
-                        <li class="list-group-item px-0">
+                        <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i
                                     class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>Facebook:</span>
                             <a href="{{ $facebook }}" target="_blank">{{ $facebook }}</a>
                         </li>
-                        <li class="list-group-item px-0">
+                        <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>Website:</span>
                             <a href="{{ $siteweb }}" target="_blank">{{ $siteweb }}</a>
                         </li>
-                        <li class="list-group-item px-0">
+                        <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i
                                     class="fas fa-fw fa-map-marker-alt text-primary me-1 me-sm-3"></i>Address:</span>
                             <span>{{ $adresse }}</span>
@@ -72,9 +73,9 @@
                         </div>
                     </div>
                     </ul>
-
+                    @if(!$type_etabs)
                     @include('livewire.etablissement.tags')
-
+                    @endif
                 </div>
                 <!-- Main content END -->
             </div><!-- Row END -->
@@ -84,57 +85,80 @@
     Page content END -->
 
     <!-- =======================
-    Related instructor END -->
-    <section class="pt-2 mb-6">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- University -->
-                    <div class="row g-4 mt-3 border-top">
-                    @if(Route::currentRouteNamed('single_etab'))
-                    <h5>Autre établissements</h5>
+    Related etablissements END -->
+
+<section class="pb-0 pb-md-5">
+    <div class="container">
+        <!-- Title -->
+        <div class="mb-4 row">
+            @if(Route::is('single_etab'))
+            <h4 class="mb-0">Autre <span class="text-warning">établissements</span></h4>
+            @else
+            <h4 class="mb-0">Autre <span class="text-warning">écoles d'octorale</span></h4>
+            @endif
+        </div>
+        <div class="row">
+            <!-- Slider START -->
+            <div class="tiny-slider arrow-round arrow-creative arrow-blur arrow-hover">
+                <div class="tiny-slider-inner" data-autoplay="true" data-arrow="true" data-dots="false"
+                    data-items-xl="3" data-items-md="2" data-items-xs="1">
+            @if(Route::is('single_etab'))
                     @foreach ($autres as $autre)
-                        <div class="col-md-6 col-xl-4">
-                            <!-- Card START -->
-                            <div class="card card-body shadow-lg p-4 align-items-start">
-                                <!-- Image -->
-                                <img class="rounded-1 h-60px" src="{{ asset('storage/' .$autre->image_path) }}"
-                                    alt="{{ $autre->sigle }}">
-                                <!-- Title -->
-                                <h4 class="card-title mt-3 mb-0">{{ $autre->sigle }}</h4>
-                                <span>{{ $autre->name }}</span>
-                                <!-- Button -->
-                                <a href="{{ route('single_etab', ['uuid' => $autre->uuid]) }}" wire:navigate
-                                    class="btn btn-lg btn-link p-0 mt-3 stretched-link"><u>
-                                        Détails</u>
-                                </a>
-                            </div>
-                            <!-- Card END -->
+                    <!-- Card item START -->
+                    <div class="bg-transparent card">
+                        <div class="position-relative">
+                            @if(!empty($autre->image_path))
+                            <!-- Image -->
+                            <img class="rounded-1 h-60px" src="{{ asset('storage/' .$autre->image_path) }}" alt="{{ $autre->sigle }}">
+                            @else
+                            <img class="rounded-1 h-60px" src="{{ asset('assets/images/01.png') }}" alt="{{ $autre->sigle }}">
+                            @endif
                         </div>
-                        @endforeach
-                        @else <h5>Autre écoles doctorales</h5>
-                        @foreach ($doctorales as $doctorale)
-                        <div class="col-md-6 col-xl-4">
-                            <!-- Card START -->
-                            <div class="card card-body shadow-lg p-4 align-items-start">
-                                <!-- Image -->
-                                <img class="rounded-1 h-60px" src="{{ asset('storage/' .$doctorale->image_path) }}" alt="{{ $doctorale->sigle }}">
-                                <!-- Title -->
-                                <h4 class="card-title mt-3 mb-0">{{ $doctorale->sigle }}</h4>
-                                <span>{{ $doctorale->name }}</span>
-                                <!-- Button -->
-                                <a href="{{ route('single_etab', ['uuid' => $doctorale->uuid]) }}" wire:navigate
-                                    class="btn btn-lg btn-link p-0 mt-3 stretched-link"><u>
-                                        Détails</u>
-                                </a>
+
+                        <!-- Card body -->
+                        <div class="px-2 card-body">
+                            <!-- Title -->
+                            <h5 class="card-title"><a href="{{ route('single_etab', ['uuid' => $autre->uuid]) }}">{{ $autre->sigle }}</a></h5>
+                            <!-- Address and button -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                <address class="mb-0"><i class="fas fa-flag me-1"></i>{{ $autre->name }}</address>
+                                <a href="{{ route('single_etab', ['uuid' => $autre->uuid]) }}" class="mb-0 btn btn-sm btn-primary-soft">Détail</a>
                             </div>
-                            <!-- Card END -->
                         </div>
-                        @endforeach
+                    </div>
+                    <!-- Card item END -->
+                @endforeach
+            @else
+                @foreach ($doctorales as $doctorale)
+                <!-- Card item START -->
+                <div class="bg-transparent card">
+                    <div class="position-relative">
+                       @if(!empty($doctorale->image_path))
+                        <!-- Image -->
+                        <img class="rounded-1 h-60px" src="{{ asset('storage/' .$doctorale->image_path) }}" alt="{{ $doctorale->sigle }}">
+                        @else
+                        <img class="rounded-1 h-60px" src="{{ asset('assets/images/01.png') }}" alt="{{ $doctorale->sigle }}">
                         @endif
                     </div>
+
+                    <!-- Card body -->
+                    <div class="px-2 card-body">
+                        <!-- Title -->
+                        <h5 class="card-title"><a href="{{ route('single_doc', ['uuid' => $doctorale->uuid]) }}">{{ $doctorale->sigle }}</a></h5>
+                        <!-- Address and button -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <address class="mb-0"><i class="fas fa-flag me-1"></i>{{ $doctorale->name }}</address>
+                            <a href="{{ route('single_doc', ['uuid' => $doctorale->uuid]) }}" class="mb-0 btn btn-sm btn-primary-soft">Détail</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card item END -->
+                @endforeach
+            @endif
                 </div>
             </div>
+            <!-- Slider END -->
         </div>
-    </section>
+    </div>
+</section>
 </div>

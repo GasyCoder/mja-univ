@@ -37,16 +37,19 @@ Main Banner END -->
                     <!-- University -->
                     <div class="mt-3 row g-4">
                         <h5>Facultés / Instituts / Écoles</h5>
-                        <p>L'Université de Mahajanga compte 2 facultés, 6 instituts et 3 écoles. Les instituts et écoles
+                        <p>L'Université de Mahajanga compte 2 facultés, {{ $countInstitut }} instituts et {{ $countEcole }} écoles. Les instituts et écoles
                             proposent des
                             formations payantes ou semi-privées.</p>
-                       @foreach($etabs->where('rubrique_id', '!=', 5) as $etab)
+                       @foreach($etabs->where('type_id', '!=', 5) as $etab)
                         <div class="col-md-6 col-xl-4">
                             <!-- Card START -->
                             <div class="p-4 shadow-lg card card-body align-items-start">
                                 <!-- Image -->
-                                <img class="rounded-1 h-60px" src="{{ asset('storage/' .$etab->image_path) }}"
-                                    alt="{{ $etab->sigle }}">
+                                @if(!empty($etab->image_path))
+                                <img class="rounded-1 h-60px" src="{{ asset('storage/' .$etab->image_path) }}" alt="logo">
+                                @else
+                                <img class="rounded-1 h-60px" src="{{ asset('assets/images/01.png') }}" alt="logo">
+                                @endif
                                 <!-- Title -->
                                 <h4 class="mt-3 mb-0 card-title">{{ $etab->sigle }}</h4>
                                 <span>{{ $etab->name }}</span>

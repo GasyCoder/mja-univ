@@ -14,9 +14,9 @@ Event START -->
                 <div class="bg-transparent card">
                     <div class="row align-items-center">
                         <div class="col-sm-4 col-lg-3">
-                            <div class="p-3 mb-2 text-center bg-info rounded-2 mb-sm-0">
-                                <h2 class="text-white">{{ $event->dateStart->format('d') }}</h2>
-                                <span class="text-white">{{ $event->dateStart->format('M Y') }}</span>
+                            <div class="p-3 mb-2 text-center bg-secondary rounded-2 mb-sm-0">
+                                <h2 class="text-danger">{{ $event->dateStart->format('d') }}</h2>
+                                <span class="text-danger">{{ $event->dateStart->format('M Y') }}</span>
                             </div>
                         </div>
                         <div class="col-sm-8 col-lg-9">

@@ -1,20 +1,25 @@
 <!-- University -->
-<div class="row g-4 mt-3">
+<div class="mt-3 row g-4">
     <h5>Écoles Doctorales</h5>
     <p>L'Université de Mahajanga compte 3 écoles doctorales.</p>
     @foreach($doctorales as $doctorale)
     <div class="col-md-6 col-xl-4">
         <!-- Card START -->
-        <div class="card card-body shadow-lg p-4 align-items-start">
+        <div class="p-4 shadow-lg card card-body align-items-start">
+            @if(!empty($doctorale->image_path))
             <!-- Image -->
-            <img class="rounded-1 h-60px" src="{{ asset('storage/' .$doctorale->image_path) }}" alt="{{ $doctorale->sigle }}">
+            <img class="rounded-1 h-60px" src="{{ asset('storage/' .$doctorale->image_path) }}"
+            alt="{{ $doctorale->sigle }}">
+            @else
+            <img class="rounded-1 h-60px" src="{{ asset('assets/images/01.png') }}" alt="{{ $doctorale->sigle }}">
+            @endif
             <!-- Title -->
-            <h4 class="card-title mt-3 mb-0">{{ $doctorale->sigle }}</h4>
+            <h4 class="mt-3 mb-0 card-title">{{ $doctorale->sigle }}</h4>
             <span>{{ $doctorale->name }}</span>
             <!-- Button -->
-            <a href="{{ route('single_etab', ['uuid' => $doctorale->uuid]) }}"
+            <a href="{{ route('single_doc', ['uuid' => $doctorale->uuid]) }}"
                 wire:navigate
-                class="btn btn-lg btn-link p-0 mt-3 stretched-link"><u>
+                class="p-0 mt-3 btn btn-lg btn-link stretched-link"><u>
                     Détails</u>
             </a>
         </div>

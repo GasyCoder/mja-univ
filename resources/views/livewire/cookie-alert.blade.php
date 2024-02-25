@@ -4,7 +4,7 @@
         role="alert">
         <div class="text-center text-dark">
             <!-- Image -->
-            <img src="assets/images/element/27.svg" class="mb-3 h-50px" alt="cookie">
+            <img src="{{ asset('assets/images/element/27.svg') }}" class="mb-3 h-50px" alt="cookie">
             <!-- Content -->
            <p>Ce site stocke des cookies. Consultez notre <a class="text-dark" href="#"><u>Politique de confidentialité</u></a>
             pour en savoir plus.</p>

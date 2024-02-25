@@ -5,11 +5,12 @@ namespace App\Livewire\Admin;
 use App\Models\Post;
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\Abonnement;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
-use App\Events\NewPostCreated;
 use Livewire\Attributes\Validate;
-use Illuminate\Support\Facades\Event;
+use App\Notifications\NewPostPublished;
+use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -17,20 +18,6 @@ class Posts extends Component
 {
     use WithFileUploads, AuthorizesRequests, LivewireAlert, WithPagination;
     protected $paginationTheme = 'bootstrap';
-
-    #[Validate(['images.*' => 'image|max:2024'])]
-    public $images = [];
-
-    #[Validate('required')]
-    public $title, $sub_title, $category_id, $contenus;
-
-    public $is_active, $send_to_subscribers;
-    public $is_slider = false;
-    public $page = 10;
-    public $postId, $imagePost;
-    public $addForm, $updateForm, $openTrash = false;
-
-
     public function showMessage($message)
     {
         $this->alert('success', $message, [
@@ -42,6 +29,16 @@ class Posts extends Component
             'message' => $message
         ]);
     }
+
+    #[Validate(['images.*' => 'image|max:2024'])]
+    public $images = [];
+    #[Validate('required')]
+    public $title, $sub_title, $category_id, $contenus;
+    public $is_active, $is_sendemail, $addForm, $updateForm, $openTrash = false;
+    public $is_slider = false;
+    public $page = 10;
+    public $postId, $imagePost;
+
 
     public function save()
     {
@@ -57,7 +54,7 @@ class Posts extends Component
 
         $this->validate([
             'title' => 'required',
-            'images' => 'nullable|array|max:4',
+            'images' => 'nullable|array|max:20',
         ]);
 
         $imagePaths = [];
@@ -74,17 +71,35 @@ class Posts extends Component
             'category_id'       => $this->category_id,
             'is_active'         => $this->is_active ? true : false,
             'is_slider'         => $this->is_slider ? true : false,
-            'send_to_subscribers' => $this->send_to_subscribers ? true : false,
+            'is_sendemail'      => $this->is_sendemail ? true : false,
             'images'            => $this->images = implode(',', $imagePaths),
         ]);
+        $this->dispatch('contentChanged');
+        if ($this->is_sendemail) {
+            $subscribers = Abonnement::where('is_subscribed', true)->get();
 
+            //dd($subscribers);
 
-        Event::dispatch(new NewPostCreated($post));
-
+            foreach ($subscribers as $subscriber) {
+                $subscriber->notify(new NewPostPublished($post));
+            }
+        }
 
         $this->reset();
         $this->showMessage('Post ajouté avec succèss!');
         return $this->redirect('/adminx/article', navigate: false);
+    }
+
+    public function removeImage($index)
+    {
+        unset($this->images[$index]);
+        $this->images = array_values($this->images);
+        $this->showMessage('Opération avec succès !');
+    }
+
+    public function showShare()
+    {
+        $this->is_active = $this->is_active;
     }
 
     public function edit($id){
@@ -115,19 +130,24 @@ class Posts extends Component
         }
 
         $this->validate([
-            'images' => 'nullable|array|max:4',
+            'images' => 'nullable|array|max:20',
         ]);
 
         $update = Post::where('id', $this->postId)->first();
 
-        $imagePaths = explode(',', $update->images); // get the existing images
+        // Get existing images
+        $imagePaths = explode(',', $update->images);
 
-        if ($this->images) {
-            $imagePaths = []; // reset the array if new images are uploaded
-            foreach ($this->images as $image) {
-                $imagePaths[] = $image->store('post', 'public');
-            }
+        // Add new images
+        foreach ($this->images as $image) {
+            $path = $image->store('post', 'public');
+            $imagePaths[] = $path;
         }
+
+        // Supprimez les éléments vides du tableau
+        $imagePaths = array_filter($imagePaths, function ($value) {
+            return !is_null($value) && $value !== '';
+        });
 
         $updateData = [
             'title'             => $this->title,
@@ -136,6 +156,8 @@ class Posts extends Component
             'category_id'       => $this->category_id,
             'is_active'         => $this->is_active ? true : false,
             'is_slider'         => $this->is_slider ? true : false,
+
+
             'images'            => implode(',', $imagePaths),
         ];
 
@@ -145,6 +167,28 @@ class Posts extends Component
         $this->showMessage('Post mise à jour avec succèss!');
         return $this->redirect('/adminx/article', navigate: false);
     }
+
+    public function deleteImage($key)
+    {
+        // Supprimez l'image du tableau $this->imagePost
+        if (isset($this->imagePost[$key])) {
+            // Supprimez également le fichier de l'image du disque
+            Storage::disk('public')->delete($this->imagePost[$key]);
+            unset($this->imagePost[$key]);
+        }
+
+        // Convertissez $this->imagePost en chaîne de caractères
+        $this->imagePost = implode(',', $this->imagePost);
+
+        // Mettez à jour la base de données
+        $remove = Post::find($this->postId);
+        $remove->images = $this->imagePost;
+        $remove->save();
+        $this->showMessage('Opération avec succès !');
+    }
+
+
+
 
 
     public function addPost(){
@@ -221,10 +265,9 @@ class Posts extends Component
         return view('livewire.admin.posts.index', [
 
             'posts' => Post::latest()->paginate($this->page),
-
+            'allPosts' => Post::count(),
             'trashes' => Post::onlyTrashed()->latest()->paginate($this->page),
             'trasheCount' => Post::onlyTrashed()->count(),
-
             'categories' => Category::where('is_active', true)->get(),
         ]);
     }

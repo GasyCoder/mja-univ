@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 10.44.0.
+ * Generated for Laravel 10.45.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -17167,6 +17167,59 @@ namespace Illuminate\Support\Facades {
             }
     }
 
+namespace Sinnbeck\Markdom\Facades {
+            /**
+     * 
+     *
+     */        class Markdom {
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setClasses($classes)
+        {
+                        /** @var \Sinnbeck\Markdom\Markdom $instance */
+                        return $instance->setClasses($classes);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function toHtml($markdown)
+        {
+                        /** @var \Sinnbeck\Markdom\Markdom $instance */
+                        return $instance->toHtml($markdown);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getHighlighter()
+        {
+                        /** @var \Sinnbeck\Markdom\Markdom $instance */
+                        return $instance->getHighlighter();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getStyles($theme = null)
+        {
+                        /** @var \Sinnbeck\Markdom\Markdom $instance */
+                        return $instance->getStyles($theme);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getAvailableThemes()
+        {
+                        /** @var \Sinnbeck\Markdom\Markdom $instance */
+                        return $instance->getAvailableThemes();
+        }
+            }
+    }
+
 namespace Livewire {
             /**
      * 
@@ -21516,11 +21569,17 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
+            class Markdom extends \Sinnbeck\Markdom\Facades\Markdom {}
             class Livewire extends \Livewire\Livewire {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
     }
 
 
+namespace Facades\Livewire\Features\SupportFileUploads {
+    /**
+     * @mixin \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl     */
+    class GenerateSignedUploadUrl extends \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl {}
+}
 
 
 

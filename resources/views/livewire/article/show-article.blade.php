@@ -36,7 +36,7 @@
                                 <div class="mt-4 row g-4">
                                     @foreach ($images as $image)
                                     <div class="col-sm-6 col-md-4">
-                                        <a href="{{ asset('storage/' . $image) }}" wire:navigate data-glightbox="" data-gallery="image-popup">
+                                        <a href="{{ asset('storage/' . $image) }}" target="_blank" data-glightbox="" data-gallery="image-popup">
                                             <img src="{{ asset('storage/' . $image) }}" class="rounded-3" alt="">
                                         </a>
                                     </div>
@@ -51,13 +51,21 @@
                     </div>
                     <!-- FAQs END -->
                 </div>
+                <!-- Button -->
+                <div class="mt-4 col-md-6 col-xl-12 d-grid">
+                    <a href="{{ route('all_article') }}" wire:navigate class="mb-0 btn btn-lg btn-primary">Tous les actualités</a>
+                </div>
             </div>
             <!-- Main content END -->
             @include('livewire.article.sidebar')
+
+            <hr>
+
             @include('livewire.article.related_post')
         </div><!-- Row END -->
     </div>
 </section>
 <!-- =======================
 Page content END -->
+
 </div>

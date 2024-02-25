@@ -4,9 +4,9 @@
             <!-- Title -->
             <div class="mb-3 row">
                 <div class="col-12 d-sm-flex justify-content-between align-items-center">
-                    <h3 class="mb-2 h3 mb-sm-0">Rubrique <span class="badge bg-orange bg-opacity-10 text-orange">{{ $rubriques->count() }}</span>
+                    <h3 class="mb-2 h3 mb-sm-0">Types <span class="badge bg-orange bg-opacity-10 text-orange">{{ $types->count() }}</span>
                     </h3>
-                    <a href="#" class="mb-0 btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addCat">Nouvelle Rubrique</a>
+                    <a href="#" class="mb-0 btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addType">Nouvelle type</a>
                 </div>
             </div>
             <!-- Card START -->
@@ -39,18 +39,20 @@
                             <!-- Table head -->
                             <thead>
                                 <tr>
-                                    <th scope="col" class="border-0 rounded-start">Rubriques</th>
+                                    <th scope="col" class="border-0 rounded-start">ID</th>
+                                    <th scope="col" class="border-0">Types</th>
                                     <th scope="col" class="border-0">Slug</th>
                                     <th scope="col" class="border-0">Status</th>
-                                    <th scope="col" class="border-0">Etablissement</th>
+                                    <th scope="col" class="border-0">Nbre Etab</th>
                                     <th scope="col" class="border-0 rounded-end">Action</th>
                                 </tr>
                             </thead>
                             <!-- Table body START -->
                             <tbody>
-                             @foreach($rubriques as $row)
+                             @foreach($types as $row)
                                 <!-- Table row -->
                                 <tr>
+                                    <td> {{ $row->id }}</td>
                                     <!-- Table data -->
                                     <td>
                                         <div class="d-flex align-items-center position-relative">
@@ -71,12 +73,11 @@
                                     </td>
                                     <!-- Table data -->
                                     <td> {{ $row->etabs->count() }}</td>
-
                                     <!-- Table data -->
                                     <td>
                                         <a href="#" wire:click="edit({{ $row->id }})"
                                         class="mb-1 btn btn-sm btn-success me-1 mb-md-0"
-                                        data-bs-toggle="modal" data-bs-target="#editCat">Editer</a>
+                                        data-bs-toggle="modal" data-bs-target="#editType">Editer</a>
                                         <button class="mb-0 btn btn-sm btn-danger"
                                         wire:confirm="Vous voulez supprimer?"
                                         wire:click="delete({{ $row->id }})">Supprimer</button>
@@ -100,7 +101,7 @@
                         <!-- Pagination -->
                         <nav class="mb-0 d-flex justify-content-center" aria-label="navigation">
                             <ul class="mb-0 rounded pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex">
-                               {{ $rubriques->links() }}
+                               {{ $types->links() }}
                             </ul>
                         </nav>
                     </div>
@@ -111,6 +112,6 @@
             <!-- Card END -->
         </div>
         <!-- Page main content END -->
-@include('livewire.admin.etabs.rubrique.add')
-@include('livewire.admin.etabs.rubrique.edit')
+@include('livewire.admin.etabs.types.add')
+@include('livewire.admin.etabs.types.edit')
 </div>

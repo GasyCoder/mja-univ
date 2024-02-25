@@ -12,25 +12,7 @@ Footer START -->
                     <img class="light-mode-item h-50px" src="{{ asset('storage/' .get_settings()['logo']) }}" alt="logo">
                     <img class="dark-mode-item h-50px" src="{{ asset('storage/' .get_settings()['logo']) }}" alt="logo">
                 </a>
-                <p class="my-3 text-truncate-2">{{ get_settings()['description'] }}</p>
-                <!-- Social media icon -->
-                <ul class="mt-3 mb-0 list-inline">
-                    <li class="list-inline-item">
-                        <a class="px-2 shadow btn btn-white btn-sm text-facebook" href="{{ get_settings()['facebook'] }}" target="_blank">
-                            <i class="fab fa-fw fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="px-2 shadow btn btn-white btn-sm text-twitter" href="{{ get_settings()['twitter'] }}" target="_blank">
-                        <i class="fab fa-fw fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="px-2 shadow btn btn-white btn-sm text-linkedin" href="{{ get_settings()['linkdin'] }}" target="_blank">
-                            <i class="fab fa-fw fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                </ul>
+                <p class="my-3">{{ Str::limit(get_settings()['description'], 120)}} <a href="/historique">lire la suite</a> </p>
             </div>
             <!-- Widget 1 END -->
 
@@ -80,15 +62,24 @@ Footer START -->
                 <p class="mb-2">
                     Adresse:<span class="h6 fw-light ms-2">{{ get_settings()['adresse'] }}</span>
                 </p>
-                <!-- Newsletter -->
-                <form class="row row-cols-lg-auto g-2">
-                    <div class="col-12">
-                        <input type="email" class="form-control" placeholder="Abonnez-vous à news letter">
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="m-0 btn btn-dark">Ok</button>
-                    </div>
-                </form>
+                <!-- Social media icon -->
+                <ul class="mt-3 mb-0 list-inline">
+                    <li class="list-inline-item">
+                        <a class="px-2 shadow btn btn-white btn-sm text-facebook" href="{{ get_settings()['facebook'] }}" target="_blank">
+                            <i class="fab fa-fw fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="px-2 shadow btn btn-white btn-sm text-twitter" href="{{ get_settings()['twitter'] }}" target="_blank">
+                        <i class="fab fa-fw fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="px-2 shadow btn btn-white btn-sm text-linkedin" href="{{ get_settings()['linkdin'] }}" target="_blank">
+                            <i class="fab fa-fw fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
                 <!-- Row END -->
             </div>
             <!-- Widget 3 END -->

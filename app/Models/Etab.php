@@ -15,7 +15,7 @@ class Etab extends Model
     protected $fillable = [
         'name',
         'uuid',
-        'rubrique_id',
+        'type_id',
         'sigle',
         'director',
         'slogan',
@@ -24,14 +24,19 @@ class Etab extends Model
         'status'
     ];
 
+    public function getHtmlAttribute()
+    {
+        return str($this->about)->markdown();
+    }
+
     public function domaines()
     {
         return $this->belongsToMany(Domaine::class);
     }
 
-    public function rubrique()
+    public function type()
     {
-        return $this->belongsTo(Rubrique::class);
+        return $this->belongsTo(Type::class);
     }
 
     public function pedagogies()

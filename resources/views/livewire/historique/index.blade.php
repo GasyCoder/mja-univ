@@ -11,7 +11,7 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" wire:ignore>
                 <div class="col-12">
                     <!-- Slider START -->
                     <div class="overflow-hidden tiny-slider arrow-round arrow-blur arrow-hover rounded-3">

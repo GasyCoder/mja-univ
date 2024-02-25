@@ -1,35 +1,31 @@
-<!-- Edit categorie modal START -->
-<div wire:ignore class="modal fade" id="editCat" tabindex="-1" aria-labelledby="editCatLabel" aria-hidden="true">
+<!-- Add Categorie modal START -->
+<div wire:ignore class="modal fade" id="addType" tabindex="-1" aria-labelledby="addTypeLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark">
-                <h5 class="text-white modal-title" id="editCatLabel">Ajouter</h5>
+                <h5 class="text-white modal-title" id="addTypeLabel">Ajouter</h5>
                 <button type="button" class="mb-0 btn btn-sm btn-light" data-bs-dismiss="modal" aria-label="Close"><i
                         class="bi bi-x-lg"></i></button>
             </div>
             <div class="modal-body">
-                <form class="row text-start g-3" novalidate="" wire:submit.prevent="update">
+                <form class="row text-start g-3" novalidate="" wire:submit.prevent="save">
                     <!-- Titre -->
                     <div class="col-12">
                         <label class="form-label">Titre</label>
-                        <input class="form-control" type="text" wire:model="name" placeholder="Titre de rubrique">
+                        <input class="form-control" type="text" wire:model="name" placeholder="Titre de type">
                         @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <!-- Switch -->
                     <div class="mt-2 col-md-12">
                         <div class="form-check form-switch form-check-md">
-                            @if($is_active == true)
-                            <input class="form-check-input" wire:model="is_active" checked type="checkbox" id="publish">
-                            @else
                             <input class="form-check-input" wire:model="is_active" type="checkbox" id="publish">
-                            @endif
                             <label class="form-check-label" for="publish">Publier</label>
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <a href="/adminx/rubrique-etab" wire:navigate class="my-0 btn btn-danger-soft">Close</a>
-                        <button type="submit" class="my-0 btn btn-success">Mettre à jour</button>
+                        <a href="/adminx/type-etab" wire:navigate class="my-0 btn btn-danger-soft">Close</a>
+                        <button type="submit" class="my-0 btn btn-success">Ajouter</button>
                     </div>
                 </form>
             </div>

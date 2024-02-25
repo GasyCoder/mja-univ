@@ -5,7 +5,7 @@ namespace App\Livewire\Admin;
 use App\Models\Etab;
 use App\Models\ContactEtab;
 use Livewire\Component;
-use App\Models\Rubrique;
+use App\Models\Type;
 use App\Models\Pedagogie;
 use App\Models\Statistic;
 use Livewire\WithPagination;
@@ -27,7 +27,7 @@ class Etabs extends Component
     #[Validate('required')]
     public $sigle;
     #[Validate('required')]
-    public $rubrique_id;
+    public $type_id;
     public $director;
     public $logoCurrent;
 
@@ -65,7 +65,7 @@ class Etabs extends Component
         $etab = Etab::create([
             'name'                      => $this->name,
             'sigle'                     => $this->sigle,
-            'rubrique_id'               => $this->rubrique_id,
+            'type_id'                   => $this->type_id,
             'director'                  => $this->director,
             'slogan'                    => $this->slogan,
             'about'                     => $this->about,
@@ -88,7 +88,7 @@ class Etabs extends Component
         $this->etab_Id              = $id;
         $this->name                 = $edit->name;
         $this->sigle                = $edit->sigle;
-        $this->rubrique_id          = $edit->rubrique_id;
+        $this->type_id              = $edit->type_id;
         $this->director             = $edit->director;
         $this->slogan               = $edit->slogan;
         $this->about                = $edit->about;
@@ -100,9 +100,9 @@ class Etabs extends Component
     {
         $update = Etab::findOrFail($this->etab_Id);
         $updateData = [
-            'name'                     => $this->name,
+            'name'                      => $this->name,
             'sigle'                     => $this->sigle,
-            'rubrique_id'               => $this->rubrique_id,
+            'type_id'                   => $this->type_id,
             'director'                  => $this->director,
             'slogan'                    => $this->slogan,
             'about'                     => $this->about,
@@ -275,12 +275,12 @@ class Etabs extends Component
     {
         return view('livewire.admin.etabs.listes', [
 
-            'etabs' => Etab::latest()->paginate($this->page),
+            'etabs' => Etab::where('type_id', '!=', 5)->latest()->paginate($this->page),
 
             'archives' => Etab::onlyTrashed()->latest()->paginate($this->page),
             'archivesCount' => Etab::onlyTrashed()->count(),
 
-            'rubriques' => Rubrique::where('is_active', true)->get(),
+            'types' => Type::where('id', '!=', 5)->where('is_active', true)->get(),
 
         ]);
     }

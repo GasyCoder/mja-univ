@@ -1,5 +1,5 @@
-<!-- =======================
-            Related blog START -->
+<!-- ======Related blog START -->
+@if($related_posts->count() > 0)
 <section class="pt-0">
     <div class="container">
         <!-- Title -->
@@ -48,4 +48,5 @@
         <!-- Slider END -->
     </div>
 </section>
-<!-- ======================= Related blog END -->
+@endif
+<!-- =====Related blog END -->

@@ -12,13 +12,13 @@ class SendTwoFactorCode extends Notification
 {
     use Queueable;
 
-
+    public $details;
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -34,17 +34,12 @@ class SendTwoFactorCode extends Notification
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(UserCode $notifiable): MailMessage
+    public function toMail($notifiable)
     {
         return (new MailMessage)
-                //->line('The introduction to the notification.')
-                //->action('Notification Action', url('/'))
-                //->line('Thank you for using our application!');
-
-                ->line("Your two-factor code is {$notifiable->code}")
-                ->action('Notification Action', url('/'))
-                ->line('If you didn\'t request this, please ignore.');
-
+            ->subject($this->details['subject'])
+            ->line("Votre code à deux facteurs est : {$this->details['code']}")
+            ->line('Si vous n\'avez pas demandé cela, vous pouvez ignorer cet e-mail.');
     }
 
     /**

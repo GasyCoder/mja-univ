@@ -17,11 +17,14 @@ class Etablissements extends Component
     {
         return view('livewire.etablissement.index', [
 
-            'etabs'  => Etab::where('status', true)->where('rubrique_id', '!=', 5)
+            'etabs'  => Etab::where('status', true)->where('type_id', '!=', 5)
             ->orderBy('id', 'asc')->paginate($this->page),
 
-            'doctorales'  => Etab::where('status', true)->where('rubrique_id', 5)
+            'doctorales'  => Etab::where('status', true)->where('type_id', 5)
             ->orderBy('id', 'asc')->paginate($this->page),
+
+            'countEcole'  => Etab::where('type_id', '=', 3)->count(),
+            'countInstitut'  => Etab::where('type_id', '=', 2)->count(),
         ]);
     }
 }

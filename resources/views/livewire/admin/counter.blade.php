@@ -6,12 +6,12 @@
             <div class="d-flex justify-content-between align-items-center">
                 <!-- Digit -->
                 <div>
-                    <h2 class="mb-0 purecounter fw-bold" data-purecounter-start="0" data-purecounter-end="1958"
+                    <h2 class="mb-0 purecounter fw-bold" data-purecounter-start="0" data-purecounter-end="{{ $posts }}"
                         data-purecounter-delay="200">0</h2>
-                    <span class="mb-0 h6 fw-light">Completed Courses</span>
+                    <span class="mb-0 h6 fw-light">Actualités</span>
                 </div>
                 <!-- Icon -->
-                <div class="mb-0 text-white icon-lg rounded-circle bg-warning"><i class="fas fa-tv fa-fw"></i>
+                <div class="mb-0 text-white icon-lg rounded-circle bg-warning"><i class="fas fa-newspaper fa-fw"></i>
                 </div>
             </div>
         </div>
@@ -23,12 +23,12 @@
             <div class="d-flex justify-content-between align-items-center">
                 <!-- Digit -->
                 <div>
-                    <h2 class="mb-0 purecounter fw-bold" data-purecounter-start="0" data-purecounter-end="1600"
+                    <h2 class="mb-0 purecounter fw-bold" data-purecounter-start="0" data-purecounter-end="{{ $events }}"
                         data-purecounter-delay="200">0</h2>
-                    <span class="mb-0 h6 fw-light">Enrolled Courses</span>
+                    <span class="mb-0 h6 fw-light">Evenèments</span>
                 </div>
                 <!-- Icon -->
-                <div class="mb-0 text-white icon-lg rounded-circle bg-purple"><i class="fas fa-user-tie fa-fw"></i>
+                <div class="mb-0 text-white icon-lg rounded-circle bg-purple"><i class="fas fa-calendar fa-fw"></i>
                 </div>
             </div>
         </div>
@@ -40,13 +40,13 @@
             <div class="d-flex justify-content-between align-items-center">
                 <!-- Digit -->
                 <div>
-                    <h2 class="mb-0 purecounter fw-bold" data-purecounter-start="0" data-purecounter-end="1235"
+                    <h2 class="mb-0 purecounter fw-bold" data-purecounter-start="0" data-purecounter-end="{{ $abonnes }}"
                         data-purecounter-delay="200">0</h2>
-                    <span class="mb-0 h6 fw-light">Course In Progress</span>
+                    <span class="mb-0 h6 fw-light">Abonnées</span>
                 </div>
                 <!-- Icon -->
                 <div class="mb-0 text-white icon-lg rounded-circle bg-primary"><i
-                        class="fas fa-user-graduate fa-fw"></i></div>
+                        class="fas fa-user-check fa-fw"></i></div>
             </div>
         </div>
     </div>
@@ -58,15 +58,14 @@
                 <!-- Digit -->
                 <div>
                     <div class="d-flex">
-                        <h2 class="mb-0 purecounter fw-bold" data-purecounter-start="0" data-purecounter-end="845"
+                        <h2 class="mb-0 purecounter fw-bold" data-purecounter-start="0" data-purecounter-end="0"
                             data-purecounter-delay="200">0</h2>
-                        <span class="mb-0 h2 ms-1">hrs</span>
                     </div>
-                    <span class="mb-0 h6 fw-light">Total Watch Time</span>
+                    <span class="mb-0 h6 fw-light">Articles Scientifique</span>
                 </div>
                 <!-- Icon -->
                 <div class="mb-0 text-white icon-lg rounded-circle bg-success"><i
-                        class="bi bi-stopwatch-fill fa-fw"></i></div>
+                        class="bi bi-file-earmark-text-fill fa-fw"></i></div>
             </div>
         </div>
     </div>

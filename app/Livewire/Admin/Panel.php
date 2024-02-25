@@ -2,8 +2,11 @@
 
 namespace App\Livewire\Admin;
 
+use App\Models\Post;
 use App\Models\Contact;
 use Livewire\Component;
+use App\Models\Evenement;
+use App\Models\Abonnement;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -38,10 +41,13 @@ class Panel extends Component
     public function render()
     {
         return view('livewire.admin.home', [
-
-            'contacts' => Contact::where('is_read', true)->latest()->paginate($this->page),
+            'contacts'  => Contact::where('is_read', true)->latest()->paginate($this->page),
+            'posts'     => Post::where('is_active', true)->count(),
+            'events'    => Evenement::where('is_active', true)->count(),
+            'abonnes'   => Abonnement::whereNotNull('email_verified_at')->count(),
         ]);
     }
+
 
     public function open($id)
     {

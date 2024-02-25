@@ -35,6 +35,7 @@ class Abonnements extends Component
 
         Abonnement::create([
             'email'  => $this->email,
+            'email_verified_at' => now()
         ]);
 
         $this->reset();

@@ -65,19 +65,18 @@
                 x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
                 <!-- Upload image START -->
                 <div class="col-12">
-                    <div
-                        class="p-4 text-center border border-2 border-dashed justify-content-center align-items-center p-sm-5 position-relative rounded-3">
+                    <div class="p-4 text-center border border-2 border-dashed justify-content-center align-items-center p-sm-2 position-relative rounded-3">
                         <!-- Image -->
                         <img src="{{ asset('assets/images/element/gallery.svg') }}" class="h-50px" alt="">
                         <div>
-                            <h6 class="my-2">Upload course image here, or<a href="#!" class="text-primary"> Browse</a></h6>
+                            <h6 class="my-2">Uploadez images ici, ou<a href="#!" class="text-primary"> Parcourir</a></h6>
                             <label style="cursor:pointer;">
                                 <span>
-                                    <input class="form-control stretched-link" type="file" wire:model="image_cover" id="image_path"
+                                    <input class="form-control stretched-link" type="file" wire:model="image_cover" id="image_cover"
                                         accept="image/gif, image/jpeg, image/png">
                                 </span>
                             </label>
-                            <p class="mt-2 mb-0 small"><b>Note:</b> Only JPG, JPEG and PNG.</p>
+                            <p class="mt-2 mb-0 small"><b>Note:</b> format : jpg, jpeg, png, svg.</p>
                             @error('image_cover') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <!-- Progress Bar -->
@@ -85,10 +84,10 @@
                             <progress max="100" x-bind:value="progress"></progress>
                         </div>
                         @if ($image_cover)
-                        <img src="{{  $image_cover->temporaryUrl() }}" width="200" height="150"
+                        <img src="{{  $image_cover->temporaryUrl() }}" width="150" height="120"
                             style="line-height:25px">
                         @else
-                        <img src="{{ asset('storage/' . $currentImage) }}" width="200" height="150" style="line-height:25px">
+                        <img src="{{ asset('storage/' . $currentImage) }}" width="150" height="120" style="line-height:25px">
                         @endif
                     </div>
                     </div>

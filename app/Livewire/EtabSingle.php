@@ -25,13 +25,13 @@ class EtabSingle extends Component
     {
         $single = Etab::where('uuid', $uuid)->first();
         if ($single) {
-        $this->status       = $single->rubrique->slug == 'facultes';
-        $this->type_etabs   = $single->rubrique->slug == 'ecoles-doctorale';
+        $this->status       = $single->type->slug == 'facultes';
+        $this->type_etabs   = $single->type->slug == 'ecoles-doctorale';
         $this->name         = $single->name;
         $this->sigle        = $single->sigle;
         $this->director     = $single->director;
         $this->slogan       = $single->slogan;
-        $this->about        = $single->about;
+        $this->about        = $single->html;
         $this->image_path   = $single->image_path;
 
         $this->phone_1      = $single->contact->phone_1;
@@ -68,9 +68,9 @@ class EtabSingle extends Component
         return view('livewire.etablissement.single', [
 
             'autres'  => Etab::where('uuid', '!=', $this->uuid)->where('status', true)
-                ->where('rubrique_id', '!=', 5)->get(),
+                ->where('type_id', '!=', 5)->get(),
 
-            'doctorales'  => Etab::where('uuid', '!=', $this->uuid)->where('rubrique_id', 5)->get(),
+            'doctorales'  => Etab::where('uuid', '!=', $this->uuid)->where('type_id', 5)->get(),
         ]);
     }
 

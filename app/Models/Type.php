@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Rubrique extends Model
+class Type extends Model
 {
     use HasFactory;
 
@@ -23,6 +23,10 @@ class Rubrique extends Model
 
         static::creating(function ($model) {
             $model->slug = Str::slug($model->name);
+
+            // Ajoutez ce code pour attribuer une couleur aléatoire
+            $colors = ['danger', 'success', 'warning', 'info', 'primary', 'dark'];
+            $model->bg_color = $colors[array_rand($colors)];
         });
     }
 }
