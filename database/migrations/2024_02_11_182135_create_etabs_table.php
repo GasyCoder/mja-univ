@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('uuid')->unique();
-            $table->unsignedBigInteger('rubrique_id');
+            $table->unsignedBigInteger('type_id');
             $table->string('sigle');
             $table->string('director')->nullable();
             $table->string('slogan')->nullable();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('rubrique_id')->references('id')->on('rubriques')->onDelete('cascade');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
         });
     }
 
