@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-200">
+    <div class="mb-4 text-sm text-green-600 dark:text-green-200">
        {{ __('Nous avons envoyé le code par e-mail') }} : {{ substr(auth()->user()->email, 0, 2) . '******'
     . substr(auth()->user()->email, -2) }}
     </div>

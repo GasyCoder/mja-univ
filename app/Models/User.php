@@ -3,15 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Exception;
 use App\Models\UserCode;
 use App\Mail\SendCodeMail;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Traits\HasRoles;
+use App\Notifications\SendTwoFactorCode;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Exception;
 
 class User extends Authenticatable
 {
@@ -68,7 +69,7 @@ class User extends Authenticatable
                 'subject' => 'Code de sécurité '
             ];
 
-            $this->notify(new \App\Notifications\SendTwoFactorCode($details));
+            $this->notify(new SendTwoFactorCode($details));
 
         } catch (Exception $e) {
             info("Error: " . $e->getMessage());
