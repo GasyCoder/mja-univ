@@ -32,13 +32,13 @@ class Home extends Component
 
     public function abonner()
     {
-        $messages = [
+        $message = [
             'email.unique' => 'Votre email est déjà utilisée.',
         ];
 
         $this->validate([
             'email' => 'required|email|unique:abonnements,email',
-        ], $messages);
+        ], $message);
 
         $abonnement = Abonnement::firstOrCreate([
             'email' => $this->email,
