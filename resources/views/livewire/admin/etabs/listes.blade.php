@@ -6,7 +6,7 @@
         <div class="mb-3 row">
             <div class="col-12">
                 <h3 class="mb-2 h3 mb-sm-0">Etablissements <span class="badge bg-orange bg-opacity-10 text-orange">
-                    {{ $etabs->count() }}</span>
+                    {{ $alletabs }}</span>
                 </h3>
                 <a href="#" wire:click="trash()" class="mb-0 btn btn-sm btn-dark">
                    <i class="bi bi-trash-fill"></i> Corbeille

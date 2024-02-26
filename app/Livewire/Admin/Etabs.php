@@ -283,6 +283,7 @@ class Etabs extends Component
         return view('livewire.admin.etabs.listes', [
 
             'etabs' => Etab::where('type_id', '!=', 5)->latest()->paginate($this->page),
+            'alletabs' => Etab::where('type_id', '!=', 5)->count(),
 
             'archives' => Etab::onlyTrashed()->latest()->paginate($this->page),
             'archivesCount' => Etab::onlyTrashed()->count(),
