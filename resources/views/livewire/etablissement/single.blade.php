@@ -32,9 +32,17 @@
                 <!-- Main content START -->
                 <div class="col-lg-8">
                     <!-- Title -->
+                   @if($slogan ?? null)
                    <h5 class="mb-0 text-center blockquote-footer text-info">{{ $slogan }}</h5>
+                   @else
+                   <h5 class="mb-0 text-center blockquote-footer text-info">Slogan...</h5>
+                   @endif
                     <!-- Content -->
+                    @if($about ?? null)
                     <p class="mt-4">{!! $about !!}</p>
+                    @else
+                    <p class="mt-4 text-danger fw-bold">Aucun données</p>
+                    @endif
                     <hr>
                     <!-- Personal info -->
                     <ul class="list-group list-group-borderless">
