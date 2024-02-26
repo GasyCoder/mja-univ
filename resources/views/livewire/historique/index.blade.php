@@ -1,4 +1,17 @@
 <div>
+
+    <!-- =======================
+    Trending courses START -->
+    {{-- <section class="pt-0 pb-5 pt-lg-5">
+        <div class="container">
+            <!-- Title -->
+            <div class="row">
+
+            </div>
+        </div>
+    </section> --}}
+    <!-- =======================
+    Trending courses END -->
     <section class="bg-light">
         <div class="container">
             <!-- Title -->
@@ -13,22 +26,24 @@
             </div>
             <div class="row" wire:ignore>
                 <div class="col-12">
-                    <!-- Slider START -->
-                    <div class="overflow-hidden tiny-slider arrow-round arrow-blur arrow-hover rounded-3">
-                        <div class="tiny-slider-inner" data-autoplay="false" data-gutter="0" data-arrow="true" data-dots="false"
-                            data-items="1">
+                <!-- Slider START -->
+                <div class="tiny-slider arrow-round arrow-blur arrow-hover">
+                    <div class="pb-1 tiny-slider-inner" data-autoplay="true" data-arrow="true" data-edge="2" data-dots="false"
+                        data-items="3" data-items-lg="2" data-items-sm="1">
+                        <!-- Card item START -->
                         @foreach ($images_cover as $image)
-                            <!-- Card item START -->
-                            <div class="overflow-hidden text-center card h-350px h-md-400px rounded-0"
-                                style="background-image:url({{ asset('storage/' .$image) }}); background-position: center left; background-size: cover;">
-                                <!-- Background dark overlay -->
-                                <div class="bg-overlay bg-dark opacity-1"></div>
+                        <div>
+                            <div class="bg-transparent border card action-trigger-hover">
+                                <!-- Image -->
+                                <img src="{{ asset('storage/' .$image) }}" class="card-img-top" alt="image président">
+                                <!-- Ribbon -->
                             </div>
-                            <!-- Card item END -->
-                        @endforeach
                         </div>
+                        @endforeach
+                        <!-- Card item END -->
                     </div>
-                    <!-- Slider END -->
+                </div>
+                <!-- Slider END -->
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('slogan');
             $table->mediumText('intro');
             $table->text('body');
-            $table->longText('images_cover');
+            $table->longText('images_cover')->nullable();
             $table->timestamps();
         });
     }
