@@ -185,11 +185,11 @@
 
 @push('scripts')
 <script>
-    var inputDomaine = document.querySelector('#pedagogie_tags');
-    var tagifyDomaine = new Tagify(inputDomaine);
-    tagifyDomaine.on('change', function(e){
+    var inputDiplomes = document.querySelector('#diplomes_tags');
+    var tagifyDiplomes = new Tagify(inputDiplomes);
+    tagifyDiplomes.on('change', function(e){
         var tags = JSON.parse(e.detail.value).map(function(tag) { return tag.value; });
-        @this.set('domaine', tags.join(','));
+        @this.set('diplomes', tags.join(','));
     });
 
     var inputMention = document.querySelector('#mention_tags');

@@ -22,7 +22,7 @@
                     <!-- Titre -->
                     <div class="col-12">
                         <label class="form-label" for="tags">Diplômes délivré</label>
-                        <input class="form-control " type="text" id='pedagogie_tags' wire:model="diplomes" autofocus>
+                        <input class="form-control " type="text" id='diplomes_tags' wire:model="diplomes" autofocus>
                         @error('diplomes.*') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     {{-- <div class="col-6">

@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('pedagogies', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('etabId');
-            $table->string('diplomes')->nullable();
-            $table->string('mention')->nullable();
-            $table->string('parcour')->nullable();
-            $table->string('respo_mention')->nullable();
-            $table->string('respo_parcour')->nullable();
+            $table->longText('diplomes')->nullable();
+            $table->longText('mention')->nullable();
+            $table->longText('parcour')->nullable();
+            $table->longText('respo_mention')->nullable();
+            $table->longText('respo_parcour')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

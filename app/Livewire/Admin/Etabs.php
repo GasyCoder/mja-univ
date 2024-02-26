@@ -39,6 +39,7 @@ class Etabs extends Component
     public $etab_Id, $pedago_Id, $state_Id, $contact_Id;
 
     public $diplomes, $mention, $parcour = [];
+
     public $respo_mention, $respo_parcour;
     public $pedagogie, $openTrash = false;
 

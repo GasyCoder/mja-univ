@@ -70,7 +70,7 @@
                                 <td>
                                     {{-- pédagogie --}}
                                     @if($row->pedagogies->contains(function ($pedagogie) {
-                                    return $pedagogie->domaine != null;
+                                    return $pedagogie->diplomes != null;
                                     }))
                                     <a href="#" wire:click="succesPedago({{ $row->id }})"
                                         class="mb-1 badge bg-success me-1 mb-md-0" data-bs-toggle="modal"
