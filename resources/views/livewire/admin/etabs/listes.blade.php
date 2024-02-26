@@ -74,7 +74,7 @@
                                 <td>
                                     {{-- pédagogie --}}
                                     @if($row->pedagogies->contains(function ($pedagogie) {
-                                    return $pedagogie->diplomes != null;
+                                    return $pedagogie->mention != null;
                                     }))
                                     <a href="#" wire:click="succesPedago({{ $row->id }})"
                                         class="mb-1 badge bg-success me-1 mb-md-0"
@@ -185,12 +185,6 @@
 
 @push('scripts')
 <script>
-    var inputDiplomes = document.querySelector('#diplomes_tags');
-    var tagifyDiplomes = new Tagify(inputDiplomes);
-    tagifyDiplomes.on('change', function(e){
-        var tags = JSON.parse(e.detail.value).map(function(tag) { return tag.value; });
-        @this.set('diplomes', tags.join(','));
-    });
 
     var inputMention = document.querySelector('#mention_tags');
     var tagifyMention = new Tagify(inputMention);
@@ -204,6 +198,13 @@
     tagifyParcour.on('change', function(e){
     var tags = JSON.parse(e.detail.value).map(function(tag) { return tag.value; });
     @this.set('parcour', tags.join(','));
+    });
+
+    var inputDiplomes = document.querySelector('#diplomes_tags');
+        var tagifyDiplomes = new Tagify(inputDiplomes);
+        tagifyDiplomes.on('change', function(e){
+        var tags = JSON.parse(e.detail.value).map(function(tag) { return tag.value; });
+        @this.set('diplomes', tags.join(','));
     });
 </script>
 @endpush
