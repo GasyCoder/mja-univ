@@ -54,10 +54,12 @@
                             <span>{{ $phone_2 }}</span>
                         </li>
                         @endif
+                        @if($email ?? null)
                         <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i class="fas fa-fw fa-envelope text-primary me-1 me-sm-3"></i>Email:</span>
                            <a href="mailto:{{ $email }}">{{ $email }}</a>
                         </li>
+                        @endif
                         </div>
                         <div class="col-6">
                         @if($facebook ?? null)

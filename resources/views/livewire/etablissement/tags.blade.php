@@ -1,5 +1,6 @@
 <div class="mt-4 col-md-6 col-xl-12">
     <div class="p-4 border card card-body">
+    @if($mention ?? null)
     <h6 class="mb-2">Mentions</h6>
         <ul class="mb-0 list-inline">
             @if($mention)
@@ -8,6 +9,8 @@
             @endforeach
             @endif
         </ul>
+    @endif
+    @if($parcour ?? null)
     <h6 class="mt-3 mb-2">Parcours</h6>
         <ul class="mb-0 list-inline">
             @if($parcour)
@@ -16,7 +19,8 @@
             @endforeach
             @endif
         </ul>
-
+    @endif
+    @if($diplomes ?? null)
     <h6 class="mt-3 mb-2">Diplôme délivrés</h6>
         <ul class="mb-0 list-inline">
             @if($diplomes)
@@ -27,5 +31,6 @@
             @endforeach
             @endif
         </ul>
+    @endif
     </div>
 </div>
