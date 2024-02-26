@@ -64,7 +64,7 @@ Page content START -->
                             <div class="mb-3 d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <!-- Avatar image -->
-                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/01.jpg') }}" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="{{ asset('storage/' .$photo) }}" alt="avatar">
                                     <!-- Medal badge -->
                                     <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">
@@ -81,7 +81,7 @@ Page content START -->
                             <div class="mb-3 d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <!-- Avatar image -->
-                                    <img class="avatar-img rounded-circle" src="{{ asset('storage/' .$photo) }}" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/03.jpg') }}" alt="avatar">
                                     <!-- Medal badge -->
                                     <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">
