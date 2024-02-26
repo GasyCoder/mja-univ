@@ -2,7 +2,7 @@
 <div class="overflow-hidden text-center card h-400px h-md-500px rounded-0"
     style="background-image:url({{ asset('storage/' .explode(',', $slider->images)[0]) }}); background-position: center left; background-size: cover;">
     <!-- Background dark overlay -->
-    <div class="bg-overlay bg-dark opacity-7"></div>
+    <div class="bg-overlay bg-dark opacity-6"></div>
     <!-- Card image overlay -->
     <div class="p-3 card-img-overlay d-flex align-items-center p-sm-4">
         <div class="my-auto w-100">
