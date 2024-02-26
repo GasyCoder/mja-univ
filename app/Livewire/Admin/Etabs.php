@@ -131,9 +131,10 @@ class Etabs extends Component
         $update = Pedagogie::findOrFail($this->pedago_Id);
         $updateData = [
 
-            'diplomes'                   => is_array($this->diplomes) ? implode(',', $this->diplomes) : implode(',', explode(',', $this->diplomes)),
-            'parcour'                   => is_array($this->parcour) ? implode(',', $this->parcour) : implode(',', explode(',', $this->parcour)),
             'mention'                   => is_array($this->mention) ? implode(',', $this->mention) : implode(',', explode(',', $this->mention)),
+            'diplomes'                  => is_array($this->diplomes) ? implode(',', $this->diplomes) : implode(',', explode(',', $this->diplomes)),
+            'parcour'                   => is_array($this->parcour) ? implode(',', $this->parcour) : implode(',', explode(',', $this->parcour)),
+
 
             'respo_mention'             => $this->respo_mention,
             'respo_parcour'             => $this->respo_parcour,
@@ -145,11 +146,15 @@ class Etabs extends Component
 
     public function succesPedago($id)
     {
-        $pedago = Pedagogie::find($id);
+        $pedago = Pedagogie::findOrFail($id);
         $this->pedago_Id        = $id;
-        $this->diplomes          = is_array($pedago->diplomes) ? implode(',', $pedago->diplomes) : implode(',', explode(',', $pedago->diplomes));
-        $this->parcour          = is_array($pedago->parcour) ? implode(',', $pedago->parcour) : implode(',', explode(',', $pedago->parcour));
+
         $this->mention          = is_array($pedago->mention) ? implode(',', $pedago->mention) : implode(',', explode(',', $pedago->mention));
+
+        $this->parcour          = is_array($pedago->parcour) ? implode(',', $pedago->parcour) : implode(',', explode(',', $pedago->parcour));
+        $this->diplomes         = is_array($pedago->diplomes) ? implode(',', $pedago->diplomes) : implode(',', explode(',', $pedago->diplomes));
+
+
         $this->respo_parcour    = $pedago->respo_parcour;
         $this->respo_mention    = $pedago->respo_mention;
         $this->pedagogie = true;
