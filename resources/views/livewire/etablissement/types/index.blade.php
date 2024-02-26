@@ -44,10 +44,17 @@ Main Banner END -->
                                 <h4 class="mt-3 mb-0 card-title">{{ $etab->sigle }}</h4>
                                 <span>{{ $etab->name }}</span>
                                 <!-- Button -->
+                                @if($etab->type_id != 5)
                                 <a href="{{ route('single_etab', ['uuid' => $etab->uuid]) }}" wire:navigate
                                     class="p-0 mt-3 btn btn-lg btn-link stretched-link"><u>
                                         Détails</u>
                                 </a>
+                                @else
+                                <a href="{{ route('single_doc', ['uuid' => $etab->uuid]) }}" wire:navigate
+                                    class="p-0 mt-3 btn btn-lg btn-link stretched-link"><u>
+                                        Détails</u>
+                                </a>
+                                @endif
                             </div>
                             <!-- Card END -->
                         </div>
