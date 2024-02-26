@@ -48,8 +48,8 @@ class Historiques extends Component
 
     public function update()
     {
-        if (count($this->images_cover) > 4) {
-            $this->alert('warning', 'Vous ne pouvez télécharger que 4 images au maximum.', [
+        if (count($this->images_cover) > 30) {
+            $this->alert('warning', 'Vous ne pouvez télécharger que 30 images au maximum.', [
                 'toast' => true,
                 'icon' => 'error',
                 'timer' => 3000,
@@ -59,7 +59,7 @@ class Historiques extends Component
         }
 
         $this->validate([
-            'images_cover' => 'nullable|array|max:4',
+            'images_cover' => 'nullable|array|max:30',
         ]);
         $update = Historique::first();
 
