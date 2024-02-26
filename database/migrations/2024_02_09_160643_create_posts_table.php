@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->string('slug')->unique();
             $table->unsignedBigInteger('category_id');
-            $table->string('images')->nullable();
+            $table->longText('images')->nullable();
             $table->boolean('is_slider')->default(false);
             $table->boolean('is_active')->default(true);
             $table->boolean('is_sendemail')->default(false);

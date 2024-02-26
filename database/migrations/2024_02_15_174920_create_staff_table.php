@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('job');
             $table->integer('matricule')->nullable();
             $table->mediumText('about');
-            $table->string('image_path')->nullable();
+            $table->longText('image_path')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
 

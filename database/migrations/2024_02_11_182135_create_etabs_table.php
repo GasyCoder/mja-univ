@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('director')->nullable();
             $table->string('slogan')->nullable();
             $table->text('about')->nullable();
-            $table->string('image_path')->nullable();
+            $table->longText('image_path')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
             $table->softDeletes();
