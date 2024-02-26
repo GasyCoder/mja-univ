@@ -34,7 +34,7 @@ class Etabs extends Component
     public $slogan;
     public $about;
     public $status = true;
-    public $page = 10;
+    public $page = 20;
 
     public $etab_Id, $pedago_Id, $state_Id, $contact_Id;
 
