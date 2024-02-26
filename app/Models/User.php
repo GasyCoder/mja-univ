@@ -52,7 +52,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function generateCode(): void
+    public function generateCode()
     {
         $code = rand(100000, 999999);
 

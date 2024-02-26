@@ -13,12 +13,12 @@ class CookieAlert extends Component
 
     public function acceptCookies()
     {
-        session()->put('cookies_accepted', true, 60 * 24 * 365);
+        session()->put('cookies_accepted', true);
     }
 
     public function declineCookies()
     {
-        session()->put('cookies_declined', true, 60 * 24 * 365);
+        session()->put('cookies_declined', true);
     }
 
     // public function acceptCookies()

@@ -129,12 +129,13 @@ class Etabs extends Component
     {
         $update = Pedagogie::findOrFail($this->pedago_Id);
         $updateData = [
-            'respo_mention'             => $this->respo_mention,
-            'respo_parcour'             => $this->respo_parcour,
 
             'diplomes'                   => is_array($this->diplomes) ? implode(',', $this->diplomes) : implode(',', explode(',', $this->diplomes)),
             'parcour'                   => is_array($this->parcour) ? implode(',', $this->parcour) : implode(',', explode(',', $this->parcour)),
             'mention'                   => is_array($this->mention) ? implode(',', $this->mention) : implode(',', explode(',', $this->mention)),
+
+            'respo_mention'             => $this->respo_mention,
+            'respo_parcour'             => $this->respo_parcour,
         ];
         $update->update($updateData);
         $this->showMessage('Pédagogie avec succès!');

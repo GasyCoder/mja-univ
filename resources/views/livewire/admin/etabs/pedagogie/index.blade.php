@@ -9,12 +9,6 @@
             </div>
             <div class="modal-body">
                 <form class="row text-start g-3" novalidate="" wire:submit.prevent="submitPedagogie">
-                    <!-- Titre -->
-                    <div class="col-12">
-                        <label class="form-label" for="tags">Diplômes délivré</label>
-                        <input class="form-control " type="text" id='pedagogie_tags' wire:model="diplomes" autofocus>
-                        @error('diplomes.*') <span class="text-danger">{{ $message }}</span> @enderror
-                    </div>
                     <div class="col-12">
                         <label class="form-label">Mention</label>
                         <input class="form-control" type="text" id='mention_tags' wire:model="mention" placeholder="Mention">
@@ -25,7 +19,12 @@
                         <input class="form-control" type="text" id='parcour_tags' wire:model="parcour" placeholder="Parcours">
                         @error('parcour.*') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-
+                    <!-- Titre -->
+                    <div class="col-12">
+                        <label class="form-label" for="tags">Diplômes délivré</label>
+                        <input class="form-control " type="text" id='pedagogie_tags' wire:model="diplomes" autofocus>
+                        @error('diplomes.*') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
                     {{-- <div class="col-6">
                         <label class="form-label">Responsable de Mention</label>
                         <input class="form-control" type="text" wire:model="respo_mention"

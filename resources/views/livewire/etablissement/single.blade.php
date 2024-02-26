@@ -32,7 +32,7 @@
                 <!-- Main content START -->
                 <div class="col-lg-8">
                     <!-- Title -->
-                    <h5 class="mb-0">{{ $slogan }}</h5>
+                   <h5 class="mb-0 text-center blockquote-footer text-info">{{ $slogan }}</h5>
                     <!-- Content -->
                     <p class="mt-4">{!! $about !!}</p>
                     <hr>
@@ -40,36 +40,46 @@
                     <ul class="list-group list-group-borderless">
                      <div class="row">
                         <div class="col-6">
+                        @if($phone_1 ?? null)
                         <li class="px-0 list-group-item">
                             <span class="h6 fw-light">
                                 <i class="fas fa-fw fa-headphones text-primary me-1 me-sm-3"></i>Téléphone:</span>
                             <span>{{ $phone_1 }}</span>
                         </li>
+                        @endif
+                        @if($phone_2 ?? null)
                         <li class="px-0 list-group-item">
                             <span class="h6 fw-light">
                                 <i class="fas fa-fw fa-headphones text-primary me-1 me-sm-3"></i>Téléphone:</span>
                             <span>{{ $phone_2 }}</span>
                         </li>
+                        @endif
                         <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i class="fas fa-fw fa-envelope text-primary me-1 me-sm-3"></i>Email:</span>
                            <a href="mailto:{{ $email }}">{{ $email }}</a>
                         </li>
                         </div>
                         <div class="col-6">
+                        @if($facebook ?? null)
                         <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i
                                     class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>Facebook:</span>
                             <a href="{{ $facebook }}" target="_blank">{{ $facebook }}</a>
                         </li>
+                        @endif
+                        @if($siteweb ?? null)
                         <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>Website:</span>
                             <a href="{{ $siteweb }}" target="_blank">{{ $siteweb }}</a>
                         </li>
+                        @endif
+                        @if($adresse ?? null)
                         <li class="px-0 list-group-item">
                             <span class="h6 fw-light"><i
                                     class="fas fa-fw fa-map-marker-alt text-primary me-1 me-sm-3"></i>Address:</span>
                             <span>{{ $adresse }}</span>
                         </li>
+                        @endif
                         </div>
                     </div>
                     </ul>

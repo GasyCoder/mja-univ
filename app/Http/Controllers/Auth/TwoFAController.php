@@ -41,10 +41,15 @@ class TwoFAController extends Controller
     public function resend()
     {
         $user = auth()->user();
-        $user->generateCode();
-
-        return back()->with('status', 'Nous vous avons envoyé le code sur votre email.');
+        if ($user) {
+            $user->generateCode();
+            return back()->with('status', 'Nous vous avons envoyé le code sur votre email.');
+        } else {
+            // Gérer le cas où il n'y a pas d'utilisateur authentifié
+            return back()->with('error', 'Vous devez être connecté pour effectuer cette action.');
+        }
     }
+
 }
 
 

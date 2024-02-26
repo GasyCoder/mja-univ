@@ -1,7 +1,11 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-green-600 dark:text-green-200">
-       {{ __('Nous avons envoyé le code par e-mail') }} : {{ substr(auth()->user()->email, 0, 2) . '******'
-    . substr(auth()->user()->email, -2) }}
+        @if(auth()->check())
+        {{ __('Nous avons envoyé le code par e-mail') }} : {{ substr(auth()->user()->email, 0, 2) . '******' .
+        substr(auth()->user()->email, -2) }}
+        @else
+        {{ __('Vous devez être connecté pour effectuer cette action.') }}
+        @endif
     </div>
 
     <!-- Session Status -->
