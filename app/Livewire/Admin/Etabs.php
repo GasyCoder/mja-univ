@@ -38,7 +38,7 @@ class Etabs extends Component
 
     public $etab_Id, $pedago_Id, $state_Id, $contact_Id;
 
-    public $domaine, $mention, $parcour = [];
+    public $diplomes, $mention, $parcour = [];
     public $respo_mention, $respo_parcour;
     public $pedagogie, $openTrash = false;
 
@@ -132,7 +132,7 @@ class Etabs extends Component
             'respo_mention'             => $this->respo_mention,
             'respo_parcour'             => $this->respo_parcour,
 
-            'domaine'                   => is_array($this->domaine) ? implode(',', $this->domaine) : implode(',', explode(',', $this->domaine)),
+            'diplomes'                   => is_array($this->diplomes) ? implode(',', $this->diplomes) : implode(',', explode(',', $this->diplomes)),
             'parcour'                   => is_array($this->parcour) ? implode(',', $this->parcour) : implode(',', explode(',', $this->parcour)),
             'mention'                   => is_array($this->mention) ? implode(',', $this->mention) : implode(',', explode(',', $this->mention)),
         ];
@@ -145,7 +145,7 @@ class Etabs extends Component
     {
         $pedago = Pedagogie::find($id);
         $this->pedago_Id        = $id;
-        $this->domaine          = is_array($pedago->domaine) ? implode(',', $pedago->domaine) : implode(',', explode(',', $pedago->domaine));
+        $this->diplomes          = is_array($pedago->diplomes) ? implode(',', $pedago->diplomes) : implode(',', explode(',', $pedago->diplomes));
         $this->parcour          = is_array($pedago->parcour) ? implode(',', $pedago->parcour) : implode(',', explode(',', $pedago->parcour));
         $this->mention          = is_array($pedago->mention) ? implode(',', $pedago->mention) : implode(',', explode(',', $pedago->mention));
         $this->respo_parcour    = $pedago->respo_parcour;
@@ -230,8 +230,8 @@ class Etabs extends Component
     public function delete($id)
     {
         $etab = Etab::findOrFail($id);
-        // Detach all related domaines
-        $etab->domaines()->detach();
+        // Detach all related diplomess
+        $etab->diplomess()->detach();
 
         // Delete all related pedagogies, statistiques, and contact
         $etab->pedagogies()->delete();

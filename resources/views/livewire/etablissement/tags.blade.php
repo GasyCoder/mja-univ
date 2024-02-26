@@ -19,8 +19,8 @@
 
     <h6 class="mt-3 mb-2">Diplôme délivrés</h6>
         <ul class="mb-0 list-inline">
-            @if($domaine)
-            @foreach($domaine as $d)
+            @if($diplomes)
+            @foreach($diplomes as $d)
             <li class="list-inline-item">
                 <a class="btn btn-outline-light btn-sm" href="#">{{ $d }}</a>
             </li>

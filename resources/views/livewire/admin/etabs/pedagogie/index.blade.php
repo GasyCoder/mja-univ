@@ -11,9 +11,9 @@
                 <form class="row text-start g-3" novalidate="" wire:submit.prevent="submitPedagogie">
                     <!-- Titre -->
                     <div class="col-12">
-                        <label class="form-label" for="tags">Domaine</label>
-                        <input class="form-control " type="text" id='pedagogie_tags' wire:model="domaine" autofocus>
-                        @error('domaine.*') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label class="form-label" for="tags">Diplômes délivré</label>
+                        <input class="form-control " type="text" id='pedagogie_tags' wire:model="diplomes" autofocus>
+                        @error('diplomes.*') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="col-12">
                         <label class="form-label">Mention</label>
@@ -25,7 +25,8 @@
                         <input class="form-control" type="text" id='parcour_tags' wire:model="parcour" placeholder="Parcours">
                         @error('parcour.*') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="col-6">
+
+                    {{-- <div class="col-6">
                         <label class="form-label">Responsable de Mention</label>
                         <input class="form-control" type="text" wire:model="respo_mention"
                         placeholder="Responsable de Mention">
@@ -36,7 +37,7 @@
                     <input class="form-control" type="text" wire:model="respo_parcour"
                     placeholder="Responsable de Parcours">
                     @error('respo_parcour') <span class="text-danger">{{ $message }}</span> @enderror
-                    </div>
+                    </div> --}}
 
                     <div class="modal-footer">
                         <a href="/adminx/profil-etab" wire:navigate class="my-0 btn btn-danger-soft">Close</a>
@@ -47,4 +48,4 @@
         </div>
     </div>
 </div>
-<!-- Add course modal START -->
+<!-- Add pedagogie modal START -->

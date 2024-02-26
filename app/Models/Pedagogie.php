@@ -13,7 +13,7 @@ class Pedagogie extends Model
 
     protected $fillable = [
         'etabId',
-        'domaine',
+        'diplomes',
         'mention',
         'parcour',
         'respo_mention',

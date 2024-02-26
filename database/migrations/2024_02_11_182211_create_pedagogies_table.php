@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pedagogies', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('etabId');
-            $table->string('domaine')->nullable();
+            $table->string('diplomes')->nullable();
             $table->string('mention')->nullable();
             $table->string('parcour')->nullable();
             $table->string('respo_mention')->nullable();

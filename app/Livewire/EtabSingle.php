@@ -16,7 +16,7 @@ class EtabSingle extends Component
     public $uuid;
     public $status, $type_etabs;
 
-    public $domaine, $mention, $parcour, $respo_mention, $respo_parcour;
+    public $diplomes, $mention, $parcour, $respo_mention, $respo_parcour;
     public $enseignant, $etudiant, $personnel, $vacataire;
     public $enseignantPourcentage, $etudiantPourcentage, $personnelPourcentage, $vacatairePourcentage;
     public $phone_1, $phone_2, $email, $siteweb, $facebook, $adresse;
@@ -46,12 +46,12 @@ class EtabSingle extends Component
         $this->personnel    = $single->statistiques->sum('personnel');
         $this->vacataire    = $single->statistiques->sum('vacataire');
 
-        $this->domaine = [];
+        $this->diplomes = [];
         $this->mention = [];
         $this->parcour = [];
 
         foreach ($single->pedagogies as $pedagogie) {
-            $this->domaine = array_merge($this->domaine, explode(',', $pedagogie->domaine));
+            $this->diplomes = array_merge($this->diplomes, explode(',', $pedagogie->diplomes));
             $this->mention = array_merge($this->mention, explode(',', $pedagogie->mention));
             $this->parcour = array_merge($this->parcour, explode(',', $pedagogie->parcour));
         }
