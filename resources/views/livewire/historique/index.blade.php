@@ -29,7 +29,7 @@
                 <!-- Slider START -->
                 <div class="tiny-slider arrow-round arrow-blur arrow-hover">
                     <div class="pb-1 tiny-slider-inner" data-autoplay="true" data-arrow="true" data-edge="2" data-dots="false"
-                        data-items="3" data-items-lg="2" data-items-sm="1">
+                        data-items="6" data-items-lg="2" data-items-sm="1">
                         <!-- Card item START -->
                         @foreach ($images_cover as $image)
                         <div>
