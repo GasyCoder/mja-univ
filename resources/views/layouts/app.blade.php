@@ -70,13 +70,13 @@
     <i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i>
 </div>
 <!-- Vendors -->
-<script data-navigate-once="true" src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-<script data-navigate-track="true" src="{{ asset('assets/vendor/purecounterjs/dist/purecounter_vanilla.js') }}"></script>
-<script data-navigate-once="true" src="{{ asset('assets/vendor/isotope/isotope.pkgd.min.js') }}"></script>
-<script data-navigate-once="true" src="{{ asset('assets/vendor/tiny-slider/tiny-slider.js') }}"></script>
-<script data-navigate-once="true" src="{{ asset('assets/vendor/glightbox/js/glightbox.js') }}"></script>
-<script data-navigate-once="true" src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
-<script data-navigate-once="true" src="{{ asset('assets/vendor/imagesLoaded/imagesloaded.js') }}"></script>
+<script data-navigate-once="false" src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script data-navigate-track="false" src="{{ asset('assets/vendor/purecounterjs/dist/purecounter_vanilla.js') }}"></script>
+<script data-navigate-once="false" src="{{ asset('assets/vendor/isotope/isotope.pkgd.min.js') }}"></script>
+<script data-navigate-once="false" src="{{ asset('assets/vendor/tiny-slider/tiny-slider.js') }}"></script>
+<script data-navigate-once="false" src="{{ asset('assets/vendor/glightbox/js/glightbox.js') }}"></script>
+<script data-navigate-once="false" src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
+<script data-navigate-once="false" src="{{ asset('assets/vendor/imagesLoaded/imagesloaded.js') }}"></script>
 <!-- Js Functions -->
 <script src="{{ asset('assets/js/functions.js') }}"></script>
 @if(Route::is('admin') || Route::is('categorie') || Route::is('article')
