@@ -22,10 +22,10 @@ Page Banner START -->
                     <ul class="mb-0 list-inline">
                         <!-- Address -->
                         <li class="mb-3 list-item">
-                            <a href="#" class="text-white btn btn-sm btn-dark">
+                            <a href="https://mail.univ-mahajanga.edu.mg/" target="_blank" class="text-white btn btn-sm btn-dark">
                                 Ancien Web Email
                             </a>
-                            <a href="#" class="btn btn-sm btn-warning text-dark">
+                            <a href="https://webmail.mahajanga-univ.mg/" target="_blank" class="btn btn-sm btn-warning text-dark">
                                 Nouveau Web Email
                             </a>
                         </li>
