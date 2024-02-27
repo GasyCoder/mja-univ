@@ -16,7 +16,7 @@
         <div class="container">
             <!-- Title -->
             <div class="pb-4 row position-relative">
-                <div class="col-lg-8 position-relative">
+                <div class="col-lg-12 position-relative">
                     <!-- Title -->
                     <h2>Historique de l'Université de Mahajanga</h2>
                     <p>
