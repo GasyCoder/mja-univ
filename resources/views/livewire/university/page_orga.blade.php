@@ -5,7 +5,7 @@ Main Banner START -->
     <div class="container">
         <!-- Title -->
         <div class="pb-4 row position-relative">
-            <div class="col-lg-8 position-relative">
+            <div class="col-lg-12 position-relative">
                 <!-- Title -->
                 <h3>Organigramme</h3>
                 <p>
@@ -81,7 +81,7 @@ Page content START -->
                             <div class="mb-3 d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <!-- Avatar image -->
-                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/03.jpg') }}" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/vice_president.jpg') }}" alt="avatar">
                                     <!-- Medal badge -->
                                     <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">
@@ -100,7 +100,7 @@ Page content START -->
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <!-- Avatar image -->
-                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/06.jpg') }}" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/vice_president.jpg') }}" alt="avatar">
                                     <!-- Medal badge -->
                                     <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">

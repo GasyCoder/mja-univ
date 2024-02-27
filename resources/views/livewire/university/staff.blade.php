@@ -1,14 +1,14 @@
 <div>
-@if($staffCats->isEmpty())
+@if($staffCats->count() > 0)
    <section class="bg-light">
         <div class="container">
-            <div class="row position-relative pb-4">
+            <div class="pb-4 row position-relative">
                 <div class="col-lg-8 position-relative">
                     <h1 class="m-0">Nos staffs</h1>
                     <!-- Breadcrumb -->
                     <div class="d-flex justify-content-start">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb mb-0">
+                            <ol class="mb-0 breadcrumb">
                                 <li class="breadcrumb-item"><a href="/" wire:navigate>Accueil</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Tous nos staffs</li>
                             </ol>
@@ -35,14 +35,14 @@
                 </div>
             </div>
             <div class="col-8 col-sm-9">
-                <div class="tab-content pt-0" id="v-pills-tabContent">
+                <div class="pt-0 tab-content" id="v-pills-tabContent">
                     @foreach ($staffCats as $staffCat)
                     <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="v-pills-{{ $staffCat->id }}"
                         role="tabpanel" aria-labelledby="v-pills-tab-{{ $staffCat->id }}">
                         <div class="row g-4">
                             @foreach ($staffCat->staffs as $staff)
                             <div class="col-lg-10 col-xl-6">
-                                <div class="card shadow p-2">
+                                <div class="p-2 shadow card">
                                     <div class="row g-0">
                                         <!-- Image -->
                                         <div class="col-md-3">
@@ -52,25 +52,25 @@
                                         <div class="col-md-9">
                                             <div class="card-body">
                                                 <!-- Title -->
-                                                <div class="d-sm-flex justify-content-sm-between mb-0 mb-sm-0">
+                                                <div class="mb-0 d-sm-flex justify-content-sm-between mb-sm-0">
                                                     <div>
                                                         <h6 class="mb-0">
                                                            {{ $staff->name }}
                                                         </h6>
-                                                        <p class="small mb-0 mb-sm-0">
+                                                        <p class="mb-0 small mb-sm-0">
                                                             {{ $staff->job }}
                                                             - IM: {{ $staff->matricule }}
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <!-- Content -->
-                                                <p class="text-truncate-2 mb-0">
+                                                <p class="mb-0 text-truncate-2">
                                                     {{ $staff->about }}
                                                 </p>
                                                 <!-- Info -->
                                                 <div class="d-sm-flex justify-content-sm-between align-items-center">
                                                     <!-- Title -->
-                                                    <h6 class="text-orange mb-0">{{ $staff->staffCat->title }}</h6>
+                                                    <h6 class="mb-0 text-orange">{{ $staff->staffCat->title }}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,7 +87,7 @@
     </div>
     </section>
 @else
-<div class="d-flex justify-content-center align-items-center pt-8 pb-8">
+<div class="pt-8 pb-8 d-flex justify-content-center align-items-center">
     <div class="shadow">
             <div class="py-2 mb-0 alert alert-danger d-flex align-items-center">
                 <div class="text-center">
