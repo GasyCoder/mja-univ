@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('keywords');
             $table->boolean('is_slider');
             $table->boolean('is_siteactive');
+            $table->boolean('type_header');
             $table->text('message_disabled');
             $table->string('logo')->nullable();
             $table->string('facebook')->nullable();

@@ -24,8 +24,8 @@ Footer START -->
                         <h6 class="mb-2 mb-md-4">Services</h6>
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link" href="#">Bibliothèque</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Bourse et Digitalisation</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Scolarité centrale</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Radio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Service Com</a></li>
                         </ul>
                     </div>
 

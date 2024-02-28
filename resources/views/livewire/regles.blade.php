@@ -10,8 +10,8 @@
             </div> <!-- Row END -->
         </div>
     </section>
-    <section class="d-flex justify-content-center align-items-center vh-80">
-        <div class="card w-50">
+    <section class="container">
+        <div class="shadow-lg card">
             <div class="card-body">
                 <div class="container">
                     <div class="row g-4">

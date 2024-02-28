@@ -1,5 +1,5 @@
 <!-- ==========Main Banner START -->
-<section class="pt-0" wire:ignore>
+<section class="pt-4" wire:ignore>
     <div class="container">
         <div class="row">
             <div class="col-12">

@@ -19,6 +19,7 @@ class Setting extends Model
         'keywords',
         'is_slider',
         'is_siteactive',
+        'type_header',
         'message_disabled',
         'facebook',
         'twitter',

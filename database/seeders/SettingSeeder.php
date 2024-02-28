@@ -24,6 +24,7 @@ class SettingSeeder extends Seeder
             'keywords' => 'mot-clé1, mot-clé2, mot-clé3',
             'is_slider' => true,
             'is_siteactive' => true,
+            'type_header'   => false,
             'message_disabled' => 'Le site est actuellement désactivé.',
             'logo'              => 'logo.jpg',
             'facebook' => 'https://www.facebook.com/monsite',

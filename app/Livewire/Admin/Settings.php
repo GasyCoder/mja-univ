@@ -44,6 +44,7 @@ class Settings extends Component
     public $current_password;
     public $password;
     public $password_confirmation;
+    public $type_header;
 
     public function showMessage($message)
     {
@@ -73,6 +74,7 @@ class Settings extends Component
         $this->twitter          = $settings->twitter;
         $this->linkdin          = $settings->linkdin;
         $this->slogan           = $settings->slogan;
+        $this->type_header      = $settings->type_header ? true : false;
 
         $this->dbLogo           = $settings->logo;
 
@@ -108,6 +110,7 @@ class Settings extends Component
         $settings->update([
             'is_slider' => $this->is_slider,
             'is_siteactive' => $this->is_siteactive,
+            'type_header'   => $this->type_header,
             'message_disabled' => $this->message_disabled,
             'facebook' => $this->facebook,
             'twitter' => $this->twitter,

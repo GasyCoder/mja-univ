@@ -127,7 +127,6 @@
 
                     <!-- Réglages généraux content START -->
                     <div class="tab-pane" id="tab-2">
-
                         <div class="shadow card">
                             <!-- Card header -->
                             <div class="card-header border-bottom">
@@ -152,7 +151,7 @@
                                         <input type="url" wire:model="linkdin" class="form-control" placeholder="LinkdIn">
                                     </div>
                                     <!-- Radio items -->
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label class="form-label">Activer Slide</label>
                                         <div class="d-sm-flex">
                                             <!-- Radio -->
@@ -173,8 +172,30 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-4">
+                                        <label class="form-label">Type header</label>
+                                        <div class="d-sm-flex">
+                                            <!-- Radio -->
+                                            <div class="form-check radio-bg-light me-4">
+                                                <input class="form-check-input" type="radio" value="0"
+                                                wire:model="type_header" id="flexRadioDefault1"
+                                                    checked="">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Par défaut
+                                                </label>
+                                            </div>
+                                            <!-- Radio -->
+                                            <div class="form-check radio-bg-light me-4">
+                                                <input class="form-check-input" type="radio" value="1"
+                                                wire:model="type_header" id="flexRadioDefault2">
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Design 2
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!-- Switch item -->
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label class="form-label">Activer/Désactiver site</label>
                                         <div class="mb-0 form-check form-switch form-check-lg">
                                             @if($is_siteactive)
@@ -204,7 +225,6 @@
                         </div>
                     </div>
                     <!-- General Settings content END -->
-
 
                     <!-- Account setting content START -->
                     <div class="tab-pane" id="tab-3">

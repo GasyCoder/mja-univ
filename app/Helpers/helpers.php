@@ -21,6 +21,7 @@ if (!function_exists('get_settings')) {
                 'linkdin' => $settings->linkdin,
                 'slogan' => $settings->slogan,
                 'logo'  => $settings->logo,
+                'type_header' => $settings->type_header,
                 'keywords' => is_array($settings->keywords) ? implode(',', $settings->keywords) : implode(',', explode(',', $settings->keywords)),
             ];
         }
