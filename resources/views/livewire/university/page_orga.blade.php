@@ -72,7 +72,7 @@ Page content START -->
                                 </div>
                                 <!-- Title -->
                                 <div class="ms-3">
-                                    <h6 class="mb-1">Pr Tituleur Blanchard</h6>
+                                    <h6 class="mb-1">Professeur Titulaire RANDRIANAMBININA Blanchard</h6>
                                     <p class="mb-0">Président</p>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@ Page content START -->
                                 </div>
                                 <!-- Title -->
                                 <div class="ms-3">
-                                    <h6 class="mb-1">Pr Tituleur RAZAFIMAHEFA</h6>
+                                    <h6 class="mb-1">Pr Titulaire RAZAFIMAHEFA</h6>
                                     <p class="mb-0">Vice Président I</p>
                                 </div>
                             </div>
