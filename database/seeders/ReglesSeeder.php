@@ -16,7 +16,7 @@ class ReglesSeeder extends Seeder
         DB::table('regles')->insert([
             [
                 'title' => 'Titre de la règle 1',
-                'slug' => Str::slug('Titre de la règle'),
+                'slug' => Str::slug('titre-de-la-regle-1'),
                 'uuid' => Str::uuid(),
                 'type' => false,
                 'body' => 'Description détaillée de la règle 1.',
@@ -25,7 +25,7 @@ class ReglesSeeder extends Seeder
             ],
             [
                 'title' => 'Titre de la règle 2',
-                'slug' => Str::slug('Titre de la règle'),
+                'slug' => Str::slug('titre-de-la-regle-2'),
                 'uuid' => Str::uuid(),
                 'type' => true,
                 'body' => 'Description détaillée de la règle 2.',
