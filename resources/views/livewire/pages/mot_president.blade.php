@@ -14,7 +14,7 @@
                 </div>
                 <!-- Pencil and cap SVG -->
                 <div class="top-0 position-absolute end-0 mt-n4 me-5">
-                    <img src="{{ asset('assets/images/client/pencil.svg') }}" alt="">
+                    <img src="{{ asset('assets/images/element/pencil.svg') }}" alt="">
                 </div>
                 <div class="p-4 overflow-hidden shadow rounded-2 bg-{{ $mot->bg_color }} p-sm-5 position-relative z-index-n1">
                     <!-- SVG decoration -->
