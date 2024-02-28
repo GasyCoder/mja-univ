@@ -94,13 +94,21 @@ Footer START -->
                 <div class="py-3 text-center d-lg-flex justify-content-between align-items-center text-md-left">
                     <!-- copyright text -->
                     <div class="text-body text-primary-hover">
-                        Copyrights © <?php echo date('Y'); ?> {{ get_settings()['copyright'] }}</div>
+                        Copyrights ©
+                        <?php echo date('Y'); ?> {{ get_settings()['copyright'] }}
+                    </div>
                     <!-- copyright links-->
                     <div class="mt-3 justify-content-center mt-lg-0">
                         <ul class="mb-0 nav list-inline justify-content-center">
-                            <li class="list-inline-item"><a class="nav-link" href="#">Conditions d'utilisation</a></li>
-                            <li class="list-inline-item"><a class="nav-link pe-0" href="#">Politique de
-                                    confidentialité</a></li>
+                            <li class="list-inline-item"><a class="nav-link"
+                                    href="{{ route('show_regle', ['slug' => get_rule_one()['slug'], 'uuid' => get_rule_one()['uuid']]) }}">
+                                    Politique de
+                                    confidentialité</a>
+                            </li>
+
+                            <li class="list-inline-item"><a class="nav-link pe-0"
+                                    href="{{ route('show_regle', ['slug' => get_rule_to()['slug'], 'uuid' => get_rule_to()['uuid']]) }}">
+                                Mentions légales</a></li>
                         </ul>
                     </div>
                 </div>

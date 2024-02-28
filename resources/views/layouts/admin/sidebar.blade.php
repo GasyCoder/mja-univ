@@ -89,6 +89,18 @@
                         <i class="fas fa-envelope fa-fw me-2"></i>Abonnés
                     </a>
                 </li>
+                <!-- Menu item 8 -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#collapsepages" role="button" aria-expanded="false"
+                        aria-controls="collapsepages">
+                        <i class="bi bi-file fa-fw me-2"></i>Pages
+                    </a>
+                    <!-- Submenu -->
+                    <ul class="nav collapse flex-column" id="collapsepages" data-bs-parent="#navbar-sidebar">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('regles') }}">Règles</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Menus</a></li>
+                    </ul>
+                </li>
                 <!-- Title -->
                 <li class="my-2 nav-item ms-2">Paramètres & Utilisateurs</li>
                 <!-- Menu item 9 -->

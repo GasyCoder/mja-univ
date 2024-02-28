@@ -108,7 +108,7 @@ class Posts extends Component
         $this->postId               = $id;
         $this->title                = $edit->title;
         $this->sub_title            = $edit->sub_title;
-        $this->contenus             = $edit->contenus;
+        $this->contenus             = $edit->html;
         $this->category_id          = $edit->category_id;
         $this->is_active            = $edit->is_active ? true : false;
         $this->is_slider            = $edit-> is_slider ? true : false;

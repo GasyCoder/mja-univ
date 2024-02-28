@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Regle;
 use App\Models\Setting;
 
 if (!function_exists('get_settings')) {
@@ -24,7 +25,40 @@ if (!function_exists('get_settings')) {
             ];
         }
 
-        // Vous pouvez retourner un tableau vide ou des valeurs par défaut si $settings est null
+        // retourner un tableau vide ou des valeurs par défaut si $settings est null
         return [];
+    }
+}
+
+if (!function_exists('get_rule')) {
+    function get_rule($type)
+    {
+        $rule = Regle::where('type', $type)->first();
+
+        if ($rule) {
+            return [
+                'slug'      => $rule->slug,
+                'uuid'      => $rule->uuid,
+                'ttle'      => $rule->title,
+                'body'      => $rule->html,
+            ];
+        }
+
+        // retourner un tableau vide ou des valeurs par défaut si $settings est null
+        return [];
+    }
+}
+
+if (!function_exists('get_rule_one')) {
+    function get_rule_one()
+    {
+        return get_rule(false);
+    }
+}
+
+if (!function_exists('get_rule_to')) {
+    function get_rule_to()
+    {
+        return get_rule(true);
     }
 }

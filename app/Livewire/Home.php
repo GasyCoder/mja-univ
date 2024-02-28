@@ -5,6 +5,7 @@ namespace App\Livewire;
 use session;
 use App\Models\Post;
 use App\Models\Type;
+use App\Models\Regle;
 use App\Models\Domaine;
 use App\Models\Setting;
 use Livewire\Component;

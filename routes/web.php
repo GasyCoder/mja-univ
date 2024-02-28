@@ -7,6 +7,7 @@ use App\Models\Abonnement;
 use App\Livewire\EtabTypes;
 use App\Livewire\StaffPage;
 use App\Livewire\EtabSingle;
+use App\Livewire\ReglesPage;
 use App\Livewire\Admin\Etabs;
 use App\Livewire\Admin\Panel;
 use App\Livewire\Admin\Posts;
@@ -15,6 +16,7 @@ use App\Livewire\AllArticles;
 use App\Livewire\ContactPage;
 use App\Livewire\ShowDomaine;
 use App\Livewire\SingleEvent;
+use App\Livewire\Admin\Regles;
 use App\Livewire\Admin\Staffs;
 use App\Livewire\MotPresident;
 use App\Livewire\Admin\Contacts;
@@ -70,6 +72,9 @@ Route::get('/nos-staffs', StaffPage::class)->name('staff_page');
 Route::get('/detail-evenement/{uuid}', SingleEvent::class)->name('detail_event');
 Route::get('/contactez-nous', ContactPage::class)->name('contact_page');
 
+Route::get('/lire/{slug}/{uuid}', ReglesPage::class)->name('show_regle');
+
+
 // 2FA Auth
 Route::get('2fa', [TwoFAController::class, 'index'])->name('2fa.index');
 Route::post('2fa', [TwoFAController::class, 'store'])->name('2fa.post');
@@ -113,6 +118,8 @@ Route::middleware(['auth:web', 'verified','isAdmin', 'logsActivity', '2fa'])->gr
     Route::get('/adminx/settings', Settings::class)->name('settings');
     Route::get('/adminx/contact', Contacts::class)->name('contact');
     Route::get('/adminx/abonne', Abonnements::class)->name('abonne');
+
+    Route::get('adminx/regles', Regles::class)->name('regles');
 
 });
 

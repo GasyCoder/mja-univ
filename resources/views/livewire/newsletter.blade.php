@@ -7,10 +7,9 @@
                         <div class="row g-4 align-items-center">
                             <div class="col-md-6">
                                 <!-- Title -->
-                                <h5 class="text-primary">Abonnez-vous à la liste de diffusion!</h5>
-                                <p class="mb-0">Ne ratez pas nos dernier mis à jour.</p>
+                                <h5 class="text-primary">Abonnez-vous à la liste de diffusion pour recevoir les dernières actualités et événements!</h5>
+                                <p class="mb-0">Ne ratez pas nos dernières mises à jour.</p>
                             </div>
-
                             <!-- Form -->
                             <div class="col-md-6">
                                @session('sent')
@@ -45,6 +44,7 @@
                                     </div>
                                     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                                 </form>
+                                <small>Vous pouvez vous désabonner à tout moment, lire notre <a href="#">politique de confidentialité</a>.</small>
                             </div>
                         </div> <!-- Row END -->
                     </div>
