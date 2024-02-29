@@ -16,7 +16,7 @@
                 <div class="top-0 position-absolute end-0 mt-n4 me-5">
                     <img src="{{ asset('assets/images/element/pencil.svg') }}" alt="">
                 </div>
-                <div class="p-4 overflow-hidden shadow rounded-2 bg-{{ $mot->bg_color }} p-sm-5 position-relative z-index-n1">
+                <div class="p-4 overflow-hidden shadow rounded-2 bg-outline-white p-sm-5 position-relative z-index-n1">
                     <!-- SVG decoration -->
                     <figure class="top-0 mt-3 position-absolute start-0 ms-n3 opacity-5">
                         <svg width="818.6px" height="235.1px" viewbox="0 0 818.6 235.1">
@@ -36,7 +36,7 @@
                     <!-- SVG decoration -->
                     <figure class="position-absolute top-50 end-0 translate-middle-y">
                         <svg width="355.6px" height="396.1px">
-                            <path class="fill-danger rotate-10"
+                            <path class="fill-{{ $mot->bg_color }} rotate-10"
                                 d="M32.8,364.1c16.1-14.7,36-21.5,56.8-26.7c20-5.1,40.5-9.7,57.8-21.4c35.7-24.3,51.1-68.5,57.2-109.4 c6.8-45.7,4.6-93.7,21.6-137.5c8.3-21.4,22.3-41.4,43.3-51.9c17.4-8.7,36.2-7.9,54.2-1.5c10.2,3.6,19.8,8.5,29.4,13.5l2.5-4.3 c-2.7-1.4-5.4-2.8-8.2-4.2c-15.8-8-32.9-15.3-50.9-15.2C276,5.6,256.9,16,243.3,31c-16.6,18.3-25.3,42.2-30.5,66 c-5,22.9-6.8,46.3-8.8,69.6c-3.9,44.4-9.7,92.8-40.1,128c-7.1,8.2-15.4,15.4-24.9,20.8c-9.3,5.4-19.5,8.9-29.8,11.8 c-20.2,5.7-41.3,9.1-59.9,19.2c-19.3,10.4-35.1,27.2-44.2,47.1c0,0,0,0.1,0,0.1l4.4,2.6C15,384,22.9,373.1,32.8,364.1z">
                             </path>
                         </svg>
@@ -45,12 +45,12 @@
                     <div class="py-2 row g-3 align-items-center justify-content-sm-end position-relative">
                         <!-- Title -->
                         <div class="col-md-6">
-                            <h3 class="text-white">Mot du Président</h3>
-                            <h6 class="text-white">
+                            <h3 class="">Mot du Président</h3>
+                            <h6 class="">
                                 {{ $mot->name }}
                             </h6>
                             <blockquote class="mt-1">
-                                <p class="text-white">
+                                <p class="">
                                     <span class="me-1 small"><i class="fas fa-quote-left"></i></span>
                                   {{ strip_tags($mot->intro) }}
                                     <span class="ms-1 small"><i class="fas fa-quote-right"></i></span>
@@ -61,7 +61,7 @@
                         <div class="col-md-6 col-lg-3 text-md-end">
                             <a href="{{ route('mot_president', ['uuid' => $mot->uuid]) }}"
                             wire:navigate
-                            class="mb-0 btn btn-white">{{ __('Lire la suite') }}</a>
+                            class="mb-0 btn btn-sm btn-outline-primary">{{ __('Lire la suite') }}</a>
                         </div>
                     </div> <!-- Row END -->
                 </div>

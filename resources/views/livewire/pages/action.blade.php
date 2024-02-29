@@ -9,7 +9,7 @@
                     <div class="me-auto">
                         <h4 class="mb-1">Articles Scientifiques</h4>
                         <p class="mb-3 h6 fw-light ">Tous les articles scientifiques (RSTE) </p>
-                        <a href="#!" class="mb-0 btn btn-outline-primary">En savoir plus</a>
+                        <a href="#!" class="mb-0 btn btn-sm btn-outline-primary">En savoir plus</a>
                     </div>
                     <!-- Image -->
                     <div>
@@ -25,7 +25,7 @@
                     <div class="me-auto">
                         <h4 class="mb-1">Téléchargement</h4>
                         <p class="mb-3 h6 fw-light ">Tous les fichiers ou documents</p>
-                        <a href="#!" class="mb-0 btn btn-outline-primary">En savoir plus</a>
+                        <a href="#!" class="mb-0 btn btn-sm btn-outline-primary">En savoir plus</a>
                     </div>
                     <!-- Image -->
                     <div>
