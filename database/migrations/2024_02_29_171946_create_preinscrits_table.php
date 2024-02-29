@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('year_univ');
             $table->unsignedBigInteger('etab_id');
-            $table->string('url_file');
+            $table->longText('url_file');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();

@@ -44,7 +44,7 @@
                                     </div>
                                     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                                 </form>
-                                <small>Vous pouvez vous désabonner à tout moment, lire notre <a href="#">politique de confidentialité</a>.</small>
+                                <small>Vous pouvez vous désabonner à tout moment, lire notre <a href="{{ route('show_regle', ['slug' => get_rule_one()['slug'], 'uuid' => get_rule_one()['uuid']]) }}">politique de confidentialité</a>.</small>
                             </div>
                         </div> <!-- Row END -->
                     </div>
