@@ -31,7 +31,7 @@
                     </figure>
                     <!-- Title -->
                     <h2>Résultats de la sélection des dossiers.</h2>
-                    <h6>Année Universitaire: {{ $yearUniv->year_univ }}</h6>
+                    <h6>Année Universitaire: {{ $yearUniv->year_univ ?? null }}</h6>
                     <p>Les résultats de pré-inscription sont prêts ! Vous pouvez consulter les résultats en cliquant sur l'établissement de
                     votre choix. </p>
                 </div>
