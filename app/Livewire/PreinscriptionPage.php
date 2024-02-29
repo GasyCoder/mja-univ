@@ -17,6 +17,8 @@ class PreinscriptionPage extends Component
     {
         return view('livewire.pages.pre-inscription', [
             'resultats'  => Preinscrit::where('is_active', true)->latest()->paginate($this->page),
+
+            'yearUniv'  => Preinscrit::where('is_active', true)->first(),
         ]);
     }
 }
