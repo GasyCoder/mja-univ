@@ -61,7 +61,7 @@
                         <div class="col-md-6 col-lg-3 text-md-end">
                             <a href="{{ route('mot_president', ['uuid' => $mot->uuid]) }}"
                             wire:navigate
-                            class="mb-0 btn btn-sm btn-outline-primary">{{ __('Lire la suite') }}</a>
+                            class="mb-0 btn btn-sm btn-primary-soft">{{ __('Lire la suite') }} <i class="fas fa-angle-right ms-2"></i></a>
                         </div>
                     </div> <!-- Row END -->
                 </div>

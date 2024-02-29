@@ -91,7 +91,7 @@
 
                     <!-- Table data -->
                     <td>
-                        <a href="#" wire:click="edit({{ $post->id }})"
+                        <a href="#!" wire:click="edit({{ $post->id }})"
                             class="mb-1 btn btn-success-soft btn-round me-1 mb-md-0"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top" title="" data-bs-original-title="Edit">

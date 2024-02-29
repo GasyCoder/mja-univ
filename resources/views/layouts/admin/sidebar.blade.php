@@ -73,21 +73,9 @@
                         <li class="nav-item"> <a class="nav-link" href="{{ route('staff') }}">List des Staffs</a></li>
                     </ul>
                 </li>
-               <!-- Menu item 7 -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">
-                        <i class="fas fa-envelope fa-fw me-2"></i>Contacts
-                        <span class="badge text-bg-success rounded-circle ms-2">
-                           {{ App\Models\Contact::where('is_read', true)->count() }}
-                        </span>
-                    </a>
-                </li>
-
-                <!-- Menu item 7 -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('abonne') }}">
-                        <i class="fas fa-envelope fa-fw me-2"></i>Abonnés
-                    </a>
+                <!-- Menu item 5 -->
+                <li class="nav-item"> <a class="nav-link" href="{{ route('pre_inscription') }}">
+                    <i class="far fa-eye fa-fw me-2"></i>Résultats Pré-inscription</a>
                 </li>
                 <!-- Menu item 8 -->
                 <li class="nav-item">
@@ -97,6 +85,19 @@
                     </a>
                     <!-- Submenu -->
                     <ul class="nav collapse flex-column" id="collapsepages" data-bs-parent="#navbar-sidebar">
+                        <!-- Menu item 7 -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact') }}">Contacts
+                                <span class="badge text-bg-success rounded-circle ms-2">
+                                    {{ App\Models\Contact::where('is_read', true)->count() }}
+                                </span>
+                            </a>
+                        </li>
+                        <!-- Menu item 7 -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('abonne') }}">Abonnés NewsLetter
+                            </a>
+                        </li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('regles') }}">Règles</a></li>
                         <li class="nav-item"> <a class="nav-link" href="#">Menus</a></li>
                     </ul>

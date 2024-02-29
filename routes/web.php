@@ -35,10 +35,10 @@ use App\Livewire\Admin\Historiques;
 use App\Livewire\Admin\Organigrammes;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\PresidentStories;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\TwoFAController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Livewire\Admin\Preinscrits;
+use App\Livewire\PreinscriptionPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +73,7 @@ Route::get('/detail-evenement/{uuid}', SingleEvent::class)->name('detail_event')
 Route::get('/contactez-nous', ContactPage::class)->name('contact_page');
 
 Route::get('/lire/{slug}/{uuid}', ReglesPage::class)->name('show_regle');
+Route::get('/resultats-preinscription', PreinscriptionPage::class)->name('resultat_inscription');
 
 
 // 2FA Auth
@@ -120,6 +121,8 @@ Route::middleware(['auth:web', 'verified','isAdmin', 'logsActivity', '2fa'])->gr
     Route::get('/adminx/abonne', Abonnements::class)->name('abonne');
 
     Route::get('adminx/regles', Regles::class)->name('regles');
+
+    Route::get('adminx/pre-inscription', Preinscrits::class)->name('pre_inscription');
 
 });
 
