@@ -69,7 +69,8 @@ class User extends Authenticatable
                 'subject' => 'Code de sécurité '
             ];
 
-            $this->notify(new SendTwoFactorCode($details));
+            Mail::to(auth()->user()->email)->send(new SendCodeMail($details));
+            // $this->notify(new SendTwoFactorCode($details));
 
         } catch (Exception $e) {
             info("Error: " . $e->getMessage());

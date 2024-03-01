@@ -38,7 +38,8 @@ class SendCodeMail extends Mailable
 
     public function build()
     {
-        return $this->markdown('emails.twofactor')
+        return $this
+            ->markdown('emails.twofactor')
             ->subject($this->details['subject'])
             ->with(['code' => $this->details]);
     }
