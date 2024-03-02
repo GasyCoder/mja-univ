@@ -16,7 +16,7 @@
                 <div class="top-0 position-absolute end-0 mt-n4 me-5">
                     <img src="{{ asset('assets/images/element/pencil.svg') }}" alt="">
                 </div>
-                <div class="p-4 overflow-hidden shadow rounded-2 bg-outline-white p-sm-5 position-relative z-index-n1">
+                <div class="p-4 overflow-hidden shadow rounded-2 bg-light p-sm-5 position-relative z-index-n1">
                     <!-- SVG decoration -->
                     <figure class="top-0 mt-3 position-absolute start-0 ms-n3 opacity-5">
                         <svg width="818.6px" height="235.1px" viewbox="0 0 818.6 235.1">
