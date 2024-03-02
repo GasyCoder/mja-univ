@@ -75,7 +75,10 @@
                 </li>
                 <!-- Menu item 5 -->
                 <li class="nav-item"> <a class="nav-link" href="{{ route('pre_inscription') }}">
-                    <i class="far fa-eye fa-fw me-2"></i>Résultats Pré-inscription</a>
+                    <i class="far fa-eye fa-fw me-2"></i>Pré-inscription</a>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('uploader') }}">
+                        <i class="far fa-folder fa-fw me-2"></i>Uploader</a>
                 </li>
                 <!-- Menu item 8 -->
                 <li class="nav-item">

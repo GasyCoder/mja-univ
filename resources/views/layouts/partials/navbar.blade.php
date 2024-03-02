@@ -12,8 +12,8 @@
         <!-- Nav item 3 Account -->
         <li class="nav-item dropdown">
             <a class="nav-link @if(request()->routeIs('historiqueIndex')
-                        || request()->routeIs('organigramme')
-                        || request()->routeIs('staff_page')) active @endif dropdown-toggle" href="#" id="accounntMenu"
+                || request()->routeIs('organigramme')
+                || request()->routeIs('staff_page')) active @endif dropdown-toggle" href="#" id="accounntMenu"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="bi bi-bank me-2"></i>Université</a>
             <ul class="dropdown-menu" aria-labelledby="accounntMenu">
@@ -24,7 +24,7 @@
                 <a class="dropdown-item @if(request()->routeIs('staff_page')) active @endif"
                     href="{{ route('staff_page') }}" wire:navigate>Staff & Leadership</a>
                 <a class="dropdown-item" href="#" wire:navigate>Textes et arrêtés</a>
-                <a class="dropdown-item" href="#" wire:navigate>Office du Bacc</a>
+                <a class="dropdown-item" href="#" wire:navigate>Rélations</a>
             </ul>
         </li>
 

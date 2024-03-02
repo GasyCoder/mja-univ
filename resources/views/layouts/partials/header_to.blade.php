@@ -37,18 +37,20 @@
 
 				<!-- Nav Main menu START -->
 				<ul class="navbar-nav navbar-nav-scroll ms-auto">
-					<!-- Nav item 1 Demos -->
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bacc.mahajanga.digital.gov.mg/" target="_blank">Office du BACC</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link {{ request()->routeIs('resultat_inscription') ? 'active' : '' }}"
-                            href="{{ route('resultat_inscription') }}" wire:navigate>Pré-inscription</a>
+                            href="{{ route('resultat_inscription') }}" wire:navigate>Pré-inscription
+                        </a>
                     </li>
-					<!-- Nav item 2 Eduport Business -->
-					<li class="nav-item dropdown"><a class="nav-link" href="#">Téléchargement</a></li>
-
-					<!-- Nav item 3 My learning -->
-					<li class="nav-item"><a class="nav-link" href="#">Bourse & Digitalisation</a></li>
+					<li class="nav-item dropdown">
+                        <a class="nav-link {{ request()->routeIs('documents') ? 'active' : '' }}" href="{{ route('documents') }}">Documents</a>
+                    </li>
+                    <!-- Nav item End -->
 				</ul>
-				<!-- Nav Main menu END -->
 			</div>
 			<!-- Main navbar END -->
 

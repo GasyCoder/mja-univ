@@ -23,7 +23,7 @@
                 <div class="p-4 bg-secondary bg-opacity-10 h-80 d-flex align-items-center">
                     <!-- Content -->
                     <div class="me-auto">
-                        <h5 class="mb-1">Téléchargement</h5>
+                        <h5 class="mb-1">Résources numériques</h5>
                         <p class="mb-3 h6 fw-light ">Tous les fichiers ou documents</p>
                         <a href="#!" class="mb-0 btn btn-sm btn-primary-soft">En savoir plus</a>
                     </div>

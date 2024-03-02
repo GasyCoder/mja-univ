@@ -4,6 +4,7 @@ use App\Livewire\Home;
 use App\Livewire\Offres;
 use App\Livewire\Article;
 use App\Models\Abonnement;
+use App\Livewire\Documents;
 use App\Livewire\EtabTypes;
 use App\Livewire\StaffPage;
 use App\Livewire\EtabSingle;
@@ -24,6 +25,7 @@ use App\Livewire\Admin\Domaines;
 use App\Livewire\Admin\Settings;
 use App\Livewire\Etablissements;
 use App\Livewire\HistoriquePage;
+use App\Livewire\Admin\Uploaders;
 use App\Livewire\CategoryArticle;
 use App\Livewire\Admin\Categories;
 use App\Livewire\Admin\Doctorales;
@@ -32,13 +34,13 @@ use App\Livewire\Admin\Presidents;
 use App\Livewire\OrganigrammePage;
 use App\Livewire\Admin\Abonnements;
 use App\Livewire\Admin\Historiques;
+use App\Livewire\Admin\Preinscrits;
+use App\Livewire\PreinscriptionPage;
 use App\Livewire\Admin\Organigrammes;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\PresidentStories;
 use App\Http\Controllers\Auth\TwoFAController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Livewire\Admin\Preinscrits;
-use App\Livewire\PreinscriptionPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +76,7 @@ Route::get('/contactez-nous', ContactPage::class)->name('contact_page');
 
 Route::get('/lire/{slug}/{uuid}', ReglesPage::class)->name('show_regle');
 Route::get('/resultats-preinscription', PreinscriptionPage::class)->name('resultat_inscription');
+Route::get('/documents', Documents::class)->name('documents');
 
 
 // 2FA Auth
@@ -123,6 +126,8 @@ Route::middleware(['auth:web', 'verified','isAdmin', 'logsActivity', '2fa'])->gr
     Route::get('adminx/regles', Regles::class)->name('regles');
 
     Route::get('adminx/pre-inscription', Preinscrits::class)->name('pre_inscription');
+
+    Route::get('adminx/uploader', Uploaders::class)->name('uploader');
 
 });
 
