@@ -64,7 +64,7 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                {{ Str::limit($file->issn, 20) }}
+                                {{ $file->issn ? Str::limit($file->issn, 20) : 'ISSN: N/A' }}
                             </div>
                         </td>
                         <td>

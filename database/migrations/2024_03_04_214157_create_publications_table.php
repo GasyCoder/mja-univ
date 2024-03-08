@@ -15,14 +15,15 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->longText('file_path');
+            $table->longText('original_name');
             $table->unsignedBigInteger('size')->nullable();
             $table->string('extension')->nullable();
             $table->unsignedBigInteger('revue_id');
             $table->unsignedBigInteger('annee_id');
             $table->unsignedBigInteger('volume_id');
-            $table->bigInteger('startPage');
-            $table->bigInteger('endPage');
-            $table->mediumText('issn');
+            $table->bigInteger('startPage')->nullable();
+            $table->bigInteger('endPage')->nullable();
+            $table->mediumText('issn')->nullable();
             $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->timestamps();
