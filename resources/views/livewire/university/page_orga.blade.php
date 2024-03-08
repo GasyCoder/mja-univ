@@ -4,7 +4,7 @@ Main Banner START -->
 <section class="bg-light">
     <div class="container">
         <!-- Title -->
-        <div class="pb-4 row position-relative">
+        <div class="pb-0 row position-relative">
             <div class="col-lg-12 position-relative">
                 <!-- Title -->
                 <h3>Organigramme</h3>
