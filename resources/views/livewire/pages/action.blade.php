@@ -9,7 +9,7 @@
                     <div class="me-auto">
                        <h5 class="mb-1">Revues Scientifiques</h5>
                         <p class="mb-3 h6 fw-light">Toutes les revues scientifiques</p>
-                        <a href="#!" class="mb-0 btn btn-sm btn-primary-soft">En savoir plus</a>
+                        <a href="{{ route('listes_revue') }}" class="mb-0 btn btn-sm btn-primary-soft">En savoir plus</a>
                     </div>
                     <!-- Image -->
                     <div>
