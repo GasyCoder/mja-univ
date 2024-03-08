@@ -1,5 +1,5 @@
 <div>
-   @if (!Cookie::has('cookies_accepted'))
+   @if ($showCookiePopup)
     <div class="bottom-0 p-3 mb-3 shadow alert alert-light fade show position-fixed start-0 z-index-99 rounded-3 ms-3 col-10 col-md-4 col-lg-3 col-xxl-3"
         role="alert">
         <div class="text-center text-dark">
@@ -14,11 +14,8 @@
             </p>
             <!-- Buttons -->
             <div class="mt-3">
-                <button type="button" wire:click.lazy="acceptCookies" class="mb-0 btn btn-success-soft btn-sm">
-                    <span aria-hidden="true">Accepter</span>
-                </button>
-                <button type="button" wire:click.lazy="declineCookies" class="mb-0 btn btn-danger-soft btn-sm">
-                    <span aria-hidden="true">Déclin</span>
+                <button wire:click.live="acceptCookies()" class="mb-0 btn btn-primary-soft btn-sm">
+                    <span aria-hidden="true">Ok, accepter!</span>
                 </button>
             </div>
         </div>
