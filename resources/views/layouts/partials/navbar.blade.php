@@ -29,17 +29,13 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link @if(request()->routeIs('doctoral')) active @endif
-                                        dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown"
+            <a class="nav-link @if(request()->routeIs('listes_revue')) active @endif dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="bi bi-lightbulb-fill me-2"></i>Recherche</a>
             <ul class="dropdown-menu" aria-labelledby="accounntMenu">
-                <a class="dropdown-item @if(request()->routeIs('doctoral')) active @endif"
-                    href="{{ route('doctoral') }}" wire:navigate>Ecoles Doctorale</a>
+                <a class="dropdown-item @if(request()->routeIs('listes_revue')) active @endif" href="{{ route('listes_revue') }}" wire:navigate>
+                    Publications Scientifiques</a>
                 <a class="dropdown-item" href="#" wire:navigate>Laboratoires</a>
-                <a class="dropdown-item" href="#" wire:navigate>Publications Scientifique</a>
-                <a class="dropdown-item" href="#" wire:navigate>Université d'Eté</a>
-                <a class="dropdown-item" href="#" wire:navigate>Séminaires</a>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
@@ -50,22 +46,32 @@
 
         <!-- Nav item 3 Account -->
         <li class="nav-item dropdown">
-            <a class="nav-link @if(request()->routeIs('offres')) active @endif
-                                        dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown"
+            <a class="nav-link @if(request()->routeIs('etablissement')
+                || request()->routeIs('doctoral')) active @endif
+              dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="bi bi-pen-fill me-2"></i>Formations</a>
+                <i class="bi bi-mortarboard-fill me-2"></i>Formations</a>
             <ul class="dropdown-menu" aria-labelledby="accounntMenu">
-                <a class="dropdown-item @if(request()->routeIs('offres')) active @endif" href="{{ route('offres') }}"
-                    wire:navigate>Offres des formations</a>
-                <a class="dropdown-item" href="#" wire:navigate>Système LMD
-                    <a class="dropdown-item" href="#" wire:navigate>Resources numérique</a>
+                <a class="dropdown-item @if(request()->routeIs('etablissement')) active @endif"
+                    href="{{ route('etablissement') }}"
+                    wire:navigate>Etablissements</a>
+               <a class="dropdown-item @if(request()->routeIs('doctoral')) active @endif"
+                    href="{{ route('doctoral') }}"
+                    wire:navigate>Ecoles Doctorales</a>
+                    <a class="dropdown-item" href="#" wire:navigate>Système LMD</a>
             </ul>
         </li>
 
-        <!-- Nav item 4 Component-->
-        <li class="nav-item"><a class="nav-link @if(request()->routeIs('etablissement')) active @endif"
-                href="{{ route('etablissement') }}" wire:navigate>
-                <i class="bi bi-mortarboard-fill me-2"></i>Etablissements</a>
+        <!-- Nav item 3 Account -->
+        <li class="nav-item dropdown">
+            <a class="nav-link @if(request()->routeIs('offres')) active @endif
+                dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-calendar2-heart-fill me-2"></i>Envènements</a>
+            <ul class="dropdown-menu" aria-labelledby="accounntMenu">
+                <a class="dropdown-item" href="#" wire:navigate>Université d'Eté</a>
+                <a class="dropdown-item" href="#" wire:navigate>Séminaires</a>
+            </ul>
         </li>
 
     </ul>

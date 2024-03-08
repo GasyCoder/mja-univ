@@ -2,12 +2,15 @@
 
 use App\Livewire\Home;
 use App\Livewire\Offres;
+use App\Livewire\Search;
 use App\Livewire\Article;
 use App\Models\Abonnement;
 use App\Livewire\Documents;
 use App\Livewire\EtabTypes;
+use App\Livewire\RevueOpen;
 use App\Livewire\StaffPage;
 use App\Livewire\EtabSingle;
+use App\Livewire\Newsletter;
 use App\Livewire\ReglesPage;
 use App\Livewire\Admin\Etabs;
 use App\Livewire\Admin\Panel;
@@ -15,11 +18,14 @@ use App\Livewire\Admin\Posts;
 use App\Livewire\Admin\Types;
 use App\Livewire\AllArticles;
 use App\Livewire\ContactPage;
+use App\Livewire\RevuesListe;
 use App\Livewire\ShowDomaine;
 use App\Livewire\SingleEvent;
 use App\Livewire\Admin\Regles;
+use App\Livewire\Admin\Revues;
 use App\Livewire\Admin\Staffs;
 use App\Livewire\MotPresident;
+use App\Livewire\Publications;
 use App\Livewire\Admin\Contacts;
 use App\Livewire\Admin\Domaines;
 use App\Livewire\Admin\Settings;
@@ -38,8 +44,10 @@ use App\Livewire\Admin\Preinscrits;
 use App\Livewire\PreinscriptionPage;
 use App\Livewire\Admin\Organigrammes;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Admin\FilesPublication;
 use App\Livewire\Admin\PresidentStories;
 use App\Http\Controllers\Auth\TwoFAController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
@@ -77,24 +85,20 @@ Route::get('/contactez-nous', ContactPage::class)->name('contact_page');
 Route::get('/lire/{slug}/{uuid}', ReglesPage::class)->name('show_regle');
 Route::get('/resultats-preinscription', PreinscriptionPage::class)->name('resultat_inscription');
 Route::get('/documents', Documents::class)->name('documents');
+Route::get('/requete', Search::class)->name('search.results');
 
+Route::get('/publications-scientifiques', RevuesListe::class)->name('listes_revue');
+Route::get('/ouvrir-revue/{uuid}', RevueOpen::class)->name('open_revue');
+Route::get('/{revue_id}/publication-scientifique-revue-{uuid}', [Publications::class, 'download'])->name('download_revue');
+
+//Route::post('/abonnez-vous', [NewsletterController::class, 'store'])->name('abonnez_vous');
+//Route::get('/confirmation-email/{email}/{id}/{status}', [NewsletterController::class, 'confirmEmail'])->name('confirm_email');
+Route::get('/email/verify/{id}/{email}', [NewsletterController::class, 'verifyEmail'])->name('verification.verify');
 
 // 2FA Auth
 Route::get('2fa', [TwoFAController::class, 'index'])->name('2fa.index');
 Route::post('2fa', [TwoFAController::class, 'store'])->name('2fa.post');
 Route::get('2fa/reset', [TwoFAController::class, 'resend'])->name('2fa.resend');
-
-Route::get('/email/verify/{id}', function ($id) {
-    $abonnement = Abonnement::find($id);
-
-    if ($abonnement && !$abonnement->hasVerifiedEmail()) {
-        $abonnement->markEmailAsVerified();
-
-        return redirect('/')->with('status', 'Votre email a été vérifié avec succès. Vous êtes abonné à l\'Univversité de Mahajanga!');
-    }
-
-    return redirect('/')->with('error', 'Le lien de vérification est invalide.');
-})->name('verification.verify');
 
 // Routes Admin
 Route::middleware(['auth:web', 'verified','isAdmin', 'logsActivity', '2fa'])->group(function () {
@@ -129,15 +133,10 @@ Route::middleware(['auth:web', 'verified','isAdmin', 'logsActivity', '2fa'])->gr
 
     Route::get('adminx/uploader', Uploaders::class)->name('uploader');
 
+    Route::get('adminx/revues', Revues::class)->name('revues');
+    Route::get('adminx/fichiers', FilesPublication::class)->name('fichiers');
+
 });
-
-
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
 
 //Routes Auth
 Route::get('/mja/user-auth', [AuthenticatedSessionController::class, 'create'])

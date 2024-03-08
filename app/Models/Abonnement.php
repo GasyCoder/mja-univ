@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\Model;
+use App\Notifications\ConfirmationEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Abonnement extends Model
@@ -38,9 +39,12 @@ class Abonnement extends Model
     {
         $verificationUrl = URL::signedRoute(
             'verification.verify',
-            ['id' => $this->getKey()]
+            [
+            'id' => $this->getKey(),
+            'email' => $this->email
+            ]
         );
 
-        $this->notify(new \App\Notifications\ConfirmationEmail($verificationUrl));
+        $this->notify(new ConfirmationEmail($verificationUrl));
     }
 }

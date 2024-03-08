@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Annee extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'annee',
+        'uuid',
+        'is_active',
+    ];
+
+    public function publications()
+    {
+        return $this->hasMany(Publication::class);
+    }
+
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($var) {
+            $var->uuid = (string) Str::uuid();
+        });
+    }
+
+}

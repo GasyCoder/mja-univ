@@ -19,4 +19,5 @@ class ActivityLog extends Model
         'parameters',
     ];
 
+
 }

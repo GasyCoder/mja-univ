@@ -20,7 +20,8 @@
     || Route::is('president') || Route::is('profil_etab') || Route::is('type_etab') || Route::is('domaines')
     || Route::is('historique') || Route::is('list_president') || Route::is('orga') || Route::is('staff')
     || Route::is('event') || Route::is('settings') || Route::is('contact') || Route::is('abonne')
-    || Route::is('ecole_doctorale') || Route::is('regles') || Route::is('pre_inscription') || Route::is('uploader'))
+    || Route::is('ecole_doctorale') || Route::is('regles') || Route::is('pre_inscription')
+    || Route::is('uploader') || Route::is('revues') || Route::is('fichiers'))
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/apexcharts/css/apexcharts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/overlay-scrollbar/css/overlayscrollbars.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/choices/css/choices.min.cs') }}">
@@ -43,16 +44,20 @@
 || Route::is('president') || Route::is('profil_etab') || Route::is('type_etab') || Route::is('domaines')
 || Route::is('historique') || Route::is('list_president') || Route::is('orga') || Route::is('staff')
 || Route::is('event') || Route::is('settings') || Route::is('contact') || Route::is('abonne')
-|| Route::is('ecole_doctorale') || Route::is('regles') || Route::is('pre_inscription') || Route::is('uploader'))
-    <main>
-        @include('layouts.admin.sidebar')
-        <div class="page-content">
-        @include('layouts.admin.navigation')
-        {{ $slot }}
-        </div>
-    </main>
+|| Route::is('ecole_doctorale') || Route::is('regles') || Route::is('pre_inscription')
+|| Route::is('uploader') || Route::is('revues') || Route::is('fichiers'))
+
+<main>
+    @include('layouts.admin.sidebar')
+    <div class="page-content">
+    @include('layouts.admin.navigation')
+    {{ $slot }}
+    </div>
+</main>
+
 @else
 @include('layouts.partials.header')
+
     <!-- Page Content -->
     <main>
         {{ $slot }}
@@ -83,7 +88,8 @@
 || Route::is('president') || Route::is('profil_etab') || Route::is('type_etab') || Route::is('domaines')
 || Route::is('historique') || Route::is('list_president') || Route::is('orga') || Route::is('staff')
 || Route::is('event') || Route::is('settings') || Route::is('contact') || Route::is('abonne')
-|| Route::is('ecole_doctorale') || Route::is('regles') || Route::is('pre_inscription') || Route::is('uploader'))
+|| Route::is('ecole_doctorale') || Route::is('regles') || Route::is('pre_inscription')
+|| Route::is('uploader') || Route::is('revues') || Route::is('fichiers'))
 <!-- Vendors -->
 <script src="{{ asset('assets/vendor/apexcharts/js/apexcharts.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js') }}"></script>

@@ -21,6 +21,8 @@ namespace App\Models{
  * @property string|null $email_verified_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read int|null $notifications_count
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Abonnement query()
@@ -39,7 +41,7 @@ namespace App\Models{
  * App\Models\ActivityLog
  *
  * @property int $id
- * @property int $user_id
+ * @property int|null $user_id
  * @property string $ip_address
  * @property string $user_agent
  * @property string $action
@@ -112,6 +114,31 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Annee
+ *
+ * @property int $id
+ * @property string $annee
+ * @property string $uuid
+ * @property int $is_active
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Publication> $publications
+ * @property-read int|null $publications_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee whereAnnee($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Annee whereUuid($value)
+ */
+	class Annee extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Category
  *
  * @property int $id
@@ -170,7 +197,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $etabId
- * @property string $phone_1
+ * @property string|null $phone_1
  * @property string|null $phone_2
  * @property string|null $email
  * @property string|null $siteweb
@@ -239,9 +266,9 @@ namespace App\Models{
  * @property int $id
  * @property string $name
  * @property string $uuid
- * @property int $rubrique_id
+ * @property int $type_id
  * @property string $sigle
- * @property string $director
+ * @property string|null $director
  * @property string|null $slogan
  * @property string|null $about
  * @property string|null $image_path
@@ -252,11 +279,12 @@ namespace App\Models{
  * @property-read \App\Models\ContactEtab|null $contact
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Domaine> $domaines
  * @property-read int|null $domaines_count
+ * @property-read mixed $html
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Pedagogie> $pedagogies
  * @property-read int|null $pedagogies_count
- * @property-read \App\Models\Rubrique $rubrique
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Statistic> $statistiques
  * @property-read int|null $statistiques_count
+ * @property-read \App\Models\Type $type
  * @method static \Illuminate\Database\Eloquent\Builder|Etab newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Etab newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Etab onlyTrashed()
@@ -268,10 +296,10 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Etab whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Etab whereImagePath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Etab whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Etab whereRubriqueId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Etab whereSigle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Etab whereSlogan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Etab whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Etab whereTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Etab whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Etab whereUuid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Etab withTrashed()
@@ -342,7 +370,7 @@ namespace App\Models{
  * @property string $slogan
  * @property string $intro
  * @property string $body
- * @property string $images_cover
+ * @property string|null $images_cover
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $html
@@ -392,9 +420,9 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $etabId
- * @property string $domaine
- * @property string $mention
- * @property string $parcour
+ * @property string|null $diplomes
+ * @property string|null $mention
+ * @property string|null $parcour
  * @property string|null $respo_mention
  * @property string|null $respo_parcour
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -407,7 +435,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Pedagogie query()
  * @method static \Illuminate\Database\Eloquent\Builder|Pedagogie whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pedagogie whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pedagogie whereDomaine($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pedagogie whereDiplomes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pedagogie whereEtabId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pedagogie whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pedagogie whereMention($value)
@@ -434,7 +462,7 @@ namespace App\Models{
  * @property string|null $images
  * @property int $is_slider
  * @property int $is_active
- * @property int $send_to_subscribers
+ * @property int $is_sendemail
  * @property string $contenus
  * @property string $bg_color
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -454,8 +482,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereImages($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereIsSendemail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereIsSlider($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereSendToSubscribers($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereSubTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
@@ -465,6 +493,37 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Post withoutTrashed()
  */
 	class Post extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Preinscrit
+ *
+ * @property int $id
+ * @property string $year_univ
+ * @property int $etab_id
+ * @property string $url_file
+ * @property int $is_active
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Etab $etab
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit whereEtabId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit whereUrlFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit whereYearUniv($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Preinscrit withoutTrashed()
+ */
+	class Preinscrit extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -535,25 +594,108 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\Rubrique
+ * App\Models\Publication
  *
  * @property int $id
- * @property string $name
+ * @property string $uuid
+ * @property string $original_name
+ * @property string $file_path
+ * @property int|null $size
+ * @property string|null $extension
+ * @property int $revue_id
+ * @property int $annee_id
+ * @property int $volume_id
+ * @property int|null $startPage
+ * @property int|null $endPage
+ * @property string|null $issn
+ * @property bool $is_active
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Annee $annee
+ * @property-read \App\Models\Revue $revue
+ * @property-read \App\Models\Volume $volume
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereAnneeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereEndPage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereExtension($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereFilePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereIssn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereOriginalName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereRevueId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereStartPage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereUuid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereVolumeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication withoutTrashed()
+ */
+	class Publication extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Regle
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $slug
+ * @property string $uuid
+ * @property int $type
+ * @property string $body
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $html
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Regle whereUuid($value)
+ */
+	class Regle extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Revue
+ *
+ * @property int $id
+ * @property string $sigle
+ * @property string $uuid
+ * @property string|null $sub_title
+ * @property string|null $logo
  * @property int $is_active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Etab> $etabs
- * @property-read int|null $etabs_count
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique query()
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Rubrique whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Publication> $publications
+ * @property-read int|null $publications_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue whereLogo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue whereSigle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue whereSubTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Revue whereUuid($value)
  */
-	class Rubrique extends \Eloquent {}
+	class Revue extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -570,6 +712,7 @@ namespace App\Models{
  * @property string $keywords
  * @property int $is_slider
  * @property int $is_siteactive
+ * @property int $type_header
  * @property string $message_disabled
  * @property string|null $logo
  * @property string|null $facebook
@@ -598,6 +741,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereSiteName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereSlogan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereTwitter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereTypeHeader($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereUpdatedAt($value)
  */
 	class Setting extends \Eloquent {}
@@ -664,8 +808,8 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $etabId
- * @property int $enseignant
- * @property int $etudiant
+ * @property int|null $enseignant
+ * @property int|null $etudiant
  * @property int|null $personnel
  * @property int|null $vacataire
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -689,6 +833,75 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Statistic withoutTrashed()
  */
 	class Statistic extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Type
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property string $bg_color
+ * @property int $is_active
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Etab> $etabs
+ * @property-read int|null $etabs_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Type newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Type newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Type query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Type whereBgColor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Type whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Type whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Type whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Type whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Type whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Type whereUpdatedAt($value)
+ */
+	class Type extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Uploader
+ *
+ * @property int $id
+ * @property string $file_name
+ * @property string $uuid
+ * @property string|null $original_name
+ * @property string|null $file_path
+ * @property string|null $file_url
+ * @property string|null $thumbnail
+ * @property int|null $size
+ * @property string|null $extension
+ * @property int $type_file
+ * @property int $is_active
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereExtension($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereFileName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereFilePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereFileUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereOriginalName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereThumbnail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereTypeFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader whereUuid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Uploader withoutTrashed()
+ */
+	class Uploader extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -754,5 +967,30 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|UserCode whereUserId($value)
  */
 	class UserCode extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Volume
+ *
+ * @property int $id
+ * @property string $volumeName
+ * @property string $uuid
+ * @property int $is_active
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Publication> $publications
+ * @property-read int|null $publications_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume whereUuid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volume whereVolumeName($value)
+ */
+	class Volume extends \Eloquent {}
 }
 

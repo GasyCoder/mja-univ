@@ -76,12 +76,12 @@ Page content START -->
                                     <p class="mb-0">Président</p>
                                 </div>
                             </div>
-
-                            <!-- Avatar -->
+                            <!-- Vice Président 1 -->
                             <div class="mb-3 d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <!-- Avatar image -->
-                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/vice_president.jpg') }}" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/vice_president.jpg') }}"
+                                        alt="avatar">
                                     <!-- Medal badge -->
                                     <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">
@@ -91,16 +91,16 @@ Page content START -->
                                 </div>
                                 <!-- Title -->
                                 <div class="ms-3">
-                                    <h6 class="mb-1">Pr Titulaire RAZAFIMAHEFA</h6>
-                                    <p class="mb-0">Vice Président I</p>
+                                    <h6 class="mb-1">Dr. RAKOTOARIVELO Geoslin</h6>
+                                    <p class="mb-0">Vice Président I </p>
                                 </div>
                             </div>
-
-                            <!-- Avatar -->
+                            <!-- Vice Président 1 END -->
+                           <!-- Vice Président 2 -->
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <!-- Avatar image -->
-                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/vice_president.jpg') }}" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/pr_mahefa.jpg') }}" alt="avatar">
                                     <!-- Medal badge -->
                                     <div class="bottom-0 position-absolute end-0">
                                         <img src="{{ asset('assets/images/element/medal-badge.png') }}" class="position-relative" alt="">
@@ -110,14 +110,14 @@ Page content START -->
                                 </div>
                                 <!-- Title -->
                                 <div class="ms-3">
-                                    <h6 class="mb-1">Dr. Geoslin</h6>
-                                    <p class="mb-0">Vice Président II </p>
+                                    <h6 class="mb-1">Pr Titulaire RAZAFIMAHEFA</h6>
+                                    <p class="mb-0">Vice Président II</p>
                                 </div>
                             </div>
-                            <!-- Right content END -->
                             </div>
                         </div>
-                        <!-- Président END -->
+                       <!-- Vice Président 2 END -->
+
                         <div class="overflow-hidden col-md-6 col-xl-12 filter-container" data-isotope='{"layoutMode": "masonry"}'">
                             <!-- Image-->
                             <div class="overflow-hidden card">
@@ -131,7 +131,8 @@ Page content START -->
                             </a>
                             </div>
                         </div>
-                    </div><!-- Row End -->
+                    </div>
+                    <!-- Row End -->
                 </div>
             </div>
             <!-- Right sidebar END -->

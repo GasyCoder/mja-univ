@@ -62,7 +62,7 @@ class Contacts extends Component
 
     public function render()
     {
-        return view('livewire.admin.contacts', [
+        return view('livewire.admin.messages.contacts', [
 
             'contacts' => Contact::latest()->paginate($this->page),
         ]);

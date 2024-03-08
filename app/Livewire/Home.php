@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use session;
+use App\Models\Etab;
 use App\Models\Post;
 use App\Models\Type;
 use App\Models\Regle;
@@ -29,6 +30,7 @@ class Home extends Component
         ]);
     }
 
+
     public $email;
 
     public function abonner()
@@ -52,6 +54,7 @@ class Home extends Component
         $this->reset();
         session()->flash('sent', 'Veuillez confirmer votre email.');
     }
+
 
 
     public function render()

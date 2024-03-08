@@ -9,8 +9,8 @@ Main Banner END -->
                 <div class="mx-auto text-center col-lg-10 position-relative">
                     <!-- Title -->
                     @if(Route::is('etablissement'))
-                    <h1>Nos établissements</h1>
-                    @else <h1>Nos écoles doctorales</h1> @endif
+                    <h2>Nos établissements</h2>
+                    @else <h2>Nos écoles doctorales</h2> @endif
                     <!-- Breadcrumb -->
                     <div class="d-flex justify-content-center position-relative">
                         <nav aria-label="breadcrumb">

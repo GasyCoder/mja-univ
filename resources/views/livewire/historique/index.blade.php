@@ -1,15 +1,4 @@
 <div>
-
-    <!-- =======================
-    Trending courses START -->
-    {{-- <section class="pt-0 pb-5 pt-lg-5">
-        <div class="container">
-            <!-- Title -->
-            <div class="row">
-
-            </div>
-        </div>
-    </section> --}}
     <!-- =======================
     Trending courses END -->
     <section class="bg-light">

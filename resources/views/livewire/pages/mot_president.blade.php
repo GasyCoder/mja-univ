@@ -13,7 +13,7 @@
                 @endif
                 </div>
                 <!-- Pencil and cap SVG -->
-                <div class="top-0 position-absolute end-0 mt-n4 me-5">
+                <div class="top-0 position-absolute end-0 mt-n4 me-3">
                     <img src="{{ asset('assets/images/element/pencil.svg') }}" alt="">
                 </div>
                 <div class="p-4 overflow-hidden shadow rounded-2 bg-light p-sm-5 position-relative z-index-n1">
@@ -42,7 +42,7 @@
                         </svg>
                     </figure>
 
-                    <div class="py-2 row g-3 align-items-center justify-content-sm-end position-relative">
+                    <div class="py-3 row g-3 align-items-center justify-content-sm-end position-relative">
                         <!-- Title -->
                         <div class="col-md-6">
                             <h3 class="">Mot du Président</h3>
@@ -51,7 +51,7 @@
                             </h6>
                             <blockquote class="mt-1">
                                 <p class="">
-                                    <span class="me-1 small"><i class="fas fa-quote-left"></i></span>
+                                    <span class="me-2 small"><i class="fas fa-quote-left"></i></span>
                                   {{ strip_tags($mot->intro) }}
                                     <span class="ms-1 small"><i class="fas fa-quote-right"></i></span>
                                 </p>

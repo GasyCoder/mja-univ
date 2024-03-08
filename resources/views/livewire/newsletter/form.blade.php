@@ -3,7 +3,7 @@
         <div class="container position-relative">
             <div class="row">
                 <div class="col-12">
-                    <div class="p-3 rounded-3 position-relative p-sm-0">
+                  <div class="p-3 shadow-lg bg-light rounded-3 position-relative p-sm-5">
                         <div class="row g-4 align-items-center">
                             <div class="col-md-6">
                                 <!-- Title -->
@@ -52,4 +52,44 @@
             </div> <!-- Row END -->
         </div>
     </section>
+
+    {{-- <section class="py-4">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-3 bg-white shadow-lg rounded-3 position-relative p-sm-5">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-md-6">
+                                    <!-- Title -->
+                                    <h6 class="text-primary">Newsletter</h6>
+                                    <h3 class="mb-0 text-dark">Abonnez-vous!</h3>
+                                    <p class="mb-0">Abonnez-vous à la liste de diffusion pour recevoir les dernières actualités
+                                        et événements!</p>
+                                </div>
+                                <!-- Form -->
+                                <div class="col-md-6">
+                                    <form class="p-1 mt-3 rounded bg-light" method="POST" action="{{ route('abonnez_vous') }}">
+                                        @csrf
+                                        <div class="input-group">
+                                            <input class="border-0 form-control me-1" type="email" name="email"
+                                                placeholder="Entrer ici votre Email">
+                                            <button class="mb-0 btn btn-blue rounded-2" type="submit">
+                                                <span>
+                                                    S'abonner
+                                                </span>
+                                            </button>
+                                        </div>
+                                        @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                                    </form>
+                                    <small>Vous pouvez vous désabonner à tout moment, lire notre <a
+                                            href="{{ route('show_regle', ['slug' => get_rule_one()['slug'], 'uuid' => get_rule_one()['uuid']]) }}">politique
+                                            de confidentialité</a>.</small>
+                                </div>
+                            </div> <!-- Row END -->
+                        </div>
+                    </div>
+                </div> <!-- Row END -->
+            </div>
+        </section> --}}
+
 </div>

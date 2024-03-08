@@ -1,6 +1,6 @@
 <div>
 @if($articles->count() > 0)
-    <section class="py-5">
+    <section class="py-5 bg-light">
         <div class="container">
             <div class="row position-relative">
                 <!-- SVG decoration -->
@@ -33,7 +33,7 @@
                     </figure>
 
                     <!-- Title -->
-                    <h1>Tous nos actualités</h1>
+                    <h2>Toutes nos actualités</h2>
                     <!-- Breadcrumb -->
                     <div class="d-flex justify-content-center position-relative">
                         <nav aria-label="breadcrumb">

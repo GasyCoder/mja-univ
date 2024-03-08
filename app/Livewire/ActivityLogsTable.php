@@ -3,6 +3,8 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\ActivityLog;
+use Livewire\WithPagination;
 
 class ActivityLogsTable extends Component
 {

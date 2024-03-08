@@ -21,25 +21,28 @@
 
 			<!-- Main navbar START -->
 			<div class="navbar-collapse collapse" id="navbarCollapse">
-				<!-- Nav Search START -->
-				<div class="col-xxl-6">
-					<div class="px-4 my-3 nav my-xl-0 flex-nowrap align-items-center">
-						<div class="nav-item w-100">
-							<form class="rounded position-relative">
-								<input class="border-0 form-control pe-5 bg-secondary bg-opacity-10"
-                                type="search" placeholder="Rechercher..." aria-label="Search">
-								<button class="px-2 py-0 bg-transparent btn btn-link position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 text-primary"></i></button>
-							</form>
-						</div>
-					</div>
-				</div>
+            <!-- Nav Search START -->
+            <div class="col-xxl-6">
+                <div class="px-4 my-3 nav my-xl-0 flex-nowrap align-items-center">
+                    <div class="nav-item w-100">
+                      <form class="rounded position-relative" method="GET" action="{{ route('search.results') }}">
+                        <input wire:model="search" type="search" class="border-0 form-control pe-5 bg-secondary bg-opacity-10"
+                            placeholder="Rechercher..." aria-label="Search" name="search">
+                        <button class="px-2 py-0 bg-transparent btn btn-link position-absolute top-50 end-0 translate-middle-y"
+                            type="submit">
+                            <i class="fas fa-search fs-6 text-primary"></i>
+                        </button>
+                    </form>
+                    </div>
+                </div>
+            </div>
 				<!-- Nav Search END -->
 
 				<!-- Nav Main menu START -->
 				<ul class="navbar-nav navbar-nav-scroll ms-auto">
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link" href="https://bacc.mahajanga.digital.gov.mg/" target="_blank">Office du BACC</a>
+                        <a class="nav-link" href="https://bacc.mahajanga.digital.gov.mg/" target="_blank">Office du Bacc</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link {{ request()->routeIs('resultat_inscription') ? 'active' : '' }}"
@@ -71,7 +74,7 @@
 				<li class="nav-item ms-3 dropdown">
 					<a class="p-0 mb-0 avatar avatar-sm btn btn-light btn-round" href="#" id="darkmode" role="button"
                         data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="true">
-                        <i class="bi bi-gear fs-5"></i>
+                        <i class="bi bi-brightness-high fs-5"></i>
                     </a>
                     <ul class="pt-3 shadow dropdown-menu dropdown-animation dropdown-menu-end" aria-labelledby="darkmode">
                         @if (Route::has('login'))
@@ -126,7 +129,7 @@
                                                 d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
                                             </path>
                                             <use href="#"></use>
-                                        </svg> Light
+                                        </svg> {{ __('Light') }}
                                     </button>
                                     <button type="button" class="mb-0 btn btn-sm" :class="{ 'active': theme === 'dark' }"
                                         @click="theme = 'dark'; setTheme(theme)">
@@ -139,7 +142,7 @@
                                                 d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z">
                                             </path>
                                             <use href="#"></use>
-                                        </svg> Dark
+                                        </svg> {{ __('Dark') }}
                                     </button>
                                     <button type="button" class="mb-0 btn btn-sm" :class="{ 'active': theme === 'auto' }"
                                         @click="theme = 'auto'; setTheme(theme)">
@@ -147,7 +150,7 @@
                                             class="bi bi-circle-half fa-fw mode-switch" viewbox="0 0 16 16">
                                             <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
                                             <use href="#"></use>
-                                        </svg> Auto
+                                        </svg> {{ __('Auto') }}
                                     </button>
                                 </div>
                             </li>

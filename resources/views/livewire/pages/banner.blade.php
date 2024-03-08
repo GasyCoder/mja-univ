@@ -33,9 +33,9 @@
                                     <a href="{{ route('detail_type', ['slug' => $row->slug]) }}"
                                         wire:navigate
                                         class="text-primary-hover stretched-link">
-                                        <span class="h6 ms-2 text-{{ $row->bg_color }}">
+                                        <span class="ms-2 text-{{ $row->bg_color }}">
                                             <i class="bi bi-mortarboard-fill"></i>
-                                            {{ Str::limit($row->name, 18)}}
+                                            {{ Str::limit($row->name, 14)}}
                                         </span>
                                     </a>
                                 </div>

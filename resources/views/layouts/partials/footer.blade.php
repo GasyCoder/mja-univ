@@ -4,7 +4,6 @@ Footer START -->
     <div class="container">
         <!-- Row START -->
         <div class="row g-4">
-
             <!-- Widget 1 START -->
             <div class="col-lg-3">
                 <!-- logo -->
@@ -15,7 +14,6 @@ Footer START -->
                 <p class="my-3">{{ Str::limit(get_settings()['description'], 120)}} <a href="/historique">lire la suite</a> </p>
             </div>
             <!-- Widget 1 END -->
-
             <!-- Widget 2 START -->
             <div class="col-lg-6">
                 <div class="row g-4">
@@ -24,8 +22,7 @@ Footer START -->
                         <h6 class="mb-2 mb-md-4">Services</h6>
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link" href="#">Bibliothèque</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Radio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Service Com</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Radio/Service Communication</a></li>
                         </ul>
                     </div>
 
@@ -33,9 +30,8 @@ Footer START -->
                     <div class="col-6 col-md-4">
                         <h6 class="mb-2 mb-md-4">Vie Universitaire</h6>
                         <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link" href="#">Logement Universitaire</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Campus Universitaire</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Sports/Loisirs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Logement/Campus Universitaire</a></li>
                         </ul>
                     </div>
 
@@ -50,14 +46,11 @@ Footer START -->
                 </div>
             </div>
             <!-- Widget 2 END -->
-
             <!-- Widget 3 START -->
             <div class="col-lg-3">
                 <h6 class="mb-2 mb-md-4">Contact & Adresse</h6>
                 <!-- Time -->
                 <p class="mb-0">Email:<span class="h6 fw-light ms-2">{{ get_settings()['email'] }}</span>
-                </p>
-                <p class="mb-0">Téléphone: <span class="h6 fw-light ms-2">{{ get_settings()['phone'] }}</span>
                 </p>
                 <p class="mb-2">
                     Adresse:<span class="h6 fw-light ms-2">{{ get_settings()['adresse'] }}</span>

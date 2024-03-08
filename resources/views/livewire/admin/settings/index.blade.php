@@ -289,7 +289,7 @@
                             <!-- Card body START -->
                             <div class="card-body">
                                 <!-- Table START -->
-                                <div class="border-0 table-responsive">
+                            <div class="border-0 table-responsive">
                                    <table class="table p-4 mb-0 align-middle table-dark-gray table-hover">
                                     <thead>
                                         <tr>
@@ -321,7 +321,7 @@
                                 {{ $logs->links() }}
                                </div>
 
-                                </div>
+                            </div>
                                 <!-- Table END -->
                             </div>
                             <!-- Card body END -->

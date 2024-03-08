@@ -5,5 +5,6 @@
 @include('livewire.pages.action')
 @include('livewire.pages.event')
 
-@include('livewire.newsletter')
+@include('livewire.newsletter.form')
+
 </div>

@@ -78,7 +78,7 @@
                         <button class="mb-0 btn btn-sm btn-danger" wire:confirm="Vous êtes sur de supprimer?"
                             wire:click="forceDelete({{ $trash->id }})"><i class="bi bi-backspace-reverse-fill"></i></button>
                         @endif
-                </td>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

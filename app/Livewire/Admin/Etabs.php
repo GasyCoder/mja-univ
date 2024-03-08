@@ -19,7 +19,7 @@ class Etabs extends Component
     use AuthorizesRequests, LivewireAlert, WithPagination, WithFileUploads;
     protected $paginationTheme = 'bootstrap';
 
-    #[Validate('nullable|image|max:2120')]
+    #[Validate('image|max:2120')]
     public $image_path;
 
     #[Validate('required')]

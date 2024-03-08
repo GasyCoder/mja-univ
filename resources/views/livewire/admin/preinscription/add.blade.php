@@ -20,7 +20,7 @@
                         <select class="form-control" wire:model="etab_id">
                             <option value="" selected>--choisir--</option>
                             @foreach($etabs as $row)
-                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                            <option value="{{ $row->id }}">{{ $row->sigle }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -53,13 +53,14 @@
                         <li class="nav-item"> <a class="nav-link" href="{{ route('profil_etab') }}">Licence/Master</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('ecole_doctorale') }}">Doctorales</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('type_etab') }}">Types</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('domaines') }}">Offres de
+                                formations</a>
+                        </li>
                     </ul>
                 </li>
                 <!-- Menu item 5 -->
-                <li class="nav-item"> <a class="nav-link" href="{{ route('domaines') }}"><i
-                class="far fa-edit fa-fw me-2"></i>Offres de formations</a>
-                </li>
-                <!-- Menu item 8 -->
+
+                <!-- Menu item 9 -->
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#collapseuniv" role="button" aria-expanded="false"
                         aria-controls="collapseuniv">
@@ -73,7 +74,21 @@
                         <li class="nav-item"> <a class="nav-link" href="{{ route('staff') }}">List des Staffs</a></li>
                     </ul>
                 </li>
-                <!-- Menu item 5 -->
+
+                <!-- Menu item 10 -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#collapsepub" role="button" aria-expanded="false"
+                        aria-controls="collapsepub">
+                        <i class="bi bi-lightbulb fa-fw me-2"></i>Publications
+                    </a>
+                    <!-- Submenu -->
+                    <ul class="nav collapse flex-column" id="collapsepub" data-bs-parent="#navbar-sidebar">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('revues') }}">Revues</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('fichiers') }}">Fichiers</a></li>
+                    </ul>
+                </li>
+
+                <!-- Menu item 11 -->
                 <li class="nav-item"> <a class="nav-link" href="{{ route('pre_inscription') }}">
                     <i class="far fa-eye fa-fw me-2"></i>Pré-inscription</a>
                 </li>
@@ -98,7 +113,7 @@
                         </li>
                         <!-- Menu item 7 -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('abonne') }}">Abonnés NewsLetter
+                            <a class="nav-link" href="{{ route('abonne') }}">NewsLetter
                             </a>
                         </li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('regles') }}">Règles</a></li>
