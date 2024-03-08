@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Cookie;
 use Livewire\Component;
 
 class CookieAlert extends Component
@@ -13,21 +14,13 @@ class CookieAlert extends Component
 
     public function acceptCookies()
     {
-        session()->put('cookies_accepted', true);
+        Cookie::queue('cookies_accepted', true, 60 * 24 * 365); // Expire après 1 an
     }
 
     public function declineCookies()
     {
-        session()->put('cookies_declined', true);
+        Cookie::queue('cookies_accepted', false, 60 * 24 * 365); // Expire après 1 an
     }
-
-    // public function acceptCookies()
-    // {
-    //     return response('')->cookie('cookies_accepted', true, 60 * 24 * 365); // Expire après 1 an
-    // }
-
-    // public function declineCookies()
-    // {
-    //     return response('')->cookie('cookies_declined', true, 60 * 24 * 365); // Expire après 1 an
-    // }
 }
+
+
