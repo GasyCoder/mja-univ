@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                         </div>
-                        <small class="ms-4">{{ 'ISSN:' .$pub->issn ? Str::limit($pub->issn, 17) : 'ISSN: N/A' }}</small>
+                        <small class="ms-4">{{ 'ISSN: ' . ($pub->issn ? Str::limit($pub->issn, 17) : 'N/A') }}</small>
                     </div>
                 </div>
             </div>
