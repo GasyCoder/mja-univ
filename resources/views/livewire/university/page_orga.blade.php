@@ -23,14 +23,14 @@ Page content START -->
     <div class="container" data-sticky-container="">
         <div class="row g-4">
             <!-- Main content START -->
-            <div class="col-xl-8">
+            <div class="col-xl-7">
                 <div class="row g-4">
                     <!-- FAQs START -->
                     <div class="col-12">
                         <div class="border card rounded-3">
                             <!-- Card header START -->
                             <div class="card-header border-bottom">
-                                <h4 class="mb-0">UNIVERSITE DE MAHAJANGA - ORGANISATIONS</h4>
+                                <h5 class="mb-0">UNIVERSITE DE MAHAJANGA</h5>
                             </div>
                             <!-- Card header END -->
 
@@ -50,7 +50,7 @@ Page content START -->
             <!-- Main content END -->
 
             <!-- Right sidebar START -->
-            <div class="col-xl-4">
+            <div class="col-xl-5">
                 <div data-sticky="" data-margin-top="80" data-sticky-for="768">
                     <div class="row g-4">
                         <!-- Président START -->
