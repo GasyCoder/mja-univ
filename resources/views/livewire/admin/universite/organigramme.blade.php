@@ -68,7 +68,7 @@
                         <label class="form-label">Contenus</label>
                         <div>
                             <div style="height: 100%;">
-                                <textarea class="form-control" rows="10" wire:model="body"></textarea>
+                                <textarea class="form-control" rows="30" wire:model="body"></textarea>
                                 {{-- <livewire:quill-text-editor wire:model.defer="body" theme="snow" /> --}}
                             </div>
                         </div>
