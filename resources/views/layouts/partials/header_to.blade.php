@@ -32,7 +32,7 @@
                             type="submit">
                             <i class="fas fa-search fs-6 text-primary"></i>
                         </button>
-                    </form>
+                      </form>
                     </div>
                 </div>
             </div>

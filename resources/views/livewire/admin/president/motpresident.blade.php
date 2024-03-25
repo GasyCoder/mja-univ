@@ -36,7 +36,8 @@
                         <label class="form-label">Mots</label>
                         <div>
                             <div style="height: 100%;">
-                                <livewire:quill-text-editor wire:model.defer="body" theme="snow" />
+                                <textarea class="form-control" wire:model.defer="body" rows="30" cols="30"></textarea>
+                                {{-- <livewire:quill-text-editor wire:model.defer="body" theme="snow" /> --}}
                             </div>
                         </div>
                     </div>

@@ -79,7 +79,7 @@ Page content START -->
                         <h4 class="mb-0">Université de Mahajanga</h4>
                         <hr>
                         <!-- Content -->
-                        <p class="mt-4 text-justify">
+                        <p class="mt-4 text-justify" style="text-align: justify">
                             {!! $body !!}
                         </p>
                         <!-- Counter START -->
