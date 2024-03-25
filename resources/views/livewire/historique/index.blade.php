@@ -33,6 +33,7 @@
                     </div>
                 </div>
                 <!-- Slider END -->
+                <small><i>Les Recteurs et Présidents de l’Université et les in depuis sa création.</i></small>
                 </div>
             </div>
         </div>

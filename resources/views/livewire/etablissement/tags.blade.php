@@ -21,7 +21,7 @@
         </ul>
     @endif
     @if($diplomes ?? null)
-    <h6 class="mt-3 mb-2">Diplôme délivrés</h6>
+    <h6 class="mt-3 mb-2">Diplômes délivrés</h6>
         <ul class="mb-0 list-inline">
             @if($diplomes)
             @foreach($diplomes as $d)

@@ -112,9 +112,9 @@
         <!-- Title -->
         <div class="mb-4 row">
             @if(Route::is('single_etab'))
-            <h4 class="mb-0">Autre <span class="text-warning">établissements</span></h4>
+            <h4 class="mb-0">Autres <span class="text-warning">établissements</span></h4>
             @else
-            <h4 class="mb-0">Autre <span class="text-warning">écoles d'octorale</span></h4>
+            <h4 class="mb-0">Autres <span class="text-warning">écoles d'octorale</span></h4>
             @endif
         </div>
         <div class="row">
