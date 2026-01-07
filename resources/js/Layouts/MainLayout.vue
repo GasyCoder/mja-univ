@@ -27,6 +27,12 @@ const utilityNav = [
     { label: 'Contact', href: '/contactez-nous' },
 ];
 
+const highlightLinks = [
+    { label: 'Calendrier académique', href: '#' },
+    { label: 'Espace documentaire', href: '/documents' },
+    { label: 'Requêtes & recherche', href: '/requete' },
+];
+
 const mobileSections = [
     {
         key: 'portals',
@@ -87,14 +93,16 @@ const toggleSection = (key) => {
         </a>
 
         <header class="border-b border-slate-200 bg-white">
-            <div class="hidden lg:block border-b border-slate-100 bg-slate-50">
-                <div class="mx-auto flex max-w-[var(--spacing-container)] items-center justify-between px-6 py-2 text-xs text-slate-600">
-                    <div class="flex items-center gap-6">
+            <div class="border-b border-slate-100 bg-slate-50">
+                <div class="mx-auto flex max-w-[var(--spacing-container)] flex-wrap items-center justify-between gap-4 px-6 py-3 text-xs text-slate-600">
+                    <div class="flex flex-wrap items-center gap-5">
+                        <span class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-700">
+                            Portail institutionnel
+                        </span>
                         <span>Campus Ambondrona · Mahajanga 401</span>
                         <span>contact@mja-univ.mg</span>
-                        <span>+261 20 22 000 00</span>
                     </div>
-                    <div class="flex items-center gap-4">
+                    <div class="hidden lg:flex items-center gap-4">
                         <span class="font-semibold uppercase tracking-[0.25em] text-slate-400">Portails</span>
                         <div class="flex items-center gap-4">
                             <Link v-for="portal in portals" :key="portal.label" :href="portal.href" class="font-semibold text-slate-700 hover:text-primary-700">
@@ -102,38 +110,51 @@ const toggleSection = (key) => {
                             </Link>
                         </div>
                     </div>
+                    <div class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                        <span>FR</span>
+                        <span class="h-3 w-px bg-slate-300"></span>
+                        <span>EN</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="mx-auto flex max-w-[var(--spacing-container)] items-center justify-between px-6 py-5">
+            <div class="mx-auto flex max-w-[var(--spacing-container)] items-center justify-between gap-6 px-6 py-5">
                 <Link href="/" class="flex items-center gap-4">
                     <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-900 text-white font-semibold">
                         UM
                     </div>
                     <div class="leading-tight">
-                        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-700">Université</p>
+                        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary-700">Université</p>
                         <p class="text-lg font-semibold text-slate-900">Université de Mahajanga</p>
+                        <p class="text-xs text-slate-500">Ministère de l’Enseignement Supérieur</p>
                     </div>
                 </Link>
 
-                <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
-                    <Link v-for="item in primaryNav" :key="item.label" :href="item.href" class="hover:text-primary-700">
-                        {{ item.label }}
-                    </Link>
-                </nav>
-
-                <div class="hidden lg:flex items-center gap-3">
-                    <Link
-                        v-for="item in utilityNav"
-                        :key="item.label"
-                        :href="item.href"
-                        class="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:border-primary-200 hover:text-primary-700"
-                    >
-                        {{ item.label }}
-                    </Link>
-                    <Link href="/mja/user-auth" class="rounded-full bg-primary-700 px-5 py-2 text-xs font-semibold text-white hover:bg-primary-800">
-                        Espace numérique
-                    </Link>
+                <div class="hidden lg:flex flex-1 items-center justify-between gap-8">
+                    <nav class="flex items-center gap-8 text-sm font-semibold text-slate-700">
+                        <Link v-for="item in primaryNav" :key="item.label" :href="item.href" class="hover:text-primary-700">
+                            {{ item.label }}
+                        </Link>
+                    </nav>
+                    <div class="flex items-center gap-3">
+                        <div class="hidden xl:flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs text-slate-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-3.35z" />
+                            </svg>
+                            <span>Rechercher une information</span>
+                        </div>
+                        <Link
+                            v-for="item in utilityNav"
+                            :key="item.label"
+                            :href="item.href"
+                            class="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:border-primary-200 hover:text-primary-700"
+                        >
+                            {{ item.label }}
+                        </Link>
+                        <Link href="/mja/user-auth" class="rounded-full bg-primary-700 px-5 py-2 text-xs font-semibold text-white hover:bg-primary-800">
+                            Espace numérique
+                        </Link>
+                    </div>
                 </div>
 
                 <button
@@ -150,6 +171,23 @@ const toggleSection = (key) => {
                 </button>
             </div>
 
+            <div class="border-t border-slate-100 bg-white">
+                <div class="mx-auto flex max-w-[var(--spacing-container)] flex-wrap items-center justify-between gap-4 px-6 py-3 text-xs text-slate-600">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <span class="font-semibold uppercase tracking-[0.25em] text-slate-400">Accès direct</span>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <Link v-for="link in highlightLinks" :key="link.label" :href="link.href" class="font-semibold text-slate-700 hover:text-primary-700">
+                                {{ link.label }}
+                            </Link>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500">
+                        <span class="font-semibold text-slate-700">Urgences</span>
+                        <span>+261 20 22 000 00</span>
+                    </div>
+                </div>
+            </div>
+
             <transition
                 enter-active-class="transition duration-200 ease-out"
                 enter-from-class="opacity-0 -translate-y-2"
@@ -160,6 +198,9 @@ const toggleSection = (key) => {
             >
                 <div v-show="isMobileMenuOpen" id="mobile-navigation" class="border-t border-slate-200 bg-white lg:hidden">
                     <div class="px-6 py-6 space-y-6">
+                        <div class="space-y-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                            Portails & services
+                        </div>
                         <div class="grid grid-cols-2 gap-3">
                             <Link v-for="item in utilityNav" :key="item.label" :href="item.href" class="rounded-xl border border-slate-200 px-4 py-3 text-xs font-semibold text-slate-700">
                                 {{ item.label }}
@@ -201,6 +242,10 @@ const toggleSection = (key) => {
                             <p class="font-semibold text-slate-800">Besoin d’aide ?</p>
                             <p class="mt-2">Admissions, scolarité, recherche : nos équipes répondent du lundi au vendredi.</p>
                             <p class="mt-2 text-primary-700">contact@mja-univ.mg</p>
+                            <div class="mt-4 flex flex-wrap gap-3">
+                                <Link href="/contactez-nous" class="text-xs font-semibold text-slate-700">Contact</Link>
+                                <Link href="/requete" class="text-xs font-semibold text-slate-700">Requêtes</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

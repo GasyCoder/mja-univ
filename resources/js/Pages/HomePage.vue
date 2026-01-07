@@ -11,6 +11,12 @@ const heroStats = [
     { label: 'Partenaires internationaux', value: '38' },
 ];
 
+const headlineLinks = [
+    { label: 'Communiqués officiels', href: '/voir-tous-actualites/' },
+    { label: 'Résultats préinscription', href: '/resultats-preinscription' },
+    { label: 'Publications scientifiques', href: '/publications-scientifiques' },
+];
+
 const pathways = [
     {
         title: 'Admissions & orientation',
@@ -86,18 +92,36 @@ const news = [
         date: '08 avril 2024',
         category: 'Université',
         href: '/voir-tous-actualites/',
+        image: 'https://placehold.co/600x400/png?text=Centre+Num%C3%A9rique',
     },
     {
         title: 'Partenariat stratégique avec l’Université de Nantes',
         date: '02 avril 2024',
         category: 'International',
         href: '/voir-tous-actualites/',
+        image: 'https://placehold.co/600x400/png?text=Partenariat',
     },
     {
         title: 'Bourses d’excellence pour les masters 2024-2025',
         date: '25 mars 2024',
         category: 'Formation',
         href: '/voir-tous-actualites/',
+        image: 'https://placehold.co/600x400/png?text=Bourses',
+    },
+];
+
+const milestones = [
+    {
+        title: 'Projet institutionnel 2024-2030',
+        description: 'Une trajectoire stratégique pour l’excellence académique, la gouvernance et l’innovation sociale.',
+    },
+    {
+        title: 'Campus durable & inclusif',
+        description: 'Investissements sur l’énergie, la mobilité et l’accessibilité pour tous les usagers.',
+    },
+    {
+        title: 'Transformation numérique',
+        description: 'Déploiement d’espaces numériques de travail, bibliothèques et services connectés.',
     },
 ];
 
@@ -132,36 +156,53 @@ const partnerships = [
 
     <MainLayout>
         <section class="relative overflow-hidden bg-primary-950 text-white">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.15),transparent_55%)]"></div>
-            <div class="mx-auto grid max-w-[var(--spacing-container)] gap-12 px-6 py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-                <div class="space-y-6">
-                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-accent-200">Université de Mahajanga</p>
-                    <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-                        Une université publique engagée pour la connaissance, l’innovation et le territoire.
-                    </h1>
-                    <p class="text-lg text-primary-100 max-w-2xl">
-                        Un campus interdisciplinaire qui accompagne les étudiants, la recherche et les partenariats régionaux à Madagascar et à l’international.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <Link href="/resultats-preinscription" class="rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-900">
-                            Démarrer votre parcours
-                        </Link>
-                        <Link href="/offres-de-formation" class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:border-white">
-                            Découvrir les formations
-                        </Link>
-                    </div>
+            <div class="absolute inset-0 bg-[url('https://placehold.co/1600x900/png?text=Campus+Universitaire')] bg-cover bg-center opacity-25"></div>
+            <div class="absolute inset-0 bg-linear-to-b from-primary-950/95 via-primary-950/80 to-primary-950"></div>
+            <div class="relative mx-auto max-w-[var(--spacing-container)] px-6 py-20">
+                <div class="flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.3em] text-accent-200">
+                    <span>Université de Mahajanga</span>
+                    <span class="h-3 w-px bg-white/30"></span>
+                    <span>Portail institutionnel</span>
                 </div>
-                <div class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
-                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-accent-200">Repères institutionnels</p>
-                    <div class="mt-6 grid grid-cols-2 gap-6">
-                        <div v-for="stat in heroStats" :key="stat.label" class="space-y-2">
-                            <p class="text-2xl font-semibold text-white">{{ stat.value }}</p>
-                            <p class="text-xs uppercase tracking-[0.2em] text-primary-200">{{ stat.label }}</p>
+                <div class="mt-10 grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+                                Une université publique engagée pour la connaissance, l’innovation et le territoire.
+                            </h1>
+                            <p class="text-lg text-primary-100 max-w-2xl">
+                                Un campus interdisciplinaire qui accompagne les étudiants, la recherche et les partenariats régionaux à Madagascar et à l’international.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <Link href="/resultats-preinscription" class="rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-900">
+                                Démarrer votre parcours
+                            </Link>
+                            <Link href="/offres-de-formation" class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:border-white">
+                                Découvrir les formations
+                            </Link>
+                        </div>
+                        <div class="rounded-3xl border border-white/15 bg-white/5 p-6">
+                            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-accent-200">Accès rapides</p>
+                            <div class="mt-4 flex flex-wrap gap-4 text-sm font-semibold text-white/90">
+                                <Link v-for="link in headlineLinks" :key="link.label" :href="link.href" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 hover:border-white/50">
+                                    {{ link.label }}
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-8 rounded-2xl bg-white/10 p-4 text-sm text-primary-100">
-                        <p class="font-semibold text-white">Cap 2030</p>
-                        <p class="mt-2">Accélérer la transformation numérique, la recherche appliquée et l’impact régional.</p>
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+                        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-accent-200">Repères institutionnels</p>
+                        <div class="mt-6 grid grid-cols-2 gap-6">
+                            <div v-for="stat in heroStats" :key="stat.label" class="space-y-2">
+                                <p class="text-2xl font-semibold text-white">{{ stat.value }}</p>
+                                <p class="text-xs uppercase tracking-[0.2em] text-primary-200">{{ stat.label }}</p>
+                            </div>
+                        </div>
+                        <div class="mt-8 rounded-2xl bg-white/10 p-4 text-sm text-primary-100">
+                            <p class="font-semibold text-white">Cap 2030</p>
+                            <p class="mt-2">Accélérer la transformation numérique, la recherche appliquée et l’impact régional.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -244,27 +285,45 @@ const partnerships = [
                             v-for="item in news"
                             :key="item.title"
                             :href="item.href"
-                            class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                            class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                         >
-                            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-secondary-500">{{ item.category }}</p>
-                            <h3 class="mt-4 text-lg font-semibold text-slate-900 group-hover:text-primary-700">{{ item.title }}</h3>
-                            <p class="mt-3 text-sm text-slate-500">{{ item.date }}</p>
+                            <div class="relative h-40 overflow-hidden">
+                                <img :src="item.image" :alt="item.title" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                                <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary-600">
+                                    {{ item.category }}
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-semibold text-slate-900 group-hover:text-primary-700">{{ item.title }}</h3>
+                                <p class="mt-3 text-sm text-slate-500">{{ item.date }}</p>
+                            </div>
                         </Link>
                     </div>
-                    <div class="rounded-3xl border border-slate-200 bg-white p-6">
-                        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-secondary-500">Agenda</p>
-                        <ul class="mt-6 space-y-4">
-                            <li v-for="event in events" :key="event.title" class="space-y-1 border-b border-slate-100 pb-4 last:border-none last:pb-0">
-                                <p class="text-sm font-semibold text-slate-900">{{ event.title }}</p>
-                                <p class="text-xs text-slate-500">{{ event.date }} · {{ event.location }}</p>
-                            </li>
-                        </ul>
-                        <Link href="#" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary-700">
-                            Consulter l’agenda
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </Link>
+                    <div class="space-y-6">
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+                            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-secondary-500">Agenda</p>
+                            <ul class="mt-6 space-y-4">
+                                <li v-for="event in events" :key="event.title" class="space-y-1 border-b border-slate-100 pb-4 last:border-none last:pb-0">
+                                    <p class="text-sm font-semibold text-slate-900">{{ event.title }}</p>
+                                    <p class="text-xs text-slate-500">{{ event.date }} · {{ event.location }}</p>
+                                </li>
+                            </ul>
+                            <Link href="#" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary-700">
+                                Consulter l’agenda
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </Link>
+                        </div>
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+                            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-secondary-500">Axes stratégiques</p>
+                            <ul class="mt-4 space-y-4 text-sm text-slate-600">
+                                <li v-for="milestone in milestones" :key="milestone.title" class="space-y-2 border-b border-slate-100 pb-4 last:border-none last:pb-0">
+                                    <p class="font-semibold text-slate-900">{{ milestone.title }}</p>
+                                    <p>{{ milestone.description }}</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -343,6 +402,23 @@ const partnerships = [
                         class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-6 text-center text-sm font-semibold text-slate-700"
                     >
                         {{ partner }}
+                    </div>
+                </div>
+                <div class="mt-12 rounded-3xl border border-slate-200 bg-primary-950 px-8 py-10 text-white">
+                    <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                        <div class="space-y-3">
+                            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-accent-200">Relations internationales</p>
+                            <h3 class="text-2xl font-semibold">Développer les mobilités et coopérations</h3>
+                            <p class="text-sm text-primary-100">Programmes d’échanges, co-diplômations et projets conjoints avec les universités partenaires.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <Link href="/documents" class="rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-900">
+                                Convention & documents
+                            </Link>
+                            <Link href="/contactez-nous" class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white">
+                                Nous contacter
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
