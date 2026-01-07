@@ -5,37 +5,38 @@ Event START -->
     <div class="container">
         <!-- Title -->
         <div class="mb-3">
-            <h4 class="mb-0 border-bottom">Evènements à venir</h4>
+            <h4 class="mb-1">Evènements à venir</h4>
+            <p class="mb-0 text-muted">Conférences, séminaires et rendez-vous académiques.</p>
         </div>
-        <div class="row justify-content-between">
+        <div class="row g-4">
         @foreach($events as $event)
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <!-- Card START -->
-                <div class="bg-transparent card">
-                    <div class="row align-items-center">
-                        <div class="col-sm-4 col-lg-3">
-                            <div class="p-3 mb-2 text-center bg-secondary rounded-2 mb-sm-0">
-                                <h2 class="text-danger">{{ $event->dateStart->format('d') }}</h2>
-                                <span class="text-danger">{{ $event->dateStart->format('M Y') }}</span>
+                <div class="border-0 card shadow-sm h-100">
+                    <div class="card-body d-flex gap-3">
+                        <div class="text-center">
+                            <div class="px-3 py-2 bg-primary text-white rounded-3">
+                                <div class="h4 mb-0">{{ $event->dateStart->format('d') }}</div>
+                                <small class="text-uppercase">{{ $event->dateStart->format('M') }}</small>
                             </div>
+                            <small class="d-block mt-2 text-muted">{{ $event->dateStart->format('Y') }}</small>
                         </div>
-                        <div class="col-sm-8 col-lg-9">
-                            <div class="p-0 card-body">
-                                <h5 class="">
-                                    <a href="{{ route('detail_event', ['uuid' => $event->uuid]) }}"
-                                        wire:navigate
-                                        class="stretched-link">{{ $event->title }}</a>
-                                </h5>
-                                <p class="mb-0">
-                                    <i class="bi bi-geo-alt-fill ms-0"></i> {{ $event->location }}
-                                    <i class="bi bi-clock-fill ms-3 text-end"></i> {{ $event->hourStart->format('h:i a') }}
-                                </p>
-                            </div>
+                        <div class="flex-grow-1">
+                            <h5 class="mb-2">
+                                <a href="{{ route('detail_event', ['uuid' => $event->uuid]) }}"
+                                    wire:navigate
+                                    class="stretched-link text-decoration-none">{{ $event->title }}</a>
+                            </h5>
+                            <p class="mb-1 text-muted">
+                                <i class="bi bi-geo-alt-fill ms-0"></i> {{ $event->location }}
+                            </p>
+                            <p class="mb-0 text-muted">
+                                <i class="bi bi-clock-fill me-1"></i> {{ $event->hourStart->format('h:i a') }}
+                            </p>
                         </div>
                     </div>
                 </div>
                 <!-- Card END -->
-                <hr class="my-4">
             </div>
          @endforeach
         </div>
