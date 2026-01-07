@@ -13,7 +13,7 @@
             <!-- Logo END -->
             <!-- Responsive navbar toggler -->
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse2" aria-controls="navbarCollapse2" aria-expanded="false"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-animation">
                     <span></span>
@@ -24,20 +24,14 @@
 
             @include('layouts.partials.navbar')
 
-            <div class="d-none d-lg-flex align-items-center gap-2">
-                <a href="{{ route('pre_inscription') }}" wire:navigate class="btn btn-sm btn-primary">Pré-inscription</a>
+            <!-- Contact START -->
+            <div class="dropdown me-2 ms-lg-0">
                 <a class="p-0 mb-0 avatar avatar-sm btn btn-light btn-round" href="{{ route('contact_page') }}"
                     wire:navigate>
                     <i class="bi bi-envelope fs-5"></i></i>
                 </a>
             </div>
             <!-- Contact START -->
-            <div class="d-lg-none dropdown me-2 ms-lg-0">
-                <a class="p-0 mb-0 avatar avatar-sm btn btn-light btn-round" href="{{ route('contact_page') }}"
-                    wire:navigate>
-                    <i class="bi bi-envelope fs-5"></i></i>
-                </a>
-            </div>
             <!-- Mode START -->
             <div class="dropdown me-2 ms-lg-0">
                 <a class="p-0 mb-0 avatar avatar-sm btn btn-light btn-round" href="#" id="darkmode" role="button"
