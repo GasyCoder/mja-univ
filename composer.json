@@ -8,6 +8,7 @@
         "php": "^8.2",
         "dasundev/livewire-quill-text-editor": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
+        "inertiajs/inertia-laravel": "^2.0",
         "jantinnerezo/livewire-alert": "^3.0",
         "laravel-lang/locales": "^2.5",
         "laravel/framework": "^12.0",

@@ -19,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\CheckSiteStatus::class,
             \App\Http\Middleware\LogActivity::class,
+            \App\Http\Middleware\HandleInertiaRequests::class,
         ]);
 
         $middleware->api(append: [

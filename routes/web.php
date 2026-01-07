@@ -60,6 +60,19 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Hello Inertia Test Route
+Route::get('/hello-inertia', function () {
+    return \Inertia\Inertia::render('Welcome', [
+        'version' => Illuminate\Foundation\Application::VERSION,
+    ]);
+});
+//Routes HomePage
+//Routes HomePage
+// Modern Home Verification Route
+Route::get('/modern-home', function () {
+    return \Inertia\Inertia::render('HomePage');
+});
+
 //Routes HomePage
 Route::get('/', Home::class)->name('home');
 Route::get('/new/{slug}/', Article::class)->name('open_article');
