@@ -21,6 +21,36 @@ const motPresident = {
     name: "Pr. RAJAONARIVELO Paul",
     image: "https://placehold.co/200x200/png?text=President"
 };
+
+const stats = [
+    { value: "12 000+", label: "Étudiants actifs" },
+    { value: "6", label: "Établissements" },
+    { value: "120+", label: "Enseignants-chercheurs" },
+    { value: "45+", label: "Programmes accrédités" },
+];
+
+const quickLinks = [
+    {
+        title: "Admissions 2024",
+        description: "Dossiers, calendriers et critères d'accès.",
+        href: "/admissions",
+    },
+    {
+        title: "Espace Étudiant",
+        description: "Accédez à vos services numériques.",
+        href: "/espace-etudiant",
+    },
+    {
+        title: "International",
+        description: "Mobilités, conventions et coopérations.",
+        href: "/international",
+    },
+    {
+        title: "Recherche & Innovation",
+        description: "Laboratoires et projets structurants.",
+        href: "/recherche",
+    },
+];
 </script>
 
 <template>
@@ -48,7 +78,51 @@ const motPresident = {
             </div>
         </section>
 
-        <!-- 2. Mot du President (Replaces livewire.pages.mot_president) -->
+        <!-- 2. Accès rapides & chiffres clés -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-start">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Accès rapides</h2>
+                        <p class="text-gray-500 mb-8">Les services essentiels pour étudiants, enseignants et partenaires.</p>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <Link
+                                v-for="link in quickLinks"
+                                :key="link.title"
+                                :href="link.href"
+                                class="group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+                            >
+                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary-600 mb-2">
+                                    {{ link.title }}
+                                </h3>
+                                <p class="text-sm text-gray-500">{{ link.description }}</p>
+                                <span class="inline-flex items-center text-sm font-semibold text-primary-600 mt-4">
+                                    En savoir plus
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </span>
+                            </Link>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 rounded-3xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Chiffres clés</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div v-for="stat in stats" :key="stat.label" class="rounded-2xl bg-white border border-gray-100 p-5 shadow-sm">
+                                <div class="text-2xl font-bold text-primary-600">{{ stat.value }}</div>
+                                <div class="text-sm text-gray-500 mt-2">{{ stat.label }}</div>
+                            </div>
+                        </div>
+                        <div class="mt-8 rounded-2xl bg-primary-600 text-white p-6">
+                            <p class="text-sm uppercase tracking-wide text-primary-100">Objectif 2030</p>
+                            <p class="text-lg font-semibold mt-2">Une université inclusive, connectée et durable au service du territoire.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Mot du President (Replaces livewire.pages.mot_president) -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col md:flex-row items-center gap-12">
@@ -77,7 +151,7 @@ const motPresident = {
             </div>
         </section>
 
-        <!-- 3. Actualités (Replaces livewire.pages.post) -->
+        <!-- 4. Actualités (Replaces livewire.pages.post) -->
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-end mb-12">
@@ -118,7 +192,7 @@ const motPresident = {
             </div>
         </section>
 
-        <!-- 4. Events & Newsletter (Combined) -->
+        <!-- 5. Events & Newsletter (Combined) -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-16">
                 <!-- Events -->

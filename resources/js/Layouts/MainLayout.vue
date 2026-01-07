@@ -1,9 +1,58 @@
 <script setup>
+import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
+
+const isMobileMenuOpen = ref(false);
+
+const mobileNavSections = [
+    {
+        title: 'Université',
+        links: [
+            { label: 'Historique', href: '/historique' },
+            { label: 'Organigramme', href: '/organigramme' },
+            { label: 'Staff & Leadership', href: '/staff' },
+            { label: 'Textes et arrêtés', href: '#' },
+            { label: 'Relations', href: '#' },
+        ],
+    },
+    {
+        title: 'Recherche',
+        links: [
+            { label: 'Publications Scientifiques', href: '/publications' },
+            { label: 'Laboratoires', href: '#' },
+            { label: 'Jardin Botanique', href: '#' },
+            { label: 'Musées', href: '#' },
+        ],
+    },
+    {
+        title: 'Formations',
+        links: [
+            { label: 'Établissements', href: '/etablissements' },
+            { label: 'Écoles Doctorales', href: '/ecoles-doctorales' },
+            { label: 'Système LMD', href: '#' },
+        ],
+    },
+    {
+        title: 'Événements',
+        links: [
+            { label: "Université d'Été", href: '#' },
+            { label: 'Séminaires', href: '#' },
+        ],
+    },
+];
+
+const utilityLinks = [
+    { label: 'Actualités', href: '/actualites' },
+    { label: 'Événements', href: '#' },
+    { label: 'Contact', href: '/contact' },
+];
 </script>
 
 <template>
     <div class="min-h-screen flex flex-col bg-gray-50 text-gray-800 font-sans">
+        <a href="#contenu-principal" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:bg-white focus:text-gray-900 focus:px-4 focus:py-2 focus:rounded-full focus:shadow">
+            Aller au contenu principal
+        </a>
         <!-- Sticky Header with Glassmorphism -->
         <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/70 border-b border-gray-200/50 shadow-sm transition-all duration-300">
             <div class="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -124,16 +173,74 @@ import { Link } from '@inertiajs/vue3';
                 </div>
 
                 <!-- Mobile Menu Button (Placeholder) -->
-                <button class="md:hidden text-gray-600">
+                <button
+                    class="md:hidden text-gray-600"
+                    type="button"
+                    @click="isMobileMenuOpen = !isMobileMenuOpen"
+                    :aria-expanded="isMobileMenuOpen.toString()"
+                    aria-controls="mobile-menu"
+                    aria-label="Afficher le menu"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                 </button>
             </div>
+
+            <transition
+                enter-active-class="transition ease-out duration-200"
+                enter-from-class="opacity-0 -translate-y-2"
+                enter-to-class="opacity-100 translate-y-0"
+                leave-active-class="transition ease-in duration-150"
+                leave-from-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 -translate-y-2"
+            >
+                <div v-show="isMobileMenuOpen" id="mobile-menu" class="md:hidden border-t border-gray-200 bg-white shadow-lg">
+                    <div class="px-4 py-6 space-y-6">
+                        <div class="grid gap-4">
+                            <div class="grid grid-cols-2 gap-3">
+                                <Link
+                                    v-for="link in utilityLinks"
+                                    :key="link.label"
+                                    :href="link.href"
+                                    class="px-3 py-2 rounded-lg bg-gray-50 text-sm font-semibold text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                                    @click="isMobileMenuOpen = false"
+                                >
+                                    {{ link.label }}
+                                </Link>
+                            </div>
+                        </div>
+                        <div class="space-y-5">
+                            <div v-for="section in mobileNavSections" :key="section.title" class="space-y-3">
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">{{ section.title }}</h3>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <Link
+                                        v-for="link in section.links"
+                                        :key="link.label"
+                                        :href="link.href"
+                                        class="text-sm text-gray-700 hover:text-primary-600"
+                                        @click="isMobileMenuOpen = false"
+                                    >
+                                        {{ link.label }}
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
+                            <Link href="/mja/user-auth" class="px-5 py-2.5 bg-gray-900 text-white font-semibold rounded-full shadow-lg text-center" @click="isMobileMenuOpen = false">
+                                Connexion
+                            </Link>
+                            <Link href="/contact" class="px-5 py-2.5 border border-gray-200 rounded-full text-center text-gray-600 font-semibold hover:border-primary-300 hover:text-primary-700" @click="isMobileMenuOpen = false">
+                                Nous contacter
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </transition>
         </header>
 
         <!-- Main Content -->
-        <main class="grow">
+        <main id="contenu-principal" class="grow">
             <slot />
         </main>
 
