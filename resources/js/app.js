@@ -18,7 +18,7 @@ createInertiaApp({
             .mount(el);
     },
     progress: {
-        color: '#4B5563',
+        color: '#1f4bd1',
     },
 });
 import Alpine from 'alpinejs';
