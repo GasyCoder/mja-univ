@@ -44,7 +44,7 @@ class AuthenticatedSessionController extends Controller
                 return redirect()->route('2fa.index');
             }
 
-            return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(AppServiceProvider::HOME);
         } else {
             return back()->with(['recaptcha' => 'Échec de la validation de ReCaptcha.']);
         }
