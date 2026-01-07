@@ -1,49 +1,69 @@
 @import "tailwindcss";
 
 @theme {
-    /* Colors - University Palette */
-    --color-primary-50: #f0fdf4;
-    --color-primary-100: #dcfce7;
-    --color-primary-200: #bbf7d0;
-    --color-primary-300: #86efac;
-    --color-primary-400: #4ade80;
-    --color-primary-500: #22c55e;
-    --color-primary-600: #16a34a;
-    --color-primary-700: #15803d;
-    --color-primary-800: #166534;
-    --color-primary-900: #14532d;
-    --color-primary-950: #052e16;
+    /* Institutional Palette */
+    --color-primary-50: #eef4ff;
+    --color-primary-100: #d9e7ff;
+    --color-primary-200: #b7d0ff;
+    --color-primary-300: #84adff;
+    --color-primary-400: #4f84ff;
+    --color-primary-500: #2d63f6;
+    --color-primary-600: #1f4bd1;
+    --color-primary-700: #1c3faa;
+    --color-primary-800: #1b358a;
+    --color-primary-900: #162a63;
+    --color-primary-950: #0c1a3b;
 
-    --color-secondary-50: #eff6ff;
-    --color-secondary-100: #dbeafe;
-    --color-secondary-200: #bfdbfe;
-    --color-secondary-300: #93c5fd;
-    --color-secondary-400: #60a5fa;
-    --color-secondary-500: #3b82f6;
-    --color-secondary-600: #2563eb;
-    --color-secondary-700: #1d4ed8;
-    --color-secondary-800: #1e40af;
-    --color-secondary-900: #1e3a8a;
-    --color-secondary-950: #172554;
+    --color-secondary-50: #f5f9fa;
+    --color-secondary-100: #dcebee;
+    --color-secondary-200: #bfdade;
+    --color-secondary-300: #95bcc4;
+    --color-secondary-400: #5f97a4;
+    --color-secondary-500: #3b7483;
+    --color-secondary-600: #305e6b;
+    --color-secondary-700: #294c57;
+    --color-secondary-800: #233f48;
+    --color-secondary-900: #1d343b;
+    --color-secondary-950: #102126;
+
+    --color-accent-50: #fff8e8;
+    --color-accent-100: #fdeecb;
+    --color-accent-200: #f9db95;
+    --color-accent-300: #f4c45d;
+    --color-accent-400: #efae2b;
+    --color-accent-500: #d99516;
+    --color-accent-600: #b7780f;
+    --color-accent-700: #925a11;
+    --color-accent-800: #774814;
+    --color-accent-900: #613c15;
+    --color-accent-950: #382108;
 
     /* Typography */
-    --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    
+    --font-sans: 'Inter', 'Source Sans 3', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-display: 'Source Serif 4', 'Georgia', serif;
+
     /* Layout */
     --spacing-container: 1280px;
-
-    /* Animations */
-    --animate-fade-in: fade-in 0.5s ease-out;
-    --animate-slide-up: slide-up 0.5s ease-out;
 }
 
-@keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+@layer base {
+    body {
+        @apply bg-slate-50 text-slate-900 antialiased;
+    }
 
-@keyframes slide-up {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+    h1, h2, h3, h4 {
+        @apply font-semibold text-slate-900;
+    }
 
+    h1, h2 {
+        font-family: var(--font-display);
+    }
+
+    a {
+        @apply text-slate-900;
+    }
+
+    ::selection {
+        @apply bg-primary-100 text-primary-900;
+    }
+}
