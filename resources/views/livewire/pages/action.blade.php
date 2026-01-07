@@ -3,34 +3,33 @@
     <div class="container">
         <div class="row g-4">
             <!-- Action box item -->
-            <div class="overflow-hidden col-lg-6 position-relative">
-                <div class="p-4 bg-secondary bg-opacity-10 h-80 d-flex align-items-center">
-                    <!-- Content -->
-                    <div class="me-auto">
-                       <h5 class="mb-1">Revues Scientifiques</h5>
-                        <p class="mb-3 h6 fw-light">Toutes les revues scientifiques</p>
-                        <a href="{{ route('listes_revue') }}" class="mb-0 btn btn-sm btn-primary-soft">En savoir plus</a>
-                    </div>
-                    <!-- Image -->
-                    <div>
-                        <img src="{{ asset('assets/images/element/doc.png') }}" class="h-50px h-sm-70px" alt="">
+            <div class="col-lg-6">
+                <div class="p-4 h-100 border-0 shadow-sm card bg-gradient">
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                            <div class="icon-xl bg-primary text-white rounded-circle"><i class="bi bi-journal-text"></i></div>
+                        </div>
+                        <div class="me-auto">
+                           <h5 class="mb-1">Revues Scientifiques</h5>
+                            <p class="mb-0 text-muted">Toutes les revues scientifiques et publications.</p>
+                        </div>
+                        <a href="{{ route('listes_revue') }}" class="btn btn-sm btn-primary-soft">Explorer</a>
                     </div>
                 </div>
             </div>
 
             <!-- Action box item -->
-            <div class="overflow-hidden col-lg-6 position-relative">
-                <div class="p-4 bg-secondary bg-opacity-10 h-80 d-flex align-items-center">
-                    <!-- Content -->
-                    <div class="me-auto">
-                        <h5 class="mb-1">Ressources numériques</h5>
-                        <p class="mb-3 h6 fw-light">Tous les fichiers ou documents</p>
-                        <a href="#!" class="mb-0 btn btn-sm btn-primary-soft">En savoir plus</a>
-                    </div>
-                    <!-- Image -->
-                    <div>
-                        <img src="{{ asset('assets/images/element/folder.png') }}"
-                        class="h-50px h-sm-70px" alt="">
+            <div class="col-lg-6">
+                <div class="p-4 h-100 border-0 shadow-sm card bg-light">
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                            <div class="icon-xl bg-warning text-white rounded-circle"><i class="bi bi-folder2-open"></i></div>
+                        </div>
+                        <div class="me-auto">
+                            <h5 class="mb-1">Ressources numériques</h5>
+                            <p class="mb-0 text-muted">Tous les fichiers ou documents officiels.</p>
+                        </div>
+                        <a href="#!" class="btn btn-sm btn-primary-soft">Découvrir</a>
                     </div>
                 </div>
             </div>
